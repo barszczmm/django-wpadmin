@@ -1,0 +1,20 @@
+{% extends "admin/base.html" %}
+{% load i18n wpadmin_dashboard_tags %}
+
+{% block title %}{{ title }} | {% trans 'Django site admin' %}{% endblock %}
+{% block wpadmin_extrahead %}
+	{% with current_app as admin_site_name %}
+		{% wpadmin_are_breadcrumbs_enabled admin_site_name %}
+		{% if not wpadmin_are_breadcrumbs_enabled %}
+			<style type="text/css">
+				.breadcrumbs { display: none !important; }
+			</style>
+		{% endif %}
+	{% endwith %}
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Django administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
