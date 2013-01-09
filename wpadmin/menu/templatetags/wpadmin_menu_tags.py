@@ -178,9 +178,13 @@ def wpadmin_render_user_tools(context, item, is_first, is_last):
 register.inclusion_tag('wpadmin/menu/user_tools.html', takes_context=True)(wpadmin_render_user_tools)
 
 
-def gravatar_url(user, size):
-    default = "wavatar"
-    gravatar_url = "http://www.gravatar.com/avatar.php?"
+def gravatar_url(user, size, https=True):
+    default = 'wavatar'
+    if https:
+        gravatar_url = 'https'
+    else:
+        gravatar_url = 'http'
+    gravatar_url += '://www.gravatar.com/avatar.php?'
     gravatar_url += urllib.urlencode({'gravatar_id':hashlib.md5(user.email.lower()).hexdigest(), 'default':default, 'size':str(size)})
     return gravatar_url
 
