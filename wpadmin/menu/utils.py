@@ -10,6 +10,8 @@ from wpadmin.utils import get_wpadmin_settings
 def get_menu_cls(menu, admin_site_name='admin'):
     """
     """
+    if admin_site_name is None:
+        admin_site_name = 'wpadmin_default'
     return get_wpadmin_settings(admin_site_name).get('menu', {}).get(menu, None)
 
 
