@@ -7,7 +7,7 @@
 {% wpadmin_is_left_menu_enabled admin_site_name %}
 {% if not is_popup %}
 {% if wpadmin_is_top_menu_enabled or wpadmin_is_left_menu_enabled %}
-<link href="{{ STATIC_URL }}wpadmin/css/font-awesome.css" type="text/css" rel="stylesheet" />
+<link href="{{ STATIC_URL }}wpadmin/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
 {% if wpadmin_is_top_menu_enabled %}
 <link href="{{ STATIC_URL }}wpadmin/less/top-menu.less" type="text/css" rel="stylesheet/less" />
 {% endif %}
