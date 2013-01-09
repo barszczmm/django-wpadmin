@@ -3,10 +3,8 @@
 <head>
 <title>{% block title %}{% endblock %}</title>
 <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
-
 {% wpadmin_is_top_menu_enabled admin_site_name %}
 {% wpadmin_is_left_menu_enabled admin_site_name %}
-
 {% if not is_popup %}
 {% if wpadmin_is_top_menu_enabled or wpadmin_is_left_menu_enabled %}
 <link href="{{ STATIC_URL }}wpadmin/css/font-awesome.css" type="text/css" rel="stylesheet" />
@@ -100,6 +98,7 @@
 		{% block footer %}<div id="footer"></div>{% endblock %}
 	</div>
 	<!-- END Container -->
+
 </div>
 <!-- END Wrapper -->
 
