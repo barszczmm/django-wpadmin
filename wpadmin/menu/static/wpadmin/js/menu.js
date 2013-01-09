@@ -61,7 +61,7 @@ $(document).ready(function() {
 	$('#adminmenu .wp-menu-top.wp-has-submenu.wp-menu-not-open').hover(
 		function() {
 			var $submenu = $(this).children('.wp-submenu'),
-				extra_margin = 2;
+				extra_margin = 8;
 			$submenu.css({'visibility': 'hidden', 'display': 'block'});
 			var window_bottom_edge = $(window).scrollTop() + $(window).height();
 			var submenu_bottom_edge = $submenu.offset().top + $submenu.height() + extra_margin;
