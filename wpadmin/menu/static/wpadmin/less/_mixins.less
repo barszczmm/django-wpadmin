@@ -26,10 +26,10 @@
   border-radius: @radius;
 }
 
-.vertical-gradient(@start-color, @end-color, @xstart:center, @ystart:bottom) {
-  background-image: -moz-linear-gradient(@xstart @ystart, @start-color, @end-color);
-  background-image: -webkit-linear-gradient(@xstart @ystart, @start-color, @end-color);
-  background-image: -o-linear-gradient(@xstart @ystart, @start-color, @end-color);
-  background-image: -ms-linear-gradient(@xstart @ystart, @start-color, @end-color);
-  background-image: linear-gradient(@xstart @ystart, @start-color, @end-color);
+.vertical-gradient(@start-color, @end-color, @start:bottom) {
+  background-image: -moz-linear-gradient(@start, @start-color, @end-color);
+  background-image: -webkit-linear-gradient(@start, @start-color, @end-color);
+  background-image: -o-linear-gradient(@start, @start-color, @end-color);
+  background-image: -ms-linear-gradient(@start, @start-color, @end-color);
+  background-image: linear-gradient(@start, @start-color, @end-color);
 }

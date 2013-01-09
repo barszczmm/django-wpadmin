@@ -36,12 +36,12 @@
   text-shadow: 0 -1px 0 #333333;
 }
 
-.open-header-colors(@xstart:center) {
+.open-header-colors(@start:bottom) {
   .open-header-text;
   border-bottom-color: #6D6D6D;
   border-top-color: #808080;
   background-color: #777777;
-  .vertical-gradient(#6D6D6D, #808080, @xstart, bottom);
+  .vertical-gradient(#6D6D6D, #808080, @start);
 }
 
 .menu-element-colors {
@@ -416,7 +416,7 @@ body {
         top: 7px;
         bottom: 8px;
         right: -7px;
-        .open-header-colors(right);
+        .open-header-colors(bottom right);
       }
     }
 
@@ -568,6 +568,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 8000;
 }
 
 .wp-pinned.wp-with-top-menu #adminmenuwrap {
