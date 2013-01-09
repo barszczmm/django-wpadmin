@@ -56,4 +56,23 @@ $(document).ready(function() {
 
 	// bookmarks
 
+
+	// left submenu should stay on page
+	$('#adminmenu .wp-menu-top.wp-has-submenu.wp-menu-not-open').hover(
+		function() {
+			var $submenu = $(this).children('.wp-submenu'),
+				extra_margin = 2;
+			$submenu.css({'visibility': 'hidden', 'display': 'block'});
+			var window_bottom_edge = $(window).scrollTop() + $(window).height();
+			var submenu_bottom_edge = $submenu.offset().top + $submenu.height() + extra_margin;
+			if (window_bottom_edge < submenu_bottom_edge) {
+				$submenu.css({'margin-top': '-' + (submenu_bottom_edge - window_bottom_edge) + 'px'});
+			}
+			$submenu.css({'visibility': 'visible'});
+		},
+		function() {
+			$(this).children('.wp-submenu').removeAttr('style');
+		}
+	);
+
 });
