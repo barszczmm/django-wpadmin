@@ -1,5 +1,5 @@
 {% load i18n wpadmin_menu_tags %}{% load url from future %}
-{% if user.is_authenticated %}
+{% if user.is_authenticated and user.is_staff %}
 <li class="menu-item user-tools wp-has-submenu{% if is_first %} wp-first-item{% endif %}{% if is_last %} wp-last-item{% endif %}{% if item.css_classes %} {{ item.css_classes|join:' ' }}{% endif %}">
 	<a href="{% if item.url %}{{ item.url }}{% else %}javascript:;{% endif%}">
     	{% trans 'Welcome,' %}
