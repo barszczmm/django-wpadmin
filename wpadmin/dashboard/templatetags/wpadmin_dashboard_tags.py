@@ -1,5 +1,6 @@
 from django import template
 
+from wpadmin.utils import get_admin_site_name
 from wpadmin.dashboard.utils import are_breadcrumbs_enabled
 
 register = template.Library()
@@ -8,7 +9,7 @@ register = template.Library()
 class AreBreadcrumbsEnabledNode(template.Node):
 
     def render(self, context):
-        context['wpadmin_are_breadcrumbs_enabled'] = are_breadcrumbs_enabled(context.get('admin_site_name', None))
+        context['wpadmin_are_breadcrumbs_enabled'] = are_breadcrumbs_enabled(get_admin_site_name(context))
         return ''
 
 def wpadmin_are_breadcrumbs_enabled(parser, token):

@@ -80,9 +80,7 @@ class LeftMenu(Menu):
         """
         Only users that are staff are allowed to see this menu.
         """
-        if user.is_staff:
-            return True
-        return False
+        return user.is_staff
 
     def init_with_context(self, context):
 
