@@ -1,5 +1,5 @@
 {% load wpadmin_menu_tags i18n %}
-{% if menu.children %}
+{% if is_user_allowed and menu.children %}
 	<ul id="adminmenu" role="navigation">
 		<li class="hide-if-no-js wp-menu-tool" id="collapse-menu" data-text-collapsed="{% trans "Expand menu" %}" data-text-expanded="{% trans "Collapse menu" %}">
 			<div class="wp-menu-tool-button" title="{% trans "Collapse menu" %}">

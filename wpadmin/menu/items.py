@@ -7,9 +7,10 @@ from admin_tools.menu.items import MenuItem as ATMenuItem, \
                                    AppList as ATAppList, \
                                    ModelList as ATModelList
 
+from wpadmin.utils import UserTestElementMixin
 
 
-class MenuItem(ATMenuItem):
+class MenuItem(ATMenuItem, UserTestElementMixin):
 
     url = None
     add_url = None
@@ -22,7 +23,7 @@ class MenuItem(ATMenuItem):
             len([c for c in self.children if c.is_selected(request)]) > 0
 
 
-class AppList(ATAppList):
+class AppList(ATAppList, UserTestElementMixin):
 
     url = None
     add_url = None
@@ -66,7 +67,7 @@ class AppList(ATAppList):
             self.children.append(item)
 
 
-class ModelList(ATModelList):
+class ModelList(ATModelList, UserTestElementMixin):
 
     url = None
     add_url = None
@@ -89,13 +90,13 @@ class ModelList(ATModelList):
             self.children.append(item)
 
 
-class UserTools(MenuItem):
+class UserTools(MenuItem, UserTestElementMixin):
 
     is_user_tools = True
     css_classes = ['float-right']
 
 
-# class Bookmarks(MenuItem, AppListElementMixin):
+# class Bookmarks(MenuItem, AppListElementMixin, UserTestElementMixin):
 #
 #    title = _('Bookmarks')
 #    icon = 'icon-bookmark'

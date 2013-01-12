@@ -1,25 +1,27 @@
 import urllib, hashlib
 from django import template
 
-from wpadmin.menu.utils import get_menu_cls, get_menu
+from wpadmin.utils import get_admin_site_name
+from wpadmin.menu.utils import get_menu
 
 register = template.Library()
 
 
 class IsMenuEnabledNode(template.Node):
 
-    def __init__(self, menu):
+    def __init__(self, menu_name):
         """
-        menu - menu name ('top' or 'left')
+        menu_name - menu name ('top' or 'left')
         """
-        self.menu = menu
+        self.menu_name = menu_name
 
     def render(self, context):
-        if get_menu_cls(self.menu, context.get('admin_site_name', None)) is None:
-            enabled = False
-        else:
+        menu = get_menu(self.menu_name, get_admin_site_name(context))
+        if menu and menu.is_user_allowed(context.get('request').user):
             enabled = True
-        context['wpadmin_is_%s_menu_enabled' % self.menu] = enabled
+        else:
+            enabled = False
+        context['wpadmin_is_%s_menu_enabled' % self.menu_name] = enabled
         return ''
 
 
@@ -44,12 +46,12 @@ register.tag('wpadmin_is_left_menu_enabled', wpadmin_is_left_menu_enabled)
 
 
 def wpadmin_render_top_menu(context):
-    admin_site_name = context.get('admin_site_name', None)
-    menu = get_menu('top', admin_site_name)
+    menu = get_menu('top', get_admin_site_name(context))
     if menu:
         menu.init_with_context(context)
         context.update({
             'menu': menu,
+            'is_user_allowed': menu.is_user_allowed(context.get('request').user),
         })
     return context
 
@@ -57,12 +59,12 @@ register.inclusion_tag('wpadmin/menu/top_menu.html', takes_context=True)(wpadmin
 
 
 def wpadmin_render_left_menu(context):
-    admin_site_name = context.get('admin_site_name', None)
-    menu = get_menu('left', admin_site_name)
+    menu = get_menu('left', get_admin_site_name(context))
     if menu:
         menu.init_with_context(context)
         context.update({
             'menu': menu,
+            'is_user_allowed': menu.is_user_allowed(context.get('request').user),
         })
     return context
 
@@ -74,6 +76,7 @@ def wpadmin_render_left_menu_top_most_item(context, item, icons):
     context.update({
         'item': item,
         'icons': icons,
+        'is_user_allowed': item.is_user_allowed(context.get('request').user),
     })
     return context
 
@@ -91,7 +94,8 @@ def wpadmin_render_left_menu_top_item(context, item, is_first, is_last, icons):
         'is_first': is_first,
         'is_last': is_last,
         'icon': icon,
-        'is_selected': item.is_selected(context['request']),
+        'is_selected': item.is_selected(context.get('request')),
+        'is_user_allowed': item.is_user_allowed(context.get('request').user),
     })
     return context
 
@@ -104,7 +108,8 @@ def wpadmin_render_left_menu_item(context, item, is_first, is_last):
         'item': item,
         'is_first': is_first,
         'is_last': is_last,
-        'is_selected': item.is_selected(context['request']),
+        'is_selected': item.is_selected(context.get('request')),
+        'is_user_allowed': item.is_user_allowed(context.get('request').user),
     })
     return context
 
@@ -122,7 +127,8 @@ def wpadmin_render_top_menu_top_item(context, item, is_first, is_last, icons):
         'is_first': is_first,
         'is_last': is_last,
         'icon': icon,
-        'is_selected': item.is_selected(context['request']),
+        'is_selected': item.is_selected(context.get('request')),
+        'is_user_allowed': item.is_user_allowed(context.get('request').user),
     })
     return context
 
@@ -135,19 +141,21 @@ def wpadmin_render_top_menu_item(context, item, is_first, is_last):
         'item': item,
         'is_first': is_first,
         'is_last': is_last,
-        'is_selected': item.is_selected(context['request']),
+        'is_selected': item.is_selected(context.get('request')),
+        'is_user_allowed': item.is_user_allowed(context.get('request').user),
     })
     return context
 
 register.inclusion_tag('wpadmin/menu/top_menu_item.html', takes_context=True)(wpadmin_render_top_menu_item)
 
 
-def wpadmin_render_bookmarks(context, item, is_first, is_last, is_selected):
+def wpadmin_render_bookmarks(context, item, is_first, is_last, is_selected, is_user_allowed):
     context.update({
         'item': item,
         'is_first': is_first,
         'is_last': is_last,
         'is_selected': is_selected,
+        'is_user_allowed': is_user_allowed,
     })
     return context
 
@@ -172,6 +180,7 @@ def wpadmin_render_user_tools(context, item, is_first, is_last):
         'item': item,
         'is_first': is_first,
         'is_last': is_last,
+        'is_user_allowed': item.is_user_allowed(context.get('request').user),
     })
     return context
 

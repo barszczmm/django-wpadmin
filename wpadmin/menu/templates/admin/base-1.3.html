@@ -11,7 +11,7 @@
 {% if wpadmin_is_top_menu_enabled %}
 <link href="{{ STATIC_URL }}wpadmin/less/top-menu.less" type="text/css" rel="stylesheet/less" />
 {% endif %}
-{% if wpadmin_is_left_menu_enabled and user.is_authenticated and user.is_staff %}
+{% if wpadmin_is_left_menu_enabled %}
 <link href="{{ STATIC_URL }}wpadmin/less/left-menu.less" type="text/css" rel="stylesheet/less" />
 {% endif %}
 {% endif %}
@@ -33,14 +33,13 @@
 </head>
 {% load i18n %}
 
-<body class="{% if is_popup %}popup {% else %}{% if wpadmin_is_left_menu_enabled and user.is_authenticated and user.is_staff %}wp-with-left-menu {% endif %}{% if wpadmin_is_top_menu_enabled %}wp-with-top-menu {% endif %}{% endif %}{% block bodyclass %}{% endblock %}">
+<body class="{% if is_popup %}popup {% else %}{% if wpadmin_is_left_menu_enabled %}wp-with-left-menu {% endif %}{% if wpadmin_is_top_menu_enabled %}wp-with-top-menu {% endif %}{% endif %}{% block bodyclass %}{% endblock %}">
 
 <!-- Wrapper -->
 <div id="wrapper">
 	{% if not is_popup %}
 		{% block adminmenu %}
-			{% wpadmin_is_left_menu_enabled current_app %}
-			{% if wpadmin_is_left_menu_enabled and user.is_authenticated and user.is_staff %}
+			{% if wpadmin_is_left_menu_enabled %}
 				<div id="adminmenuback"></div>
 				<div id="adminmenuwrap">
 					<div id="adminmenushadow"></div>
@@ -57,7 +56,6 @@
 			<!-- Header -->
 			{% block header %}
 				<div id="header">
-					{% wpadmin_is_top_menu_enabled current_app %}
 					{% if wpadmin_is_top_menu_enabled %}
 						{% wpadmin_render_top_menu %}
 					{% endif %}

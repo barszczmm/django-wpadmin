@@ -4,12 +4,12 @@ from django.core.urlresolvers import reverse
 from django.conf import settings
 
 from admin_tools.menu import Menu as ATMenu
-from admin_tools.utils import get_admin_site_name
 
+from wpadmin.utils import UserTestElementMixin, get_admin_site_name
 from wpadmin.menu import items
 
 
-class Menu(ATMenu):
+class Menu(ATMenu, UserTestElementMixin):
     """
     """
 
@@ -38,12 +38,30 @@ class TopMenu(Menu):
                 url=site_url,
                 css_classes=['branding', 'no-border'],
             ),
+            items.MenuItem(
+                capfirst(_('dashboard')),
+                icon='icon-home',
+                url=reverse('%s:index' % admin_site_name),
+                description=capfirst(_('dashboard')),
+            ),
+            items.AppList(
+                capfirst(_('applications')),
+                icon='icon-tasks',
+                exclude=('django.contrib.*',),
+            ),
+            items.AppList(
+                capfirst(_('administration')),
+                icon='icon-cogs',
+                models=('django.contrib.*',),
+            ),
             items.UserTools(
                 url=reverse('%s:auth_user_change' % admin_site_name, args=(context['request'].user.id,)),
                 css_classes=['float-right'],
+                check_if_user_allowed=lambda user: user.is_staff,
             ),
             # items.Bookmarks(
             #    css_classes=['float-right', 'no-border'],
+            #    check_if_user_allowed=lambda user: user.is_staff,
             # ),
         ]
 
@@ -54,10 +72,17 @@ class LeftMenu(Menu):
 
     icons = {
         'wp-default-icon': 'icon-folder-open',
-        '/admin/': 'icon-home',
         '/admin/auth/': 'icon-user',
         '/admin/sites/': 'icon-globe',
     }
+
+    def is_user_allowed(self, user):
+        """
+        Only users that are staff are allowed to see this menu.
+        """
+        if user.is_staff:
+            return True
+        return False
 
     def init_with_context(self, context):
 
@@ -68,7 +93,8 @@ class LeftMenu(Menu):
                 title='',
                 children=[
                     items.MenuItem(
-                        title=capfirst(_('dashboard')),
+                        capfirst(_('dashboard')),
+                        icon='icon-home',
                         url=reverse('%s:index' % admin_site_name),
                         description=capfirst(_('dashboard')),
                     )
