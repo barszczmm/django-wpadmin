@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(document).ready(function($) {
 
 	function readWPAdminCookie() {
 		var cookieValue = $.cookie('django_wp_admin_settings');
