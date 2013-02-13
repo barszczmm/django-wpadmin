@@ -55,7 +55,7 @@ class TopMenu(Menu):
                 models=('django.contrib.*',),
             ),
             items.UserTools(
-                url=reverse('%s:auth_user_change' % admin_site_name, args=(context['request'].user.id,)),
+                url=reverse('%s:auth_user_change' % admin_site_name, args=(context['request'].user.id,)) if context['request'].user.is_superuser else None,
                 css_classes=['float-right'],
                 check_if_user_allowed=lambda user: user.is_staff,
             ),
