@@ -1,4 +1,5 @@
-import urllib, hashlib
+import urllib
+import hashlib
 from django import template
 
 from wpadmin.utils import get_admin_site_name
@@ -29,7 +30,9 @@ def wpadmin_is_top_menu_enabled(parser, token):
     try:
         tag_name, admin_site_name = token.split_contents()
     except ValueError:
-        raise template.TemplateSyntaxError("%r tag requires a single argument which is admin site name stored in template variable" % token.contents.split()[0])
+        raise template.TemplateSyntaxError(
+            "%r tag requires a single argument which is admin site name "
+            + "stored in template variable" % token.contents.split()[0])
     return IsMenuEnabledNode('top')
 
 register.tag('wpadmin_is_top_menu_enabled', wpadmin_is_top_menu_enabled)
@@ -39,7 +42,9 @@ def wpadmin_is_left_menu_enabled(parser, token):
     try:
         tag_name, admin_site_name = token.split_contents()
     except ValueError:
-        raise template.TemplateSyntaxError("%r tag requires a single argument which is admin site name stored in template variable" % token.contents.split()[0])
+        raise template.TemplateSyntaxError(
+            "%r tag requires a single argument which is admin site name "
+            + "stored in template variable" % token.contents.split()[0])
     return IsMenuEnabledNode('left')
 
 register.tag('wpadmin_is_left_menu_enabled', wpadmin_is_left_menu_enabled)
@@ -55,7 +60,9 @@ def wpadmin_render_top_menu(context):
         })
     return context
 
-register.inclusion_tag('wpadmin/menu/top_menu.html', takes_context=True)(wpadmin_render_top_menu)
+register.inclusion_tag(
+    'wpadmin/menu/top_menu.html',
+    takes_context=True)(wpadmin_render_top_menu)
 
 
 def wpadmin_render_left_menu(context):
@@ -68,7 +75,9 @@ def wpadmin_render_left_menu(context):
         })
     return context
 
-register.inclusion_tag('wpadmin/menu/left_menu.html', takes_context=True)(wpadmin_render_left_menu)
+register.inclusion_tag(
+    'wpadmin/menu/left_menu.html',
+    takes_context=True)(wpadmin_render_left_menu)
 
 
 def wpadmin_render_left_menu_top_most_item(context, item, icons):
@@ -80,7 +89,9 @@ def wpadmin_render_left_menu_top_most_item(context, item, icons):
     })
     return context
 
-register.inclusion_tag('wpadmin/menu/left_menu_top_most_item.html', takes_context=True)(wpadmin_render_left_menu_top_most_item)
+register.inclusion_tag(
+    'wpadmin/menu/left_menu_top_most_item.html',
+    takes_context=True)(wpadmin_render_left_menu_top_most_item)
 
 
 def wpadmin_render_left_menu_top_item(context, item, is_first, is_last, icons):
@@ -88,7 +99,8 @@ def wpadmin_render_left_menu_top_item(context, item, is_first, is_last, icons):
     if item.icon:
         icon = item.icon
     else:
-        icon = icons.get(item.url, icons.get('wp-default-icon', 'icon-folder-open'))
+        icon = icons.get(item.url,
+                         icons.get('wp-default-icon', 'icon-folder-open'))
     context.update({
         'item': item,
         'is_first': is_first,
@@ -99,7 +111,9 @@ def wpadmin_render_left_menu_top_item(context, item, is_first, is_last, icons):
     })
     return context
 
-register.inclusion_tag('wpadmin/menu/left_menu_top_item.html', takes_context=True)(wpadmin_render_left_menu_top_item)
+register.inclusion_tag(
+    'wpadmin/menu/left_menu_top_item.html',
+    takes_context=True)(wpadmin_render_left_menu_top_item)
 
 
 def wpadmin_render_left_menu_item(context, item, is_first, is_last):
@@ -113,7 +127,9 @@ def wpadmin_render_left_menu_item(context, item, is_first, is_last):
     })
     return context
 
-register.inclusion_tag('wpadmin/menu/left_menu_item.html', takes_context=True)(wpadmin_render_left_menu_item)
+register.inclusion_tag(
+    'wpadmin/menu/left_menu_item.html',
+    takes_context=True)(wpadmin_render_left_menu_item)
 
 
 def wpadmin_render_top_menu_top_item(context, item, is_first, is_last, icons):
@@ -132,7 +148,9 @@ def wpadmin_render_top_menu_top_item(context, item, is_first, is_last, icons):
     })
     return context
 
-register.inclusion_tag('wpadmin/menu/top_menu_top_item.html', takes_context=True)(wpadmin_render_top_menu_top_item)
+register.inclusion_tag(
+    'wpadmin/menu/top_menu_top_item.html',
+    takes_context=True)(wpadmin_render_top_menu_top_item)
 
 
 def wpadmin_render_top_menu_item(context, item, is_first, is_last):
@@ -146,10 +164,13 @@ def wpadmin_render_top_menu_item(context, item, is_first, is_last):
     })
     return context
 
-register.inclusion_tag('wpadmin/menu/top_menu_item.html', takes_context=True)(wpadmin_render_top_menu_item)
+register.inclusion_tag(
+    'wpadmin/menu/top_menu_item.html',
+    takes_context=True)(wpadmin_render_top_menu_item)
 
 
-def wpadmin_render_bookmarks(context, item, is_first, is_last, is_selected, is_user_allowed):
+def wpadmin_render_bookmarks(context, item, is_first, is_last, is_selected,
+                             is_user_allowed):
     context.update({
         'item': item,
         'is_first': is_first,
@@ -159,7 +180,9 @@ def wpadmin_render_bookmarks(context, item, is_first, is_last, is_selected, is_u
     })
     return context
 
-register.inclusion_tag('wpadmin/menu/bookmarks.html', takes_context=True)(wpadmin_render_bookmarks)
+register.inclusion_tag(
+    'wpadmin/menu/bookmarks.html',
+    takes_context=True)(wpadmin_render_bookmarks)
 
 
 def wpadmin_render_bookmark(context, item, is_first):
@@ -171,7 +194,9 @@ def wpadmin_render_bookmark(context, item, is_first):
     })
     return context
 
-register.inclusion_tag('wpadmin/menu/bookmark.html', takes_context=True)(wpadmin_render_bookmark)
+register.inclusion_tag(
+    'wpadmin/menu/bookmark.html',
+    takes_context=True)(wpadmin_render_bookmark)
 
 
 def wpadmin_render_user_tools(context, item, is_first, is_last):
@@ -184,7 +209,9 @@ def wpadmin_render_user_tools(context, item, is_first, is_last):
     })
     return context
 
-register.inclusion_tag('wpadmin/menu/user_tools.html', takes_context=True)(wpadmin_render_user_tools)
+register.inclusion_tag(
+    'wpadmin/menu/user_tools.html',
+    takes_context=True)(wpadmin_render_user_tools)
 
 
 def gravatar_url(user, size, https=True):
@@ -194,9 +221,11 @@ def gravatar_url(user, size, https=True):
     else:
         gravatar_url = 'http'
     gravatar_url += '://www.gravatar.com/avatar.php?'
-    gravatar_url += urllib.urlencode({'gravatar_id':hashlib.md5(user.email.lower()).hexdigest(), 'default':default, 'size':str(size)})
+    gravatar_url += urllib.urlencode({
+        'gravatar_id': hashlib.md5(user.email.lower()).hexdigest(),
+        'default': default,
+        'size': str(size)})
     return gravatar_url
 
 register.simple_tag(gravatar_url)
-
 
