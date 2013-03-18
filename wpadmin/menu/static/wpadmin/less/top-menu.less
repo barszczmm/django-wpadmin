@@ -1,7 +1,6 @@
 @import "_mixins.less";
 @import "_common.less";
 
-
 // you can change submenu width
 @submenu-width: @common-menu-and-submenu-width;
 
@@ -10,7 +9,7 @@
 }
 
 .submenu-link-hover {
-	.common-submenu-link-hover;
+  .common-submenu-link-hover;
 }
 
 .submenu-link-current {
@@ -22,8 +21,6 @@
 
 @header-bg-color: #417690;
 
-
-
 html {
   padding-top: 28px;
   -webkit-box-sizing: border-box;
@@ -32,16 +29,16 @@ html {
 }
 
 body.wp-with-top-menu.login {
-	#wrapper {
-		padding-top: 100px;
-		-webkit-box-sizing: border-box;
-  	-moz-box-sizing: border-box;
-  	box-sizing: border-box;
+  #wrapper {
+    padding-top: 100px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 
-		#container {
-			margin-top: 0;
-		}
-	}
+    #container {
+      margin-top: 0;
+    }
+  }
 }
 
 #header {
@@ -59,11 +56,11 @@ body.wp-with-top-menu.login {
   }
 
   #header-menu {
-  	float: left;
-  	list-style: none;
-  	margin: 0;
-  	padding: 0;
-  	width: 100%;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 
     li {
       list-style: none;
@@ -85,37 +82,37 @@ body.wp-with-top-menu.login {
         border-color: @menu-border-color;
 
         .wp-menu-image {
-        	position: relative;
-        	left: -4px;
-        	top: 1px;
-        	font-size: 14px;
+          position: relative;
+          left: -4px;
+          top: 1px;
+          font-size: 14px;
         }
       }
 
       &.float-right {
-      	float: right;
+        float: right;
 
-      	& > a {
-      		border-width: 0 0 0 1px;
-      	}
+        & > a {
+          border-width: 0 0 0 1px;
+        }
       }
 
       &.no-border {
-      	& > a {
-      		border: none;
-      	}
+        & > a {
+          border: none;
+        }
       }
 
       &:first-child > .wp-submenu {
         left: 0;
       }
 
-			&.wp-has-not-submenu:hover {
-				& > a {
-					background-color: darken(@header-bg-color, 15%);
-					.vertical-gradient(darken(@header-bg-color, 5%), darken(@header-bg-color, 15%));
-				}
-			}
+      &.wp-has-not-submenu:hover {
+        & > a {
+          background-color: darken(@header-bg-color, 15%);
+          .vertical-gradient(darken(@header-bg-color, 5%), darken(@header-bg-color, 15%));
+        }
+      }
 
       &.wp-has-submenu:hover {
 
@@ -141,79 +138,79 @@ body.wp-with-top-menu.login {
       }
 
       &.user-tools {
-		    font-size: 12px;
+        font-size: 12px;
 
-		    img.wp-small-gravatar {
-		      border-width: 1px;
-		      border-style: solid;
-		      display: inline;
-		      float: none;
-		      height: 16px;
-		      width: 16px;
-		      line-height: 24px;
-		      margin: -3px 0 0 6px;
-		      padding: 0;
-		      vertical-align: middle;
-		      background: #EEEEEE;
-		      border-color: #999999;
-		    }
+        img.wp-small-gravatar {
+          border-width: 1px;
+          border-style: solid;
+          display: inline;
+          float: none;
+          height: 16px;
+          width: 16px;
+          line-height: 24px;
+          margin: -3px 0 0 6px;
+          padding: 0;
+          vertical-align: middle;
+          background: #EEEEEE;
+          border-color: #999999;
+        }
 
-		    .user-links {
-		      color: #CCC;
-		      width: auto;
-		      min-width: @submenu-width;
-		      padding: 12px 20px 12px 0;
-		      min-height: 72px;
+        .user-links {
+          color: #CCC;
+          width: auto;
+          min-width: @submenu-width;
+          padding: 12px 20px 12px 0;
+          min-height: 72px;
 
-		      li {
-		      	margin-left: 88px;
-		      	white-space: nowrap;
+          li {
+            margin-left: 88px;
+            white-space: nowrap;
 
-		      	&.user-info {
-		      		position: relative;
-		      		padding-bottom: 2px;
+            &.user-info {
+              position: relative;
+              padding-bottom: 2px;
 
-		      		a {
-		      			background: none;
-		      			color: #333;
-		      		}
+              a {
+                background: none;
+                color: #333;
+              }
 
-		      		img {
-		      			position: absolute;
-		      			left: -70px;
-		      			top: 4px;
-		      			height: 64px;
-		      			width: 64px;
-		      		}
-		      	}
-		      }
+              img {
+                position: absolute;
+                left: -70px;
+                top: 4px;
+                height: 64px;
+                width: 64px;
+              }
+            }
+          }
 
-		      a {
-		        color: #5B80B2;
-		      }
-		    }
+          a {
+            color: #5B80B2;
+          }
+        }
 
-		    &.float-right {
-		    	.user-links {
-		    		right: 0;
-		      	left: auto;
-		      	border-right: none;
-		    	}
-		    }
-		  }
+        &.float-right {
+          .user-links {
+            right: 0;
+            left: auto;
+            border-right: none;
+          }
+        }
+      }
 
     }
 
-  	.wp-submenu {
-  	  display: none;
-  	  position: absolute;
-  	  top: 28px;
-  	  left: -1px;
-  	  margin: 0;
-  	  padding: 6px 0;
-  	  .submenu-bg;
-  	  width: @submenu-width;
-  	  border-color: #DFDFDF;
+    .wp-submenu {
+      display: none;
+      position: absolute;
+      top: 28px;
+      left: -1px;
+      margin: 0;
+      padding: 6px 0;
+      .submenu-bg;
+      width: @submenu-width;
+      border-color: #DFDFDF;
       border-style: solid;
       border-width: 0 1px 1px;
       .box-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
@@ -222,95 +219,92 @@ body.wp-with-top-menu.login {
         position: relative;
 
         &.wp-has-add-url {
-        	overflow: hidden;
+          overflow: hidden;
 
-        	a {
-        		&:first-child {
-							float: left;
-							width: (@submenu-width - 37);
-							padding-right: 5px;
-        		}
-        		&.wp-add-url {
-        			float: left;
-    					padding-left: 5px;
-    					padding-right: 5px;
-    					width: 10px;
-        		}
-        	}
+          a {
+            &:first-child {
+              float: left;
+              width: (@submenu-width - 37);
+              padding-right: 5px;
+            }
+            &.wp-add-url {
+              float: left;
+              padding-left: 5px;
+              padding-right: 5px;
+              width: 10px;
+            }
+          }
         }
 
         &.wp-current {
-        	& > a {
-        		font-weight: bold;
-        	}
+          & > a {
+            font-weight: bold;
+          }
         }
 
         &.wp-has-submenu {
-        	position: relative;
+          position: relative;
 
-        	& > a:after {
-        		content: "»";
-        		position: absolute;
-        		right: 12px;
-        		top: 2px;
-        	}
+          & > a:after {
+            content: "»";
+            position: absolute;
+            right: 12px;
+            top: 2px;
+          }
         }
 
         &.separated {
-        	border-top: 1px solid #DFDFDF;
-        	padding-top: 6px;
-        	margin-top: 6px;
+          border-top: 1px solid #DFDFDF;
+          padding-top: 6px;
+          margin-top: 6px;
 
-        	&.wp-first-item {
-        		margin-top: 0;
-        	}
+          &.wp-first-item {
+            margin-top: 0;
+          }
         }
 
         &.add-bookmark {
-        	a {
-	        	position: relative;
-	        	padding-right: 25px;
+          a {
+            position: relative;
+            padding-right: 25px;
 
-	        	i {
-	        		position: absolute;
-	        		right: -2px;
-	        		top: 3px;
-	        	}
-	        }
+            i {
+              position: absolute;
+              right: -2px;
+              top: 3px;
+            }
+          }
         }
 
-    	  a {
-    	    color: @submenu-link-color;
-    	    display: block;
+        a {
+          color: @submenu-link-color;
+          display: block;
           line-height: 18px;
           text-shadow: none;
           padding: 2px 12px;
 
           &:hover {
-          	.submenu-link-hover;
+            .submenu-link-hover;
           }
 
           &.wp-current {
-          	.submenu-link-current;
+            .submenu-link-current;
           }
-    	  }
+        }
 
-    	  .wp-submenu {
-    	    left: 100%;
+        .wp-submenu {
+          left: 100%;
           top: -6px;
           .box-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-    	  }
+        }
 
-    	  &:hover {
+        &:hover {
 
           ul {
             display: block;
           }
         }
-    	}
-  	}
+      }
+    }
   }
 }
-
-
-

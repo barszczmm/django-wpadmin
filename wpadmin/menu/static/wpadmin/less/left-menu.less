@@ -1,7 +1,6 @@
 @import "_mixins.less";
 @import "_common.less";
 
-
 // you can change menu and submenu width
 @menu-width: @common-menu-and-submenu-width;
 
@@ -24,7 +23,7 @@
 }
 
 .submenu-link-hover {
-	.common-submenu-link-hover;
+  .common-submenu-link-hover;
 }
 
 .submenu-link-current {
@@ -49,7 +48,6 @@
   border-top-color: #F9F9F9;
 }
 
-
 // colors for menu tools
 #adminmenu {
 
@@ -66,7 +64,7 @@
   .wp-menu-tool:hover {
     color: #999;
 
-   .wp-menu-tool-button {
+    .wp-menu-tool-button {
       border-color: #BBB;
     }
   }
@@ -77,15 +75,10 @@
   .vertical-gradient(#F9F9F9, #CCC);
 }
 
-
-
-
 // it's better not to modify those:
 @folded-menu-width: 32px;
 @submenu-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 @submenu-border-radius: 0 3px 3px 0;
-
-
 
 html {
   height: 100%;
@@ -102,26 +95,26 @@ body {
   position: relative;
 }
 
-  #container {
-    width: auto;
-    margin-left: @menu-width + 1;
-    overflow: hidden;
-  }
+#container {
+  width: auto;
+  margin-left: @menu-width + 1;
+  overflow: hidden;
+}
 
-    #content {
-      margin-top: 0;
-      padding-top: 10px;
-    }
+#content {
+  margin-top: 0;
+  padding-top: 10px;
+}
 
 // hide menu in popups
 body.popup {
   #adminmenuback,
   #adminmenuwrap {
-	display: none;
+    display: none;
   }
   #container {
-	margin-left: 0;
-	width: 100%;
+    margin-left: 0;
+    width: 100%;
   }
 }
 
@@ -398,7 +391,7 @@ body.popup {
   } // .wp-menu-tool
 
   #collapse-menu {
-     .wp-menu-tool-button {
+    .wp-menu-tool-button {
       width: 17px;
       padding: 2px 0 0 0;
     }
@@ -463,11 +456,7 @@ body.popup {
       }
     }
   } // .wp-menu-open
-
 } // #adminmenu
-
-
-
 
 .wp-folded #container {
   margin-left: @folded-menu-width + 1;
@@ -475,7 +464,7 @@ body.popup {
 
 .wp-folded #adminmenuback,
 .wp-folded #adminmenuwrap {
-    width: @folded-menu-width;
+  width: @folded-menu-width;
 }
 
 .wp-folded #adminmenu {
@@ -524,7 +513,7 @@ body.popup {
       width: @menu-width + 1;
 
       .wp-submenu-head {
-          display: block;
+        display: block;
       }
 
       ul {
