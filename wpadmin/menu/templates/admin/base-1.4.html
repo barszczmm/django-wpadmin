@@ -7,12 +7,12 @@
 {% wpadmin_is_left_menu_enabled admin_site_name %}
 {% if not is_popup %}
 {% if wpadmin_is_top_menu_enabled or wpadmin_is_left_menu_enabled %}
-<link href="{{ STATIC_URL }}wpadmin/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+<link href="{% static "wpadmin/css/font-awesome.min.css" %}" type="text/css" rel="stylesheet" />
 {% if wpadmin_is_top_menu_enabled %}
-<link href="{{ STATIC_URL }}wpadmin/less/top-menu.less" type="text/css" rel="stylesheet/less" />
+<link href="{% static "wpadmin/less/top-menu.less" %}" type="text/css" rel="stylesheet/less" />
 {% endif %}
 {% if wpadmin_is_left_menu_enabled %}
-<link href="{{ STATIC_URL }}wpadmin/less/left-menu.less" type="text/css" rel="stylesheet/less" />
+<link href="{% static "wpadmin/less/left-menu.less" %}" type="text/css" rel="stylesheet/less" />
 {% endif %}
 {% endif %}
 {% endif %}
@@ -22,10 +22,10 @@
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
 {% if wpadmin_is_top_menu_enabled or wpadmin_is_left_menu_enabled %}
 <script type="text/javascript">window.__admin_url = '{% url 'admin:index' %}';</script>
-<script type="text/javascript" src="{{ STATIC_URL }}wpadmin/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}wpadmin/js/jquery.jsoncookie.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}wpadmin/js/menu.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}wpadmin/js/less-1.3.3.min.js"></script>
+<script type="text/javascript" src="{% static "wpadmin/js/jquery-1.8.3.min.js" %}"></script>
+<script type="text/javascript" src="{% static "wpadmin/js/jquery.jsoncookie.js" %}"></script>
+<script type="text/javascript" src="{% static "wpadmin/js/menu.js" %}"></script>
+<script type="text/javascript" src="{% static "wpadmin/js/less-1.3.3.min.js" %}"></script>
 {% endif %}
 {% block wpadmin_extrahead %}{% endblock %}
 {% block extrahead %}{% endblock %}
