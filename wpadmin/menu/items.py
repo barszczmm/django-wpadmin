@@ -1,13 +1,12 @@
 from django.utils.text import capfirst
 from django.utils.translation import ugettext_lazy as _
-from django.utils.safestring import mark_safe
 
-from admin_tools.utils import AppListElementMixin
-from admin_tools.menu.items import MenuItem as ATMenuItem, \
-                                   AppList as ATAppList, \
-                                   ModelList as ATModelList
+from admin_tools.menu.items import (MenuItem as ATMenuItem,
+                                    AppList as ATAppList,
+                                    ModelList as ATModelList)
 
 from wpadmin.utils import UserTestElementMixin
+from wpadmin.menu.utils import filter_models
 
 
 class MenuItem(ATMenuItem, UserTestElementMixin):
@@ -29,12 +28,22 @@ class AppList(ATAppList, UserTestElementMixin):
     add_url = None
     icon = None
 
+    def _visible_models(self, context):
+        # compatibility layer: generate models/exclude patterns
+        # from include_list/exclude_list args
+
+        included = self.models[:]
+        included.extend([elem+"*" for elem in self.include_list])
+
+        excluded = self.exclude[:]
+        excluded.extend([elem+"*" for elem in self.exclude_list])
+        if self.exclude_list and not included:
+            included = ["*"]
+        return filter_models(context, included, excluded)
+
     def init_with_context(self, context):
-        """
-        Please refer to the :meth:`~admin_tools.menu.items.MenuItem.init_with_context`
-        documentation from :class:`~admin_tools.menu.items.MenuItem` class.
-        """
-        items = self._visible_models(context['request'])
+
+        items = self._visible_models(context)
         apps = {}
         for model, perms in items:
             if not perms['change']:
@@ -57,7 +66,8 @@ class AppList(ATAppList, UserTestElementMixin):
         apps_sorted.sort()
         for app in apps_sorted:
             app_dict = apps[app]
-            item = MenuItem(title=app_dict['title'], url=app_dict['url'], description=app_dict['title'])
+            item = MenuItem(title=app_dict['title'], url=app_dict['url'],
+                            description=app_dict['title'])
             # sort model list alphabetically
             apps[app]['models'].sort(lambda x, y: cmp(x['title'], y['title']))
             for model_dict in apps[app]['models']:
@@ -73,12 +83,25 @@ class ModelList(ATModelList, UserTestElementMixin):
     add_url = None
     icon = None
 
+    def _visible_models(self, context):
+        # compatibility layer: generate models/exclude patterns
+        # from include_list/exclude_list args
+
+        included = self.models[:]
+        included.extend([elem+"*" for elem in self.include_list])
+
+        excluded = self.exclude[:]
+        excluded.extend([elem+"*" for elem in self.exclude_list])
+        if self.exclude_list and not included:
+            included = ["*"]
+        return filter_models(context, included, excluded)
+
     def init_with_context(self, context):
         """
         Please refer to the :meth:`~admin_tools.menu.items.MenuItem.init_with_context`
         documentation from :class:`~admin_tools.menu.items.MenuItem` class.
         """
-        items = self._visible_models(context['request'])
+        items = self._visible_models(context)
         for model, perms in items:
             if not perms['change']:
                 continue

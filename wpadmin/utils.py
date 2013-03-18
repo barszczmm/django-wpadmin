@@ -3,6 +3,15 @@ WPadmin utilities.
 """
 
 from django.conf import settings
+from django.utils.importlib import import_module
+from django.contrib import admin
+
+
+def get_wpadmin_settings(admin_site_name='admin'):
+    """
+    Get WPadmin settings for specified admin site.
+    """
+    return getattr(settings, 'WPADMIN', {}).get(admin_site_name, {})
 
 
 def get_admin_site_name(context):
@@ -18,16 +27,23 @@ def get_admin_site_name(context):
     return admin_site_name
 
 
-def get_wpadmin_settings(admin_site_name='admin'):
+def get_admin_site(context):
     """
-    Gets WPadmin settings for specified admin site.
+    Get admin site instance.
     """
-    return getattr(settings, 'WPADMIN', {}).get(admin_site_name, {})
+    admin_site = get_wpadmin_settings(get_admin_site_name(context)) \
+        .get('admin_site')
+    if admin_site:
+        mod, inst = admin_site.rsplit('.', 1)
+        mod = import_module(mod)
+        return getattr(mod, inst)
+    else:
+        return admin.site
 
 
 class UserTestElementMixin(object):
     """
-    Mixin which adds a method for checking is current user is allowed to see
+    Mixin which adds a method for checking if current user is allowed to see
     something (menu, menu item, etc.).
     """
 
