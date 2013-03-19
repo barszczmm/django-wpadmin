@@ -69,7 +69,8 @@ Add to ``settings.py``::
 Advanced configuration
 ----------------------
 Please take a look at the code in `sample_project <https://github.com/barszczmm/django-wpadmin/tree/master/sample_project>`_.
-This app takes lot of ideas and lot of code from `django-admin-tools <https://bitbucket.org/izi/django-admin-tools/wiki/Home>`_ app, so it is also good idea to read `django-admin-tools docs <http://django-admin-tools.readthedocs.org/en/latest/>`_.
+
+This app takes a lot of ideas and a lot of code from `django-admin-tools <https://bitbucket.org/izi/django-admin-tools/wiki/Home>`_ app, so it is also good idea to read `django-admin-tools docs <http://django-admin-tools.readthedocs.org/en/latest/>`_.
 
 
 Credits
