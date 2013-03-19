@@ -6,6 +6,8 @@ Django WP Admin
 `WordPress <http://wordpress.org/>`_ look and feel for `Django <http://www.djangoproject.com/>`_ administration panel.
 ----------------------------------------------------------------------------------------------------------------------
 
+.. image:: https://raw.github.com/barszczmm/django-wpadmin/master/docs/images/django-wpadmin.png
+
 Features
 --------
 * Optional fixed (in CSS positioning terms) top menu with branding, user options (change password, logout, gravatar) and any other menu items
