@@ -4,8 +4,11 @@ Menu utilities.
 from fnmatch import fnmatch
 
 from django.utils.importlib import import_module
+from django.core.urlresolvers import reverse
 
-from wpadmin.utils import get_wpadmin_settings, get_admin_site
+from wpadmin.utils import (get_wpadmin_settings,
+                           get_admin_site,
+                           get_admin_site_name)
 
 
 def get_menu_cls(menu, admin_site_name='admin'):
@@ -74,3 +77,66 @@ def filter_models(context, models, exclude):
                 except ValueError:  # if the item was already removed skip
                     pass
     return result
+
+
+class UserTestElementMixin(object):
+    """
+    Mixin which adds a method for checking if current user is allowed to see
+    something (menu, menu item, etc.).
+    """
+
+    # this may be set to some callable when class is instantiated
+    check_if_user_allowed = None
+
+    def is_user_allowed(self, user):
+        """
+        This method can be overwritten to check if current user can see this
+        element.
+        """
+        if callable(self.check_if_user_allowed):
+            return self.check_if_user_allowed(user)
+        return True
+
+
+class AppListElementMixin(object):
+    """
+    Mixin class for AppList and ModelList MenuItem.
+    """
+
+    def _visible_models(self, context):
+
+        included = self.models[:]
+        excluded = self.exclude[:]
+
+        if excluded and not included:
+            included = ["*"]
+        return filter_models(context, included, excluded)
+
+    def _get_admin_app_list_url(self, model, context):
+        """
+        Returns the admin change url.
+        """
+        app_label = model._meta.app_label
+        return reverse('%s:app_list' % get_admin_site_name(context),
+                       args=(app_label,))
+
+    def _get_admin_change_url(self, model, context):
+        """
+        Returns the admin change url.
+        """
+        app_label = model._meta.app_label
+        return reverse('%s:%s_%s_changelist' % (get_admin_site_name(context),
+                                                app_label,
+                                                model.__name__.lower()))
+
+    def _get_admin_add_url(self, model, context):
+        """
+        Returns the admin add url.
+        """
+        app_label = model._meta.app_label
+        return reverse('%s:%s_%s_add' % (get_admin_site_name(context),
+                                         app_label,
+                                         model.__name__.lower()))
+
+    def is_empty(self):
+        return len(self.children) == 0

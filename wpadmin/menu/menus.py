@@ -3,21 +3,32 @@ from django.utils.text import capfirst
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
-from admin_tools.menu import Menu as ATMenu
-
-from wpadmin.utils import UserTestElementMixin, get_admin_site_name
+from wpadmin.utils import get_admin_site_name
+from wpadmin.menu.utils import UserTestElementMixin
 from wpadmin.menu import items
 
 
-class Menu(ATMenu, UserTestElementMixin):
+class Menu(UserTestElementMixin):
     """
+    Base menu.
     """
-
+    template = 'wpadmin/menu/menu.html'
+    children = None
     icons = {}
+
+    def __init__(self, **kwargs):
+        for key in kwargs:
+            if hasattr(self.__class__, key):
+                setattr(self, key, kwargs[key])
+        self.children = kwargs.get('children', [])
+
+    def init_with_context(self, context):
+        pass
 
 
 class TopMenu(Menu):
     """
+    Default top menu.
     """
 
     def init_with_context(self, context):
@@ -55,7 +66,6 @@ class TopMenu(Menu):
                 models=('django.contrib.*',),
             ),
             items.UserTools(
-                url=reverse('%s:auth_user_change' % admin_site_name, args=(context['request'].user.id,)) if context['request'].user.is_superuser else None,
                 css_classes=['float-right'],
                 check_if_user_allowed=lambda user: user.is_staff,
             ),
@@ -68,6 +78,7 @@ class TopMenu(Menu):
 
 class LeftMenu(Menu):
     """
+    Default left menu.
     """
 
     icons = {

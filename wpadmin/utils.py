@@ -39,22 +39,3 @@ def get_admin_site(context):
         return getattr(mod, inst)
     else:
         return admin.site
-
-
-class UserTestElementMixin(object):
-    """
-    Mixin which adds a method for checking if current user is allowed to see
-    something (menu, menu item, etc.).
-    """
-
-    # this may be set to some callable when class is instantiated
-    check_if_user_allowed = None
-
-    def is_user_allowed(self, user):
-        """
-        This method can be overwritten to check if current user can see this
-        element.
-        """
-        if callable(self.check_if_user_allowed):
-            return self.check_if_user_allowed(user)
-        return True
