@@ -14,7 +14,7 @@ Features
 * Optional fully configurable left menu with nice WordPress style
 * Left menu can be pinned (fixed CSS position) or unpinned and collapsed or expanded
 * Awesome `Font Awesome <http://fortawesome.github.com/Font-Awesome/>`_ icons supported in both menus
-* Multiple AdminSite's support with possibility to have different menus, colors and title for each
+* Multiple AdminSite's support with possibility to have different menus, colors and title for each one
 * Supports Django 1.3.x, 1.4.x, 1.5.x
 
 
@@ -48,7 +48,7 @@ Installation
     )
 
 
-* Copy one of files from `django-wpadmin/wpadmin/menu/templates/admin/ <https://github.com/barszczmm/django-wpadmin/tree/master/wpadmin/menu/templates/admin>`_ (there's one file for each supported Django version) into your ``templates/admin/`` folder and rename copied file to ``base.html`` (you can also create symbolic link).
+* Copy one of the files from `django-wpadmin/wpadmin/menu/templates/admin/ <https://github.com/barszczmm/django-wpadmin/tree/master/wpadmin/menu/templates/admin>`_ (there's one file for each supported Django version) into your ``templates/admin/`` folder and rename copied file to ``base.html`` (you can also create symbolic link).
 * Add `django.core.context_processors.request <https://docs.djangoproject.com/en/dev/ref/templates/api/#django-core-context-processors-request>`_ to `TEMPLATE_CONTEXT_PROCESSORS <https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATE_CONTEXT_PROCESSORS>`_ setting.
 
 Basic configuration
@@ -69,6 +69,7 @@ Add to ``settings.py``::
 Advanced configuration
 ----------------------
 Please take a look at the code in `sample_project <https://github.com/barszczmm/django-wpadmin/tree/master/sample_project>`_.
+This app takes lot of ideas and lot of code from `django-admin-tools <https://bitbucket.org/izi/django-admin-tools/wiki/Home>`_ app, so it is also good idea to read `django-admin-tools docs <http://django-admin-tools.readthedocs.org/en/latest/>`_.
 
 
 Credits
