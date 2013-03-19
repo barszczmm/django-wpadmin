@@ -1,7 +1,7 @@
 {% extends "admin/base.html" %}
 {% load i18n wpadmin_dashboard_tags %}
 
-{% block title %}{{ title }} | {% trans 'Django site admin' %}{% endblock %}
+{% block title %}{{ title }} | {% wpadmin_render_custom_title %}{% endblock %}
 {% block wpadmin_extrahead %}
 	{% with current_app as admin_site_name %}
 		{% wpadmin_are_breadcrumbs_enabled admin_site_name %}

@@ -1,6 +1,7 @@
 from django import template
+from django.utils.translation import ugettext_lazy as _
 
-from wpadmin.utils import get_admin_site_name
+from wpadmin.utils import get_admin_site_name, get_wpadmin_settings
 from wpadmin.dashboard.utils import are_breadcrumbs_enabled
 
 register = template.Library()
@@ -24,3 +25,10 @@ def wpadmin_are_breadcrumbs_enabled(parser, token):
     return AreBreadcrumbsEnabledNode()
 
 register.tag('wpadmin_are_breadcrumbs_enabled', wpadmin_are_breadcrumbs_enabled)
+
+
+def wpadmin_render_custom_title(context):
+    return get_wpadmin_settings(get_admin_site_name(context)) \
+        .get('title', _('Django site admin'))
+
+register.simple_tag(takes_context=True)(wpadmin_render_custom_title)
