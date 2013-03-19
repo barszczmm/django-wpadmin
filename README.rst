@@ -43,7 +43,7 @@ Installation
 
 
 * Copy one of files from ``django-wpadmin/wpadmin/menu/templates/admin/`` (there's one file for each supported Django version) into your ``templates/admin/`` folder and rename copied file to ``base.html`` (you can also create symbolic link).
-* Add `django.core.context_processors.request <https://docs.djangoproject.com/en/dev/ref/templates/api/#django-core-context-processors-request>`_ to `TEMPLATE_CONTEXT_PROCESSORS <https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATE_CONTEXT_PROCESSORS>`_ setting.
+* Add ```django.core.context_processors.request <https://docs.djangoproject.com/en/dev/ref/templates/api/#django-core-context-processors-request>`_`` to `TEMPLATE_CONTEXT_PROCESSORS <https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATE_CONTEXT_PROCESSORS>`_ setting.
 
 Basic configuration
 -------------------
