@@ -1,0 +1,13 @@
+include README.rst
+include LICENSE
+include MANIFEST.in
+recursive-include docs *
+recursive-include wpadmin/static *
+recursive-include wpadmin/locale *
+recursive-include wpadmin/dashboard/templates *
+recursive-include wpadmin/menu/templates *
+recursive-include wpadmin/menu/static *
+exclude wpadmin/urls.py
+recursive-exclude wpadmin/menu models.py urls.py views.py
+recursive-exclude wpadmin/menu/templates/wpadmin/menu bookmark.html bookmarks.html
+recursive-exclude * *.py[co]

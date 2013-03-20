@@ -2,4 +2,7 @@
 .project
 .pydevproject
 .idea
-static-collected
+static-collected/*
+build/*
+dist/*
+django_wpadmin.egg-info/*
