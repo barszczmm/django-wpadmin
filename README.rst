@@ -33,7 +33,12 @@ Try ``sample_project`` `here <http://django-wpadmin.dev.barszcz.info>`_ or downl
 
 Installation
 ------------
-* Install django-wpadmin from Github::
+* Install django-wpadmin from PyPi::
+
+    pip install django-wpadmin
+
+
+* Or from Github::
 
     pip install -e git+https://github.com/barszczmm/django-wpadmin.git#egg=django-wpadmin
 
