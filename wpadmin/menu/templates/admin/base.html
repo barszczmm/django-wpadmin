@@ -1,4 +1,4 @@
-{% load admin_static wpadmin_tags wpadmin_menu_tags %}{% with current_app as admin_site_name %}<!DOCTYPE html>
+{% load admin_static wpadmin_tags wpadmin_menu_tags %}{% load url from future %}{% with current_app as admin_site_name %}<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
 <title>{% block title %}{% endblock %}</title>
@@ -16,8 +16,9 @@
 {% endif %}
 {% endif %}
 {% endif %}
-{% wpadmin_render_custom_style %}
 {% block extrastyle %}{% endblock %}
+{% block wpadmin_extrastyle %}{% endblock %}
+{% wpadmin_render_custom_style %}
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
@@ -71,20 +72,19 @@
 			{% endblock %}
 		{% endif %}
 
-		{% block messages %}
-			{% if messages %}
-				<ul class="messagelist">
-					{% for message in messages %}
-						<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-					{% endfor %}
-				</ul>
-			{% endif %}
-		{% endblock messages %}
-
 		<!-- Content -->
 		<div id="content" class="{% block coltype %}colM{% endblock %}">
 			{% block pretitle %}{% endblock %}
 			{% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+			{% block messages %}
+				{% if messages %}
+					<ul class="messagelist">
+						{% for message in messages %}
+							<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			{% endblock messages %}
 			{% block content %}
 			{% block object-tools %}{% endblock %}
 			{{ content }}
