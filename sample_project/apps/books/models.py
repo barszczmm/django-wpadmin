@@ -25,6 +25,7 @@ class Book(models.Model):
     category = models.ForeignKey(BookCategory, verbose_name=_('category'))
     author = models.ForeignKey(Author, verbose_name=_('author'))
     owner = models.ForeignKey(User, verbose_name=_('owner'))
+    publication_date = models.DateField(_('publication date'))
 
     def __unicode__(self):
         return self.title

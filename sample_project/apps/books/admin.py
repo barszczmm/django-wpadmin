@@ -6,7 +6,11 @@ class BookCategoryAdmin(admin.ModelAdmin):
 
 
 class BookAdmin(admin.ModelAdmin):
-    pass
+    date_hierarchy = 'publication_date'
+    list_display = ('title', 'author', 'publication_date')
+    list_filter = ('author', 'category')
+    search_fields = ('title',)
+    list_per_page = 3
 
 
 class UserBookAdmin(admin.ModelAdmin):
