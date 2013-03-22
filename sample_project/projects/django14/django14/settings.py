@@ -185,6 +185,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
 )
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+
 WPADMIN = {
     'admin': {
         'admin_site': 'django14.admin.admin',
