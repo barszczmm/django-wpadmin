@@ -33,3 +33,24 @@
   background-image: -ms-linear-gradient(@start, @start-color, @end-color);
   background-image: linear-gradient(@start, @start-color, @end-color);
 }
+
+.box-sizing(@boxsize: border-box) {
+  -webkit-box-sizing: @boxsize;
+  -moz-box-sizing: @boxsize;
+  -ms-box-sizing: @boxsize;
+  box-sizing: @boxsize;
+}
+
+.clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
