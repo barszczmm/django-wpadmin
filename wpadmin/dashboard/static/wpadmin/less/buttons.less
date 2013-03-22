@@ -1,0 +1,36 @@
+@import "../../../../static/wpadmin/less/mixins.less";
+
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input {
+  background-color: #F3F3F3;
+  .vertical-gradient(#F4F4F4, #FEFEFE);
+  border-color: #BBBBBB;
+  color: #333333;
+  text-shadow: 0 1px 0 #FFFFFF;
+  .border-radius(3px);
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 12px;
+  height: 24px;
+  line-height: 23px;
+  margin: 0;
+  padding: 0 10px 1px;
+  text-decoration: none;
+  white-space: nowrap;
+  .box-sizing(border-box);
+
+  &:hover,
+  &:focus {
+    border-color: #999;
+    color: #222;
+    .vertical-gradient(#F3F3F3, #FFFFFF);
+  }
+
+  &:focus {
+    .box-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+  }
+}

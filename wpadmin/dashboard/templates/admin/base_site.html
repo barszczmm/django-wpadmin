@@ -1,8 +1,10 @@
 {% extends "admin/base.html" %}
-{% load i18n wpadmin_dashboard_tags %}
+{% load i18n admin_static wpadmin_dashboard_tags %}
 
 {% block title %}{{ title }} | {% wpadmin_render_custom_title %}{% endblock %}
-{% block wpadmin_extrahead %}
+
+{% block wpadmin_extrastyle %}
+	<link href="{% static "wpadmin/less/content.less" %}" type="text/css" rel="stylesheet/less" />
 	{% with current_app as admin_site_name %}
 		{% wpadmin_are_breadcrumbs_enabled admin_site_name %}
 		{% if not wpadmin_are_breadcrumbs_enabled %}
@@ -13,8 +15,6 @@
 	{% endwith %}
 {% endblock %}
 
-{% block branding %}
-<h1 id="site-name">{% trans 'Django administration' %}</h1>
+{% block wpadmin_extrahead %}
+	<script type="text/javascript" src="{% static "wpadmin/js/content.js" %}"></script>
 {% endblock %}
-
-{% block nav-global %}{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static admin_list wpadmin_dashboard_tags %}
+{% load admin_urls %}
+{% load url from future %}
+
+{% block title %}{{ cl.opts.verbose_name_plural|capfirst }} | {% wpadmin_render_custom_title %}{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}" />
+  {% if cl.formset %}
+    <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />
+  {% endif %}
+  {% if cl.formset or action_form %}
+    <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+  {% endif %}
+  {{ media.css }}
+  {% if not actions_on_top and not actions_on_bottom %}
+    <style>
+      #changelist table thead th:first-child {width: inherit}
+    </style>
+  {% endif %}
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+{{ media.js }}
+{% if action_form %}{% if actions_on_top or actions_on_bottom %}
+<script type="text/javascript">
+(function($) {
+    $(document).ready(function($) {
+        $("thead #action-toggle").addClass('action-toggle');
+        $("tfoot #action-toggle").addClass('action-toggle');
+        $("tr input.action-select").actions({allToggle: "tr input.action-toggle"});
+    });
+})(django.jQuery);
+</script>
+{% endif %}{% endif %}
+{% endblock %}
+
+{% block bodyclass %}change-list{% endblock %}
+
+{% if not is_popup %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+&rsaquo; <a href="{% url 'admin:app_list' app_label=cl.opts.app_label %}">{{ app_label|capfirst|escape }}</a>
+&rsaquo; {{ cl.opts.verbose_name_plural|capfirst }}
+</div>
+{% endblock %}
+{% endif %}
+
+{% block coltype %}flex{% endblock %}
+
+{% block content_title %}
+  <h1>
+    {{ cl.opts.verbose_name_plural|capfirst }}
+    {% if has_add_permission %}
+      <a href="{% url cl.opts|admin_urlname:'add' %}{% if is_popup %}?_popup=1{% endif %}" class="add-new">
+        {% trans 'Add New' %}
+      </a>
+    {% endif %}
+  </h1>
+{% endblock %}
+
+{% block content %}
+  <div id="content-main">
+    {% if cl.formset.errors %}
+        <p class="errornote">
+        {% blocktrans count cl.formset.errors|length as counter %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
+        </p>
+        {{ cl.formset.non_form_errors }}
+    {% endif %}
+    <div class="module{% if cl.has_filters %} filtered{% endif %}" id="changelist">
+      {% block search %}{% search_form cl %}{% endblock %}
+
+      {% block filters %}
+        {% if cl.has_filters %}
+          <div id="changelist-filter">
+            <h2>{% trans 'Filter' %}</h2>
+            {% for spec in cl.filter_specs %}{% admin_list_filter cl spec %}{% endfor %}
+          </div>
+        {% endif %}
+      {% endblock %}
+
+      {% block date_hierarchy %}{% date_hierarchy cl %}{% endblock %}
+
+      <form id="changelist-form" action="" method="post"{% if cl.formset.is_multipart %} enctype="multipart/form-data"{% endif %}>{% csrf_token %}
+      {% if cl.formset %}
+        <div>{{ cl.formset.management_form }}</div>
+      {% endif %}
+
+      {% block result_list %}
+        <div class="actions-and-paginator">
+          {% if action_form and cl.full_result_count %}{% admin_actions %}{% endif %}
+          {% pagination cl %}
+        </div>
+        {% result_list cl %}
+        <div class="actions-and-paginator">
+          {% if action_form and cl.full_result_count %}{% admin_actions %}{% endif %}
+          {% pagination cl %}
+        </div>
+      {% endblock %}
+      </form>
+    </div>
+  </div>
+{% endblock %}
