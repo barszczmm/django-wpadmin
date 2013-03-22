@@ -10,7 +10,11 @@ setup(
     name='django-wpadmin',
     version=VERSION,
     description='WordPress look and feel for Django administration panel.',
-    long_description = read('README.rst'),
+    long_description = '''
+%s
+
+%s
+''' % (read('README.rst'), read('CHANGELOG.rst')),
     author='Maciej Marczewski (barszcz)',
     author_email='maciej@marczewski.net.pl',
     url = 'https://github.com/barszczmm/django-wpadmin',

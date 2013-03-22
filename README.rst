@@ -15,12 +15,13 @@ Features
 * Left menu can be pinned (fixed CSS position) or unpinned and collapsed or expanded
 * Awesome `Font Awesome <http://fortawesome.github.com/Font-Awesome/>`_ icons supported in both menus
 * Multiple AdminSite's support with possibility to have different menus, colors and title for each one
-* Supports Django 1.3.x, 1.4.x, 1.5.x
+* Supports Django 1.4.x and 1.5.x
+* WordPress look and feel for objects lists
 
 
 TODO
 ----
-* WordPress look and feel for tables, inputs, buttons
+* WordPress look and feel for objects edit pages
 * TinyMCE integration with WordPress theme
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ integration
 * Bookmarks support
@@ -38,7 +39,7 @@ Installation
     pip install django-wpadmin
 
 
-* Or from Github::
+* Or from GitHub::
 
     pip install -e git+https://github.com/barszczmm/django-wpadmin.git#egg=django-wpadmin
 
@@ -53,7 +54,6 @@ Installation
     )
 
 
-* Copy one of the files from `django-wpadmin/wpadmin/menu/templates/admin/ <https://github.com/barszczmm/django-wpadmin/tree/master/wpadmin/menu/templates/admin>`_ (there's one file for each supported Django version) into your ``templates/admin/`` folder and rename copied file to ``base.html`` (you can also create symbolic link).
 * Add `django.core.context_processors.request <https://docs.djangoproject.com/en/dev/ref/templates/api/#django-core-context-processors-request>`_ to `TEMPLATE_CONTEXT_PROCESSORS <https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATE_CONTEXT_PROCESSORS>`_ setting.
 
 Basic configuration
