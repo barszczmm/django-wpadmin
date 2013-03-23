@@ -91,14 +91,14 @@
       {% endif %}
 
       {% block result_list %}
-        <div class="actions-and-paginator">
+        <div class="actions-and-paginator{% if not cl.full_result_count %} no-objects{% endif %}">
           {% if action_form and cl.full_result_count %}{% admin_actions %}{% endif %}
           {% pagination cl %}
         </div>
         {% result_list cl %}
         <div class="actions-and-paginator">
           {% if action_form and cl.full_result_count %}{% admin_actions %}{% endif %}
-          {% pagination cl %}
+          {% if cl.full_result_count %}{% pagination cl %}{% endif %}
         </div>
       {% endblock %}
       </form>

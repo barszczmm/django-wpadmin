@@ -323,6 +323,7 @@ h1 {
   }
 
   .actions-and-paginator {
+    clear: both;
     .clearfix;
 
     .actions {
@@ -409,10 +410,15 @@ h1 {
         background: none;
         border: none;
       }
+    } // .paginator
+
+    &.no-objects {
+      .paginator {
+        float: none;
+      }
     }
 
-
-  }
+  } // .actions-and-paginator
 
 } // #changelist
 
