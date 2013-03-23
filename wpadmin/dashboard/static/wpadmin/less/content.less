@@ -379,12 +379,9 @@ h1 {
       border: none;
       padding: 10px 0;
       font-size: 12px;
-      font-style: italic;
-      font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
 
-      span,
+      span.this-page,
       a {
-        font-family: sans-serif;
         background: #eee;
         border: 1px solid #E3E3E3;
         .border-radius(3px);
@@ -399,6 +396,13 @@ h1 {
 
       a.end {
         border-width: 1px !important;
+        margin: 0;
+      }
+
+      span.total {
+        font-style: italic;
+        font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+        margin-left: 10px;
       }
 
       a.showall {
