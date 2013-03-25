@@ -17,11 +17,13 @@ Features
 * Multiple AdminSite's support with possibility to have different menus, colors and title for each one
 * Supports Django 1.4.x and 1.5.x
 * WordPress look and feel for objects lists
+* WordPress look and feel for objects edit pages
 
 
 TODO
 ----
-* WordPress look and feel for objects edit pages
+* Styles for calendar and time selector
+* Styles for history page
 * TinyMCE integration with WordPress theme
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ integration
 * Bookmarks support

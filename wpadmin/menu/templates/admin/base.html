@@ -34,7 +34,7 @@
 {% load i18n %}
 
 {% wpadmin_are_breadcrumbs_enabled admin_site_name %}
-<body class="{% if is_popup %}popup {% else %}{% if wpadmin_is_left_menu_enabled %}wp-with-left-menu {% endif %}{% if wpadmin_is_top_menu_enabled %}wp-with-top-menu {% endif %}{% endif %}{% if not wpadmin_are_breadcrumbs_enabled %} wp-no-breadcrumbs{% endif %}{% if messages %} wp-with-messages{% endif %}{% block bodyclass %}{% endblock %}">
+<body class="{% if is_popup %}popup {% else %}{% if wpadmin_is_left_menu_enabled %} wp-with-left-menu {% endif %}{% if wpadmin_is_top_menu_enabled %} wp-with-top-menu {% endif %}{% endif %}{% if not wpadmin_are_breadcrumbs_enabled %} wp-no-breadcrumbs {% endif %}{% if messages %} wp-with-messages {% endif %}{% block bodyclass %}{% endblock %}">
 
 <!-- Wrapper -->
 <div id="wrapper">
