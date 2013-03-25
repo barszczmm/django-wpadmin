@@ -1,20 +1,18 @@
-{% load admin_static wpadmin_tags wpadmin_menu_tags %}{% load url from future %}{% with current_app as admin_site_name %}<!DOCTYPE html>
+{% load admin_static wpadmin_tags wpadmin_menu_tags wpadmin_dashboard_tags %}{% load url from future %}{% with current_app as admin_site_name %}<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
 <title>{% block title %}{% endblock %}</title>
 <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
+<link href="{% static "wpadmin/css/font-awesome.min.css" %}" type="text/css" rel="stylesheet" />
 {% wpadmin_is_top_menu_enabled admin_site_name %}
 {% wpadmin_is_left_menu_enabled admin_site_name %}
 {% if not is_popup %}
-{% if wpadmin_is_top_menu_enabled or wpadmin_is_left_menu_enabled %}
-<link href="{% static "wpadmin/css/font-awesome.min.css" %}" type="text/css" rel="stylesheet" />
-{% if wpadmin_is_top_menu_enabled %}
-<link href="{% static "wpadmin/less/top-menu.less" %}" type="text/css" rel="stylesheet/less" />
-{% endif %}
-{% if wpadmin_is_left_menu_enabled %}
-<link href="{% static "wpadmin/less/left-menu.less" %}" type="text/css" rel="stylesheet/less" />
-{% endif %}
-{% endif %}
+	{% if wpadmin_is_top_menu_enabled %}
+		<link href="{% static "wpadmin/less/top-menu.less" %}" type="text/css" rel="stylesheet/less" />
+	{% endif %}
+	{% if wpadmin_is_left_menu_enabled %}
+		<link href="{% static "wpadmin/less/left-menu.less" %}" type="text/css" rel="stylesheet/less" />
+	{% endif %}
 {% endif %}
 {% block extrastyle %}{% endblock %}
 {% block wpadmin_extrastyle %}{% endblock %}
@@ -23,11 +21,11 @@
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
 {% if wpadmin_is_top_menu_enabled or wpadmin_is_left_menu_enabled %}
-<script type="text/javascript">window.__admin_url = '{% url 'admin:index' %}';</script>
-<script type="text/javascript" src="{% static "wpadmin/js/jquery.min.js" %}"></script>
-<script type="text/javascript" src="{% static "wpadmin/js/jquery.jsoncookie.min.js" %}"></script>
-<script type="text/javascript" src="{% static "wpadmin/js/menu.js" %}"></script>
-<script type="text/javascript" src="{% static "wpadmin/js/less.min.js" %}"></script>
+	<script type="text/javascript">window.__admin_url = '{% url 'admin:index' %}';</script>
+	<script type="text/javascript" src="{% static "wpadmin/js/jquery.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "wpadmin/js/jquery.jsoncookie.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "wpadmin/js/menu.js" %}"></script>
+	<script type="text/javascript" src="{% static "wpadmin/js/less.min.js" %}"></script>
 {% endif %}
 {% block wpadmin_extrahead %}{% endblock %}
 {% block extrahead %}{% endblock %}
@@ -35,7 +33,8 @@
 </head>
 {% load i18n %}
 
-<body class="{% if is_popup %}popup {% else %}{% if wpadmin_is_left_menu_enabled %}wp-with-left-menu {% endif %}{% if wpadmin_is_top_menu_enabled %}wp-with-top-menu {% endif %}{% endif %}{% block bodyclass %}{% endblock %}">
+{% wpadmin_are_breadcrumbs_enabled admin_site_name %}
+<body class="{% if is_popup %}popup {% else %}{% if wpadmin_is_left_menu_enabled %}wp-with-left-menu {% endif %}{% if wpadmin_is_top_menu_enabled %}wp-with-top-menu {% endif %}{% endif %}{% if not wpadmin_are_breadcrumbs_enabled %} wp-no-breadcrumbs{% endif %}{% if messages %} wp-with-messages{% endif %}{% block bodyclass %}{% endblock %}">
 
 <!-- Wrapper -->
 <div id="wrapper">

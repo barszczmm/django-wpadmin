@@ -1,0 +1,261 @@
+.change-form {
+  #content {
+    position: relative;
+
+    form {
+      margin-right: 20em;
+    }
+
+    #content-related {
+      position: fixed;
+      margin: 0;
+      top: 113px;
+      right: 2em;
+
+      .buttons {
+        padding-bottom: 2.5%;
+
+        h2 {
+          margin-bottom: 2.5%;
+        }
+
+        input {
+          width: 90%;
+          margin: 2.5% 5%;
+        }
+
+        .deletelink-box {
+          margin: 2.5% 5%;
+          padding: 0;
+          text-align: center;
+
+          .deletelink {
+            color: #CC3434;
+            background: none;
+            padding: 0 2px;
+            display: inline-block;
+            border-bottom: 1px solid #CC3434;
+
+            &:hover {
+              color: #fff;
+              background: #ff0000;
+              border-color: #ff0000;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+body.wp-no-breadcrumbs {
+  .change-form {
+    #content {
+      #content-related {
+        top: 93px;
+      }
+    }
+  }
+}
+
+body.wp-with-messages {
+  .change-form {
+    #content {
+      #content-related {
+        top: 167px;
+      }
+    }
+  }
+
+  &.wp-no-breadcrumbs {
+    .change-form {
+      #content {
+        #content-related {
+          top: 146px;
+        }
+      }
+    }
+  }
+}
+
+.module {
+  .border-radius(3px);
+  .vertical-gradient(#F5F5F5, #F9F9F9);
+  background-color: #F5F5F5;
+  box-shadow: 0 1px 0 #FFFFFF inset;
+  border: 1px solid #DFDFDF;
+  margin-bottom: 2em;
+}
+
+.module h2,
+.module caption,
+.inline-group h2,
+.selector .selector-available h2 {
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;
+  padding: 7px 10px;
+  font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+  .border-radius(3px 3px 0 0);
+  color: #464646;
+  border-bottom: 1px solid #DFDFDF;
+  box-shadow: 0 1px 0 #FFFFFF;
+  text-shadow: 0 1px 0 #FFFFFF;
+  .vertical-gradient(#ECECEC, #F9F9F9);
+  background-color: #F1F1F1;
+}
+
+.form-row {
+  border-bottom-color: #DFDFDF;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.datetime {
+  .vTimeField {
+    margin-top: 3px;
+  }
+}
+
+.help-tooltip {
+  cursor: help;
+}
+
+a.selector-chooseall,
+a.selector-clearall {
+  background: none;
+  padding-right: 0;
+  padding-left: 0;
+
+  &:after,
+  &:before {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: FontAwesome;
+    color: #bbb;
+    position: relative;
+    top: 1px;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+  }
+
+  &.active {
+    background: none;
+
+    &:after,
+    &:before {
+      color: #666;
+      border-color: #666;
+    }
+
+    &:hover {
+      &:after,
+      &:before {
+        color: @link-hover-color;
+        border-color: @link-hover-color;
+      }
+    }
+  }
+}
+
+a.selector-chooseall {
+  &:after {
+    content: "\f101";
+  }
+}
+
+a.selector-clearall {
+  &:before {
+    content: "\f100";
+  }
+}
+
+.selector .selector-filter label,
+.inline-group .aligned .selector .selector-filter label {
+  font-size: 16px;
+}
+
+.selector {
+  ul.selector-chooser {
+    background: none;
+
+    .selector-add,
+    .selector-remove {
+      text-indent: 0;
+      background: none;
+      width: 18px;
+      height: 18px;
+      font-size: 0;
+      line-height: 0;
+
+      &:after {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        text-align: center;
+        border: 1px solid #bbb;
+        border-radius: 10px;
+        font-size: 16px;
+        font-family: FontAwesome;
+        color: #bbb;
+        line-height: 1em;
+      }
+
+      &.active {
+        &:after {
+          color: #666;
+          border-color: #666;
+        }
+
+        &:hover {
+          &:after {
+            color: @link-hover-color;
+            border-color: @link-hover-color;
+          }
+        }
+      }
+    }
+
+    .selector-add {
+      &:after {
+        content: "\f105";
+      }
+    }
+
+    .selector-remove {
+      &:after {
+        content: "\f104";
+      }
+    }
+  }
+}
+
+.add-another {
+  img {
+    display: none;
+  }
+
+  &:after {
+    content: "\f067";
+    font-family: FontAwesome;
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.historylink,
+.viewsitelink {
+  i {
+    font-size: 14px;
+    margin-right: 0.5em;
+  }
+}

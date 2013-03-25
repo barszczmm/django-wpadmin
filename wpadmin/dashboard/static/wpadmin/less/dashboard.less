@@ -1,0 +1,38 @@
+a.section:link,
+a.section:visited {
+  color: @link-color;
+}
+
+a.section:hover {
+  color: @link-hover-color;
+}
+
+.dashboard {
+  .module {
+    table {
+      tr {
+        th,
+        td {
+          padding: 8px 10px;
+          border-bottom-color: #DFDFDF;
+        }
+
+        &:last-child {
+          th,
+          td {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+#content-related {
+  margin-right: -20em;
+
+  .module h2 {
+    .vertical-gradient(#ECECEC, #F9F9F9);
+    background-color: #F1F1F1;
+  }
+}

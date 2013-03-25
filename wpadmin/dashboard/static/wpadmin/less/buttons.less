@@ -1,5 +1,3 @@
-@import "../../../../static/wpadmin/less/mixins.less";
-
 .button,
 input[type="submit"],
 input[type="button"],
@@ -32,5 +30,30 @@ input[type="button"],
 
   &:focus {
     .box-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+  }
+}
+
+.button.default,
+input.default[type="submit"],
+.submit-row input.default {
+  background-color: #21759B;
+  .vertical-gradient(#21759B, #2A95C5);
+  border-color: #21759B #21759B #1E6A8D;
+  box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  border-width: 1px;
+  font-weight: normal;
+  height: 30px;
+  line-height: 28px;
+
+  &:hover,
+  &:focus {
+    background-color: #278ab7;
+    .vertical-gradient(#21759b, #2e97d2);
+    border-color: #1b607f;
+    box-shadow: 0 1px 0 rgba(120, 200, 230, 0.6) inset;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
   }
 }
