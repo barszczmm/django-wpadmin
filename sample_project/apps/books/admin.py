@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
+from django.utils.text import capfirst
 
 
 class BookCategoryAdmin(admin.ModelAdmin):
@@ -11,6 +13,19 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ('author', 'category')
     search_fields = ('title',)
     list_per_page = 3
+    fieldsets = (
+        ('', {
+            'fields': ('title', 'category', ('author', 'publication_date')),
+        }),
+        (capfirst(_('description')), {
+            'fields': ('description',),
+            'classes': ('collapse-open',),
+        }),
+        (capfirst(_('owner')), {
+            'fields': ('owner',),
+            'classes': ('collapse-closed',),
+        }),
+    )
 
 
 class UserBookAdmin(admin.ModelAdmin):

@@ -196,7 +196,7 @@ WPADMIN = {
             'left': 'django14.wp.AdminLeftMenu',
         },
         'dashboard': {
-            'breadcrumbs': False,
+            'breadcrumbs': True,
         },
     },
     'staff': {
