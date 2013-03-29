@@ -13,6 +13,7 @@
 	#links a { display: block; width: 33.33%; height: 100%; float: left; text-align: center;
 		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 		padding-top: 100px; text-decoration: none; font-size: 100px; }
+	#links a span { display: block; font-size: 20px; }
 	#links a.admin { background: #294B5B; }
 	#links a.staff { background: #AE8926; }
 	#links a.user { background: #69296D; }
@@ -24,9 +25,9 @@
 <body>
 	<h1><a href="https://github.com/barszczmm/django-wpadmin">Django WP Admin</a> sample project by <a href="http://www.barszcz.info/">Maciej 'barszcz' Marczewski</a></h1>
 	<div id="links">
-		<a class="admin" href="/admin/" title="login: admin, password: admin">admin</a>
-		<a class="staff" href="/staff/" title="login: staff, password: staff">staff</a>
-		<a class="user" href="/user/" title="login: user, password: user">user</a>
+		<a class="admin" href="/admin/" title="login: admin, password: admin">admin <span class="login">login: <strong>admin</strong>, password: <strong>admin</strong></span></a>
+		<a class="staff" href="/staff/" title="login: staff, password: staff">staff <span class="login">login: <strong>staff</strong>, password: <strong>staff</strong></span></a>
+		<a class="user" href="/user/" title="login: user, password: user">user <span class="login">login: <strong>user</strong>, password: <strong>user</strong></span></a>
 	</div>
 </body>
 </html>
