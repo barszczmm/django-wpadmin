@@ -128,7 +128,7 @@ class AppList(AppListElementMixin, MenuItem):
             apps[app_label]['models'].append({
                 'title': capfirst(model._meta.verbose_name_plural),
                 'url': self._get_admin_change_url(model, context),
-                'add_url': self._get_admin_add_url(model, context),
+                'add_url': perms['add'] and self._get_admin_add_url(model, context),
                 'description': _(u"Change"),
             })
 
@@ -188,5 +188,3 @@ class UserTools(MenuItem):
 #
 #        for b in Bookmark.objects.filter(user=context['request'].user):
 #            self.children.append(MenuItem(mark_safe(b.title), b.url, is_bookmark=True))
-
-
