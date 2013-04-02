@@ -178,10 +178,12 @@ var DateTimeShortcuts = {
 
         // next-prev links
         var cal_nav = quickElement('div', cal_box, '');
-        var cal_nav_prev = quickElement('a', cal_nav, '<', 'href', 'javascript:DateTimeShortcuts.drawPrev('+num+');');
+        var cal_nav_prev = quickElement('a', cal_nav, '', 'href', 'javascript:DateTimeShortcuts.drawPrev('+num+');');
         cal_nav_prev.className = 'calendarnav-previous';
-        var cal_nav_next = quickElement('a', cal_nav, '>', 'href', 'javascript:DateTimeShortcuts.drawNext('+num+');');
+        quickElement('i', cal_nav_prev, '', 'class', 'icon-circle-arrow-left');
+        var cal_nav_next = quickElement('a', cal_nav, '', 'href', 'javascript:DateTimeShortcuts.drawNext('+num+');');
         cal_nav_next.className = 'calendarnav-next';
+        quickElement('i', cal_nav_next, '', 'class', 'icon-circle-arrow-right');
 
         // main box
         var cal_main = quickElement('div', cal_box, '', 'id', DateTimeShortcuts.calendarDivName2 + num);

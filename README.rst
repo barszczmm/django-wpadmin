@@ -22,8 +22,8 @@ Features
 
 TODO
 ----
-* Styles for calendar and time selector
 * Styles for history page
+* Styles for inlines
 * TinyMCE integration with WordPress theme
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ integration
 * Bookmarks support
