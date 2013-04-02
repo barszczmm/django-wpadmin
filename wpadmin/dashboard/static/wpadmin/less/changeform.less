@@ -124,17 +124,22 @@ a.selector-clearall {
   padding-right: 0;
   padding-left: 0;
 
+  &:link,
+  &:visited {
+    color: @link-inactive-color;
+  }
+
   &:after,
   &:before {
     display: inline-block;
     width: 16px;
     height: 16px;
     text-align: center;
-    border: 1px solid #bbb;
+    border: 1px solid @link-inactive-color;
     border-radius: 10px;
     font-size: 16px;
     font-family: FontAwesome;
-    color: #bbb;
+    color: @link-inactive-color;
     position: relative;
     top: 1px;
     margin-left: 0.4em;
@@ -143,14 +148,17 @@ a.selector-clearall {
 
   &.active {
     background: none;
+    color: @link-color;
 
     &:after,
     &:before {
-      color: #666;
-      border-color: #666;
+      color: @link-color;
+      border-color: @link-color;
     }
 
     &:hover {
+      color: @link-hover-color;
+
       &:after,
       &:before {
         color: @link-hover-color;
@@ -196,18 +204,18 @@ a.selector-clearall {
         width: 16px;
         height: 16px;
         text-align: center;
-        border: 1px solid #bbb;
+        border: 1px solid @link-inactive-color;
         border-radius: 10px;
         font-size: 16px;
         font-family: FontAwesome;
-        color: #bbb;
+        color: @link-inactive-color;
         line-height: 1em;
       }
 
       &.active {
         &:after {
-          color: #666;
-          border-color: #666;
+          color: @link-color;
+          border-color: @link-color;
         }
 
         &:hover {
