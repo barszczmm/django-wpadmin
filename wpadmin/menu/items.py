@@ -1,6 +1,7 @@
+import re
+
 from django.utils.text import capfirst
 from django.utils.translation import ugettext_lazy as _
-
 
 from wpadmin.menu.utils import UserTestElementMixin, AppListElementMixin
 
@@ -90,9 +91,10 @@ class MenuItem(UserTestElementMixin):
         descendants url or add_url is equals to the current URL.
         """
         current_url = request.path
-        #TODO: also check edit urls (with number at the end)
+
         return self.url == current_url or \
             self.add_url == current_url or \
+            bool(re.match('^%s\d+/$' % self.url, current_url)) or \
             len([c for c in self.children if c.is_selected(request)]) > 0
 
     def is_empty(self):
@@ -116,7 +118,7 @@ class AppList(AppListElementMixin, MenuItem):
         items = self._visible_models(context)
         apps = {}
         for model, perms in items:
-            if not perms['change']:
+            if not perms['change'] and not perms['add']:
                 continue
             app_label = model._meta.app_label
             if app_label not in apps:
@@ -127,9 +129,12 @@ class AppList(AppListElementMixin, MenuItem):
                 }
             apps[app_label]['models'].append({
                 'title': capfirst(model._meta.verbose_name_plural),
-                'url': self._get_admin_change_url(model, context),
-                'add_url': perms['add'] and self._get_admin_add_url(model, context),
-                'description': _(u"Change"),
+                'url': perms['change'] and self._get_admin_change_url(model,
+                                                                      context),
+                'add_url': perms['add'] and self._get_admin_add_url(model,
+                                                                    context),
+                'description': perms['change'] and _(u"Change")
+                    or _(u"No permission"),
             })
 
         apps_sorted = apps.keys()
