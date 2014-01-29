@@ -21,8 +21,8 @@ def get_admin_site_name(context):
     If this variable is not available, admin site name is taken from request path
     (it is first part of path - between first and second slash).
     """
-    admin_site_name = context.get('admin_site_name', None)
-    if admin_site_name is None:
+    admin_site_name = context.get('admin_site_name', '')
+    if not admin_site_name:
         admin_site_name = context.get('request').path.split('/')[1]
     return admin_site_name
 
