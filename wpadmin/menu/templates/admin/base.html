@@ -20,15 +20,25 @@
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+{% block extrahead %}{% endblock %}
 {% if wpadmin_is_top_menu_enabled or wpadmin_is_left_menu_enabled %}
 	<script type="text/javascript">window.__admin_url = '{% url 'admin:index' %}';</script>
+	<script type="text/javascript">
+		if (typeof django.jQuery == 'undefined') {
+			var script = document.createElement('script');
+			script.type = "text/javascript";
+			script.src = "{% static "wpadmin/js/jquery.min.js" %}";
+			document.getElementsByTagName('head')[0].appendChild(script);
+		} else {
+			var jQuery = django.jQuery;
+		}
+	</script>
 	<script type="text/javascript" src="{% static "wpadmin/js/jquery.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "wpadmin/js/jquery.jsoncookie.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "wpadmin/js/menu.js" %}"></script>
 	<script type="text/javascript" src="{% static "wpadmin/js/less.min.js" %}"></script>
 {% endif %}
 {% block wpadmin_extrahead %}{% endblock %}
-{% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>
 {% load i18n %}
