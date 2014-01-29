@@ -25,6 +25,16 @@
 {% endif %}
 
 {% block content %}
+	{% block object-tools %}
+		{% if change %}{% if not is_popup %}
+			<ul class="object-tools">
+				{% block object-tools-items %}
+					<li><a href="history/" class="historylink"><i class="icon-time"></i>{% trans "History" %}</a></li>
+					{% if has_absolute_url %}<li><a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="viewsitelink"><i class="icon-eye-open"></i>{% trans "View on site" %}</a></li>{% endif%}
+				{% endblock %}
+			</ul>
+		{% endif %}{% endif %}
+	{% endblock %}
 	<form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.module_name }}_form">{% csrf_token %}{% block form_top %}{% endblock %}
 		<div id="content-main">
 			<div>
@@ -60,19 +70,6 @@
 				{% prepopulated_fields_js %}
 			</div>
 		</div>
-		<div id="content-related">
-			{% block submit_buttons %}{% submit_row %}{% endblock %}
-			{% block object-tools %}
-				{% if change %}{% if not is_popup %}
-					<div class="module">
-						<h2>{% trans 'Tools' %}</h2>
-						{% block object-tools-items %}
-						<div class="form-row"><a href="history/" class="historylink"><i class="icon-time"></i>{% trans "History" %}</a></div>
-						{% if has_absolute_url %}<div class="form-row"><a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="viewsitelink"><i class="icon-eye-open"></i>{% trans "View on site" %}</a></div>{% endif%}
-						{% endblock %}
-					</div>
-				{% endif %}{% endif %}
-			{% endblock %}
-		</div>
+		{% block submit_buttons %}{% submit_row %}{% endblock %}
 	</form>
 {% endblock %}
