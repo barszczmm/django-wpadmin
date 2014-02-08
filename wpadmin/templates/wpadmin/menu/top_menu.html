@@ -1,0 +1,12 @@
+{% load wpadmin_menu_tags %}
+{% if is_user_allowed and menu.children %}
+	<ul id="adminbar" class="wp-menu">
+		{% for item in menu.children %}
+			{% if item.is_user_tools %}
+				{% wpadmin_render_user_tools item forloop.first forloop.last %}
+			{% else %}
+				{% wpadmin_render_menu_top_item item forloop.first forloop.last %}
+			{% endif %}
+		{% endfor %}
+	</ul>
+{% endif %}

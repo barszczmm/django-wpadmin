@@ -1,0 +1,10 @@
+{% extends "admin/base.html" %}
+{% load i18n wpadmin_tags %}
+
+{% block title %}{{ title }} | {% wpadmin_render_custom_title %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Django administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

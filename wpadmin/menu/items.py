@@ -27,14 +27,14 @@ class MenuItem(UserTestElementMixin):
         Default value: None.
 
     ``icon``
-        An optional string which contains name of icon from Font Awesome which
-        should be used for this menu item. Note that icons may not show on all
-        levels of menu.
+        An optional string which contains classes for icons from Font Awesome
+        which should be used for this menu item. Note that icons may not show
+        on all levels of menu.
         Default value: None.
 
-    ``css_classes``
-        A list of css classes to be added to the menu item class attribute.
-        Default value: [].
+    ``css_styles``
+        String containing special CSS styling for this menu item.
+        Default value: None.
 
     ``description``
         An optional string that will be used as the ``title`` attribute of
@@ -59,7 +59,7 @@ class MenuItem(UserTestElementMixin):
     url = None
     add_url = None
     icon = None
-    css_classes = None
+    css_styles = None
     description = None
     enabled = True
     template = 'wpadmin/menu/item.html'
@@ -77,7 +77,6 @@ class MenuItem(UserTestElementMixin):
             if hasattr(self.__class__, key):
                 setattr(self, key, kwargs[key])
         self.children = self.children or []
-        self.css_classes = self.css_classes or []
 
     def init_with_context(self, context):
         """

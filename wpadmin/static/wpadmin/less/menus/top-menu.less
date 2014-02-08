@@ -1,0 +1,61 @@
+@import "common.less";
+
+html {
+  padding-top: @top-menu-height;
+  .box-sizing(border-box);
+}
+
+body.login {
+  #wrapper {
+    padding-top: 100px;
+    .box-sizing(border-box);
+
+    #container {
+      margin-top: 0;
+    }
+  }
+}
+
+#adminbarwrap {
+  height: @top-menu-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  overflow: visible;
+  width: 100%;
+
+  #adminbar {
+    float: left;
+    width: 100%;
+    height: @top-menu-height;
+    font-size: 13px;
+
+    .wp-menu-top {
+      float: left;
+      height: @top-menu-height;
+
+      & > a {
+        float: left;
+        padding-right: 10px;
+      }
+    }
+
+    .wp-submenu {
+      top: @top-menu-height;
+      left: 0;
+    }
+
+    &.wp-narrow {
+      .wp-menu-top {
+        & > a {
+          display: none;
+        }
+
+        .wp-submenu-head {
+          display: block;
+        }
+      }
+    }
+  }
+}

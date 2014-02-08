@@ -14,7 +14,6 @@ class Menu(UserTestElementMixin):
     """
     template = 'wpadmin/menu/menu.html'
     children = None
-    icons = {}
 
     def __init__(self, **kwargs):
         for key in kwargs:
@@ -45,34 +44,21 @@ class TopMenu(Menu):
 
         self.children += [
             items.MenuItem(
-                site_name,
+                title=site_name,
                 url=site_url,
-                css_classes=['branding', 'no-border'],
+                icon='fa-bullseye',
+                css_styles='font-size: 1.5em;',
             ),
             items.MenuItem(
-                capfirst(_('dashboard')),
-                icon='icon-home',
+                title=capfirst(_('dashboard')),
+                icon='fa-tachometer',
                 url=reverse('%s:index' % admin_site_name),
                 description=capfirst(_('dashboard')),
             ),
-            items.AppList(
-                capfirst(_('applications')),
-                icon='icon-tasks',
-                exclude=('django.contrib.*',),
-            ),
-            items.AppList(
-                capfirst(_('administration')),
-                icon='icon-cogs',
-                models=('django.contrib.*',),
-            ),
             items.UserTools(
-                css_classes=['float-right'],
+                css_styles='float: right;',
                 check_if_user_allowed=lambda user: user.is_staff,
             ),
-            # items.Bookmarks(
-            #    css_classes=['float-right', 'no-border'],
-            #    check_if_user_allowed=lambda user: user.is_staff,
-            # ),
         ]
 
 
@@ -80,12 +66,6 @@ class LeftMenu(Menu):
     """
     Default left menu.
     """
-
-    icons = {
-        'wp-default-icon': 'icon-folder-open',
-        '/admin/auth/': 'icon-user',
-        '/admin/sites/': 'icon-globe',
-    }
 
     def is_user_allowed(self, user):
         """
@@ -99,23 +79,22 @@ class LeftMenu(Menu):
 
         self.children += [
             items.MenuItem(
-                title='',
-                children=[
-                    items.MenuItem(
-                        capfirst(_('dashboard')),
-                        icon='icon-home',
-                        url=reverse('%s:index' % admin_site_name),
-                        description=capfirst(_('dashboard')),
-                    )
-                ]
+                title=capfirst(_('dashboard')),
+                icon='fa-tachometer',
+                url=reverse('%s:index' % admin_site_name),
+                description=capfirst(_('dashboard')),
             ),
             items.AppList(
-                capfirst(_('applications')),
+                title=capfirst(_('applications')),
+                description=capfirst(_('applications')),
                 exclude=('django.contrib.*',),
+                icon='fa-tasks',
             ),
             items.AppList(
-                capfirst(_('administration')),
+                title=capfirst(_('administration')),
+                description=capfirst(_('administration')),
                 models=('django.contrib.*',),
+                icon='fa-cog',
             ),
         ]
 

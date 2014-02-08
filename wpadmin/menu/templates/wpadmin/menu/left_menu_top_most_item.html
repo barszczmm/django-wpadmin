@@ -1,9 +1,0 @@
-{% load wpadmin_menu_tags %}
-{% spaceless %}
-{% if is_user_allowed %}
-	<li class="wp-menu-separator{% if item.title %} with-title{% endif %}"><div class="wp-separator">{{ item.title }}</div></li>
-	{% for child_item in item.children %}
-		{% wpadmin_render_left_menu_top_item child_item forloop.first forloop.last icons %}
-	{% endfor %}
-{% endif %}
-{% endspaceless %}

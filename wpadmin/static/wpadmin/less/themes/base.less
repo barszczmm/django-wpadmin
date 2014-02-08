@@ -1,0 +1,128 @@
+body {
+  background-color: @content-bg;
+}
+
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu,
+#adminbarwrap,
+#adminbar {
+  background-color: @menus-bg;
+}
+
+.wp-menu {
+  a {
+    color: @menus-link-color;
+
+    &:hover {
+      color: @menus-link-hover-color;
+    }
+  }
+
+  .wp-menu-image a {
+    color: @menus-icon-color;
+
+    &:hover {
+      color: @menus-icon-hover-color;
+    }
+  }
+
+  .wp-menu-top {
+    &.wp-menu-not-open:hover {
+      & > a {
+        color: @menus-link-hover-color;
+        background-color: @menus-top-elem-hover-bg;
+      }
+
+      .wp-menu-image a {
+        color: @menus-icon-hover-color;
+        background-color: @menus-top-elem-hover-bg;
+      }
+
+      &.wp-has-submenu:after {
+        border-right-color: @submenus-bg;
+      }
+    }
+
+    &.wp-menu-open {
+      & > a,
+      .wp-menu-image a {
+        color: @menus-top-elem-current-color;
+        background: @menus-top-elem-current-bg;
+
+        &:after {
+          border-right-color: @content-bg;
+        }
+      }
+
+      .wp-submenu {
+        .wp-submenu-head {
+          background: @menus-top-elem-current-bg;
+        }
+      }
+    }
+  }
+
+  .wp-submenu {
+    .wp-submenu-wrap {
+      background-color: @submenus-bg;
+    }
+
+    .wp-submenu-head {
+      color: @submenus-head-color;
+    }
+
+    a {
+      color: @submenus-link-color;
+
+      &:hover {
+        color: @submenus-link-hover-color;
+      }
+
+      &.wp-current {
+        color: @submenus-current-link-color;
+      }
+    }
+  }
+
+  .wp-menu-tools {
+    & > a {
+      color: @menus-bg;
+    }
+
+    &:hover > a {
+      color: @menus-link-hover-color;
+    }
+  }
+
+  .wp-user-tools {
+    img.wp-small-gravatar {
+      background: @menus-icon-color;
+    }
+
+    &:hover {
+      img.wp-small-gravatar {
+        background: @menus-icon-hover-color;
+      }
+    }
+  }
+}
+
+#adminbar {
+  .wp-menu-top {
+    &.wp-menu-not-open:hover {
+      & > a {
+        background-color: @submenus-bg;
+      }
+
+      .wp-menu-image a {
+        background-color: @submenus-bg;
+      }
+
+      &.wp-has-submenu:after {
+        display: none;
+      }
+    }
+  }
+}
+

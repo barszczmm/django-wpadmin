@@ -1,0 +1,27 @@
+{% load i18n wpadmin_menu_tags %}
+{% if is_user_allowed %}
+	<li class="wp-user-tools wp-menu-top wp-has-submenu wp-menu-not-open{% if is_first %} wp-first-item{% endif %}{% if is_last %} wp-last-item{% endif %}" {% if item.css_styles %}style="{{ item.css_styles }}"{% endif %}>
+		<div class="wp-menu-image"><a href="javascript:;"><img class="wp-small-gravatar" src="{% gravatar_url user 16 %}" width="16" height="16" /></a></div>
+		<a href="javascript:;">
+	    	{% trans 'Welcome,' %}
+	    	<strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong>.
+	    </a>
+		<div class="wp-submenu">
+			<div class="wp-submenu-wrap">
+				<ul>
+					<li>
+						<a href="{% if item.url %}{{ item.url }}{% else %}javascript:;{% endif%}">
+							{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}
+						</a>
+					</li>
+					<li><a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a></li>
+					<li><a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a></li>
+					{% url 'django-admindocs-docroot' as docsroot %}
+					{% if docsroot %}
+						<li><a href="{{ docsroot }}">{% trans 'Documentation' %}</a></li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</li>
+{% endif %}

@@ -1,0 +1,192 @@
+@import "common.less";
+
+#adminmenuback,
+#adminmenuwrap {
+  width: @left-menu-width;
+}
+
+#adminmenuback {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+#adminmenuwrap {
+  float: left;
+  position: relative;
+}
+
+#adminmenu {
+  clear: left;
+  width: @left-menu-width;
+
+  li {
+    float: none !important;
+  }
+
+  .wp-menu-top {
+    & > a {
+      min-width: 10em;
+    }
+  }
+
+  .wp-submenu {
+    top: -1px;
+    left: @left-menu-width;
+  }
+
+  .wp-menu-open {
+
+    & > a:after {
+      content: "";
+      border: 8px solid rgba(0,0,0,0);
+      display: block;
+      height: 0;
+      width: 0;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      margin-top: -8px;
+      z-index: 10000;
+      pointer-events: none;
+    }
+
+    .wp-submenu {
+      display: block;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      top: auto;
+      z-index: 2;
+      position: relative;
+      padding: 0;
+
+      .wp-submenu-wrap {
+        .box-shadow(none);
+      }
+    }
+  } // .wp-menu-open
+
+  .wp-menu-tools {
+    font-size: 12px;
+    height: 30px;
+    min-height: 30px;
+
+    & > a {
+      line-height: 16px;
+    }
+
+    .wp-menu-image {
+      height: 30px;
+      opacity: 0.5;
+
+      a {
+        line-height: 30px;
+      }
+    }
+
+    &:hover {
+      .wp-menu-image {
+        opacity: 1;
+      }
+    }
+  } // .wp-menu-tools
+} // #adminmenu
+
+
+// folded menu
+.wp-folded #adminmenuback,
+.wp-folded #adminmenuwrap,
+.wp-folded #adminmenu,
+.wp-folded #adminmenu .wp-menu-top {
+  width: @folded-menu-width;
+}
+
+.wp-folded {
+  #adminmenu {
+
+    .wp-menu-top {
+      & > a {
+        display: none;
+      }
+
+      &.wp-has-submenu.wp-menu-not-open:hover:after {
+        border-width: 4px;
+        margin-top: -4px;
+      }
+    }
+
+    .wp-submenu {
+      position: absolute;
+      left: @folded-menu-width;
+      top: 0;
+      padding: 0 8px 8px 0;
+      z-index: 999;
+
+      .wp-submenu-wrap {
+        .box-shadow(@submenu-shadow);
+
+        .wp-submenu-head {
+          display: block;
+        }
+      }
+    } // .wp-submenu
+
+    .wp-menu-open {
+
+      .wp-menu-image a:after {
+        content: "";
+        border: 4px solid rgba(0,0,0,0);
+        display: block;
+        height: 0;
+        width: 0;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-top: -4px;
+        z-index: 10000;
+        pointer-events: none;
+      }
+
+      .wp-submenu {
+        display: none;
+      }
+
+      &:hover {
+        .wp-submenu {
+          display: block;
+        }
+
+        &.wp-has-submenu .wp-menu-image a:after {
+          display: none;
+        }
+      }
+    } // .wp-menu-open
+  } // #adminmenu
+
+  #container {
+    margin-left: @folded-menu-width;
+  }
+} // .wp-folded
+
+.wp-pinned {
+  #adminmenuwrap {
+    position: fixed;
+    left: 0;
+    top: @top-menu-height;
+    z-index: 8000;
+  }
+}
+
+// hide menu in popups
+body.popup {
+  #adminmenuback,
+  #adminmenuwrap {
+    display: none;
+  }
+  #container {
+    margin-left: 0;
+    width: 100%;
+  }
+}

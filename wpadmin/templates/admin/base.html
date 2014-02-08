@@ -1,0 +1,105 @@
+{% load admin_static wpadmin_tags wpadmin_menu_tags %}{% load firstof from future %}{% with admin_site_name=current_app %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
+{% block extrastyle %}{% endblock %}
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
+{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+{# WP Admin start #}
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&subset=latin%2Clatin-ext" />
+<link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/font-awesome.min.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/wpadmin.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "wpadmin/lss/themes/default.css" %}" />
+{% wpadmin_render_custom_style %}
+{% block wpadmin_extrastyle %}{% endblock %}
+{# WP Admin end #}
+<script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+{% block extrahead %}{% endblock %}
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+</head>
+{% load i18n %}
+
+{% wpadmin_are_breadcrumbs_enabled admin_site_name %}
+<body class="{% if is_popup %}popup {% endif %}{% if not wpadmin_are_breadcrumbs_enabled %}wp-no-breadcrumbs {% endif %}{% block bodyclass %}{% endblock %}">
+
+<!-- Wrapper -->
+<div id="wrapper">
+	{% if not is_popup %}
+		{% block adminmenu %}
+			<div id="adminmenuback"></div>
+			<div id="adminmenuwrap">
+				{% wpadmin_render_left_menu %}
+			</div>
+		{% endblock%}
+	{% endif %}
+
+	<!-- Container -->
+	<div id="container">
+
+		{% if not is_popup %}
+			{% block adminbar %}
+				<div id="adminbarwrap">
+					{% wpadmin_render_top_menu %}
+				</div>
+			{% endblock %}
+			{% block breadcrumbs %}
+				<div class="breadcrumbs">
+					<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+					{% if title %} &rsaquo; {{ title }}{% endif %}
+				</div>
+			{% endblock %}
+		{% endif %}
+
+		{% block messages %}
+			{% if messages %}
+				<ul class="messagelist">
+					{% for message in messages %}
+						<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		{% endblock messages %}
+
+		<!-- Content -->
+		<div id="content" class="{% block coltype %}colM{% endblock %}">
+			{% block pretitle %}{% endblock %}
+			{% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
+			{% block content %}
+			{% block object-tools %}{% endblock %}
+			{{ content }}
+			{% endblock %}
+			{% block sidebar %}{% endblock %}
+			<br class="clear" />
+		</div>
+		<!-- END Content -->
+
+		{% block footer %}<div id="footer"></div>{% endblock %}
+	</div>
+	<!-- END Container -->
+
+</div>
+<!-- END Wrapper -->
+
+</body>
+{# WP Admin start #}
+<script type="text/javascript">
+	// needed for setting cookie path
+	window.__admin_url = '{% url 'admin:index' %}';
+	window.__wpadmin_cookie_name = 'djangoWpAdminSettings';
+
+	if (typeof django == 'undefined' || typeof django.jQuery == 'undefined') {
+		var script = document.createElement('script');
+		script.type = "text/javascript";
+		script.src = "{% static "wpadmin/js/lib/jquery.min.js" %}";
+		document.getElementsByTagName('head')[0].appendChild(script);
+	} else {
+		var jQuery = django.jQuery;
+	}
+</script>
+<script type="text/javascript" src="{% static "wpadmin/js/lib/jquery.cookie.min.js" %}"></script>
+<script type="text/javascript" src="{% static "wpadmin/js/menu.js" %}"></script>
+<script type="text/javascript" src="{% static "wpadmin/js/dashboard.js" %}"></script>
+{% block wpadmin_extrscripts %}{% endblock %}
+{# WP Admin end #}
+</html>{% endwith %}

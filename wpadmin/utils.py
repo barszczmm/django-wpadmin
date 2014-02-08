@@ -39,3 +39,11 @@ def get_admin_site(context):
         return getattr(mod, inst)
     else:
         return admin.site
+
+
+def are_breadcrumbs_enabled(admin_site_name='admin'):
+    """
+    """
+    return get_wpadmin_settings(admin_site_name).get('dashboard', {}) \
+        .get('breadcrumbs', True)
+
