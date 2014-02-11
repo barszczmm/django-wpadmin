@@ -1,61 +1,120 @@
 body.change-form {
-  #content {
-    position: relative;
+  #content-main {
+    margin-top: 10px;
+  }
+}
 
-    #content-related {
-      position: fixed;
-      margin: 0;
-      top: 113px;
-      right: 2em;
+#content {
+  .object-tools {
+    font-size: inherit;
+    margin: -45px 0 0;
+    font-weight: 400;
+    font-family: inherit;
 
-      .buttons {
-        padding-bottom: 2.5%;
+    li {
+      background: none;
+      height: auto;
+      padding: 0;
+      font-size: inherit;
 
-        h2 {
-          margin-bottom: 2.5%;
-        }
-
-        input {
-          width: 90%;
-          margin: 2.5% 5%;
-        }
-
-        .deletelink-box {
-          margin: 2.5% 5%;
-          padding: 0;
-          text-align: center;
-
-          .deletelink {
-            color: #CC3434;
-            background: none;
-            padding: 0 2px;
-            display: inline-block;
-            border-bottom: 1px solid #CC3434;
-
-            &:hover {
-              color: #fff;
-              background: #ff0000;
-              border-color: #ff0000;
-            }
-          }
-        }
+      a {
+        height: auto;
+        padding: 6px 12px;
       }
     }
   }
 
-  .bottom-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 33px;
-    padding-top: 3px;
-    background-color: #417690;
+  .datetimeshortcuts {
+    a:last-child {
+      display: inline-block;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
 
-    input {
-      margin-left: 2em;
-      float: left;
+      img {
+        display:none;
+      }
+
+      &:after {
+        content: "\f073";
+        font-size: 1.33em;
+      }
+    }
+  }
+
+  .selector {
+    ul.selector-chooser {
+      background: none;
+
+      .selector-add,
+      .selector-remove {
+        text-indent: 0;
+        background: none;
+        font-size: 0;
+        line-height: 0;
+        opacity: 0.5;
+
+        &.active {
+          opacity: 1;
+        }
+
+        &:after {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          text-align: center;
+          font-size: 16px;
+          font-family: FontAwesome;
+          line-height: 1em;
+        }
+      }
+
+      .selector-add {
+        &:after {
+          content: "\f105";
+        }
+      }
+
+      .selector-remove {
+        &:after {
+          content: "\f104";
+        }
+      }
+    }
+
+    a.selector-chooseall,
+    a.selector-clearall {
+      background: none;
+      padding-right: 0;
+      padding-left: 0;
+      opacity: 0.5;
+
+      &:after,
+      &:before {
+        display: inline-block;
+        font-family: FontAwesome;
+        position: relative;
+        top: 1px;
+        margin-left: 0.4em;
+        margin-right: 0.4em;
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+
+    a.selector-chooseall {
+      &:after {
+        content: "\f101";
+      }
+    }
+
+    a.selector-clearall {
+      &:before {
+        content: "\f100";
+      }
     }
   }
 }
@@ -106,128 +165,13 @@ body.change-form {
   cursor: help;
 }
 
-a.selector-chooseall,
-a.selector-clearall {
-  background: none;
-  padding-right: 0;
-  padding-left: 0;
 
-  &:link,
-  &:visited {
-    color: @link-inactive-color;
-  }
-
-  &:after,
-  &:before {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    text-align: center;
-    border: 1px solid @link-inactive-color;
-    border-radius: 10px;
-    font-size: 16px;
-    font-family: FontAwesome;
-    color: @link-inactive-color;
-    position: relative;
-    top: 1px;
-    margin-left: 0.4em;
-    margin-right: 0.4em;
-  }
-
-  &.active {
-    background: none;
-    color: @link-color;
-
-    &:after,
-    &:before {
-      color: @link-color;
-      border-color: @link-color;
-    }
-
-    &:hover {
-      color: @link-hover-color;
-
-      &:after,
-      &:before {
-        color: @link-hover-color;
-        border-color: @link-hover-color;
-      }
-    }
-  }
-}
-
-a.selector-chooseall {
-  &:after {
-    content: "\f101";
-  }
-}
-
-a.selector-clearall {
-  &:before {
-    content: "\f100";
-  }
-}
 
 .selector .selector-filter label,
 .inline-group .aligned .selector .selector-filter label {
   font-size: 16px;
 }
 
-.selector {
-  ul.selector-chooser {
-    background: none;
-
-    .selector-add,
-    .selector-remove {
-      text-indent: 0;
-      background: none;
-      width: 18px;
-      height: 18px;
-      font-size: 0;
-      line-height: 0;
-      color: #F5F5F5;
-
-      &:after {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        text-align: center;
-        border: 1px solid @link-inactive-color;
-        border-radius: 10px;
-        font-size: 16px;
-        font-family: FontAwesome;
-        color: @link-inactive-color;
-        line-height: 1em;
-      }
-
-      &.active {
-        &:after {
-          color: @link-color;
-          border-color: @link-color;
-        }
-
-        &:hover {
-          &:after {
-            color: @link-hover-color;
-            border-color: @link-hover-color;
-          }
-        }
-      }
-    }
-
-    .selector-add {
-      &:after {
-        content: "\f105";
-      }
-    }
-
-    .selector-remove {
-      &:after {
-        content: "\f104";
-      }
-    }
-  }
-}
 
 .add-another {
   img {
@@ -240,14 +184,6 @@ a.selector-clearall {
     font-size: 14px;
     position: relative;
     top: 2px;
-  }
-}
-
-.historylink,
-.viewsitelink {
-  i {
-    font-size: 14px;
-    margin-right: 0.5em;
   }
 }
 

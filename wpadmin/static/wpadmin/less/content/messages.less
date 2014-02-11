@@ -1,24 +1,31 @@
-ul.messagelist {
-  padding-bottom: 15px;
+#container {
+  ul.messagelist {
+    padding: 20px 20px 0;
 
-  li {
-    border-style: solid;
-    border-width: 1px;
-    .border-radius(3px);
-    padding: 10px 10px 10px 35px;
-    background-position: 10px 10px;
-    border-color: #089614;
-    background-color: #CCFFD4;
-    color: #333;
+    li {
+      border-width: 0 0 0 4px;
+      border-style: solid;
+      padding: 12px;
+      .box-shadow(0 1px 1px 0 rgba(0, 0, 0, 0.1));
+      margin: 0;
+      font-size: 13px;
+      font-weight: 600;
 
-    &.warning {
-      border-color: #FFC000;
-      background-color: #FFFFCC;
-    }
+      &.success {
+        border-color: #7AD03A;
+      }
 
-    &.error {
-      border-color: #CC0000;
-      background-color: #FFEBE8;
+      &.warning {
+        border-color: #FFC000;
+      }
+
+      &.error {
+        border-color: #DD3D36;
+      }
+
+      & + li {
+        margin-top: 10px;
+      }
     }
   }
 }

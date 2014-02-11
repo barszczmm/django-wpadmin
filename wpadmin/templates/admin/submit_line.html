@@ -1,8 +1,11 @@
-{% load i18n %}
-<div class="bottom-bar">
-	{% if show_save %}<input type="submit" value="{% trans 'Save' %}" class="default" name="_save" {{ onclick_attrib }}/>{% endif %}
-	{% if show_save_as_new %}<input type="submit" value="{% trans 'Save as new' %}" name="_saveasnew" {{ onclick_attrib }}/>{%endif%}
-	{% if show_save_and_add_another %}<input type="submit" value="{% trans 'Save and add another' %}" name="_addanother" {{ onclick_attrib }} />{% endif %}
-	{% if show_save_and_continue %}<input type="submit" value="{% trans 'Save and continue editing' %}" name="_continue" {{ onclick_attrib }}/>{% endif %}
-	{% if show_delete_link %}<p class="deletelink-box"><a href="delete/" class="deletelink">{% trans "Delete" %}</a></p>{% endif %}
+{% load i18n admin_urls %}
+<div id="bottombar">
+{% if show_save %}<button title="{% trans 'Save' %}" type="submit" class="default" name="_save"><i class="fa fa-lg fa-floppy-o"></i><i class="fa fa-caret-right"></i>{% if is_popup %}<i class="fa fa-lg fa-times"></i>{% else %}<i class="fa fa-lg fa-list-alt"></i>{% endif %} <span class="text">{% trans 'Save' %}</span></button>{% endif %}
+{% if show_save_as_new %}<button title="{% trans 'Save as new' %}" type="submit" name="_saveasnew"><i class="fa fa-lg fa-floppy-o"></i><i class="fa fa-caret-right"></i><i class="fa fa-lg fa-files-o"></i> <span class="text">{% trans 'Save as new' %}</span></button>{%endif%}
+{% if show_save_and_add_another %}<button title="{% trans 'Save and add another' %}" type="submit" name="_addanother"><i class="fa fa-lg fa-floppy-o"></i><i class="fa fa-caret-right"></i><i class="fa fa-lg fa-plus-square-o"></i> <span class="text">{% trans 'Save and add another' %}</span></button>{% endif %}
+{% if show_save_and_continue %}<button title="{% trans 'Save and continue editing' %}" type="submit" name="_continue"><i class="fa fa-lg fa-floppy-o"></i><i class="fa fa-caret-right"></i><i class="fa fa-lg fa-pencil-square-o"></i> <span class="text">{% trans 'Save and continue editing' %}</span></button>{% endif %}
+{% if show_delete_link %}
+    {% url opts|admin_urlname:'delete' original.pk|admin_urlquote as delete_url %}
+    <a title="{% trans "Delete" %}" href="{% add_preserved_filters delete_url %}" class="deletelink"><i class="fa fa-lg fa-question"></i><i class="fa fa-caret-right"></i><i class="fa fa-trash-o fa-lg"></i> <span class="text">{% trans "Delete" %}</span></a>
+{% endif %}
 </div>

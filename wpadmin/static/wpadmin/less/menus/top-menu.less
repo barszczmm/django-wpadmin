@@ -1,18 +1,11 @@
 @import "common.less";
 
-html {
+body {
   padding-top: @top-menu-height;
   .box-sizing(border-box);
-}
 
-body.login {
-  #wrapper {
-    padding-top: 100px;
-    .box-sizing(border-box);
-
-    #container {
-      margin-top: 0;
-    }
+  &.popup {
+    padding-top: 0;
   }
 }
 

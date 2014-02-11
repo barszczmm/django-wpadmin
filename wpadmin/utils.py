@@ -5,6 +5,7 @@ WPadmin utilities.
 from django.conf import settings
 from django.utils.importlib import import_module
 from django.contrib import admin
+from django.utils.translation import get_language_from_path
 
 
 def get_wpadmin_settings(admin_site_name='admin'):
@@ -16,15 +17,18 @@ def get_wpadmin_settings(admin_site_name='admin'):
 
 def get_admin_site_name(context):
     """
-    Get admin site name from context.
-    First it tries to find variable named admin_site_name in context.
-    If this variable is not available, admin site name is taken from request path
-    (it is first part of path - between first and second slash).
+    Get admin site name from request from context.
+    Admin site name is taken from request path:
+    * it is first part of path - between first and second slash if there is no
+    lang prefix
+    * or second part fo path - between second and third slash
     """
-    admin_site_name = context.get('admin_site_name', '')
-    if not admin_site_name:
-        admin_site_name = context.get('request').path.split('/')[1]
-    return admin_site_name
+    path = context.get('request').path
+    lang = get_language_from_path(path)
+    path = path.split('/')
+    if lang and path[1] == lang:
+        return path[2]
+    return path[1]
 
 
 def get_admin_site(context):

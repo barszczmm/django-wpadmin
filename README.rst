@@ -52,8 +52,6 @@ Installation
     INSTALLED_APPS = (
         # Django WP Admin must be before django.contrib.admin
         'wpadmin',
-        'wpadmin.menu',
-        'wpadmin.dashboard',
     )
 
 

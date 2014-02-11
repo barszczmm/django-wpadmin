@@ -4,7 +4,7 @@
 		<div class="wp-menu-image"><a href="javascript:;"><img class="wp-small-gravatar" src="{% gravatar_url user 16 %}" width="16" height="16" /></a></div>
 		<a href="javascript:;">
 	    	{% trans 'Welcome,' %}
-	    	<strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong>.
+	    	<strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong>
 	    </a>
 		<div class="wp-submenu">
 			<div class="wp-submenu-wrap">

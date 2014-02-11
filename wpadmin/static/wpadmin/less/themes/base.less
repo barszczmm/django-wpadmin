@@ -2,6 +2,8 @@ body {
   background-color: @content-bg;
 }
 
+// menus ///////////////////////////////////////////////////////////////////////
+
 #adminmenuback,
 #adminmenuwrap,
 #adminmenu,
@@ -126,3 +128,145 @@ body {
   }
 }
 
+// content /////////////////////////////////////////////////////////////////////
+
+#container {
+  ul.messagelist {
+    li {
+      background: @messages-bg;
+      color: @messages-color;
+    }
+  }
+}
+
+#content {
+  a {
+    color: @content-link-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: @content-link-hover-color;
+    }
+  }
+
+  .actionlink {
+    background: @actions-links-bg;
+
+    &:hover {
+      background: @submenus-bg;
+      color: @submenus-link-hover-color;
+    }
+  }
+
+  h1 {
+    color: #222;
+
+    a.add-new {
+      background: @actions-links-bg;
+
+      &:hover {
+        background: @submenus-bg;
+        color: @submenus-current-link-color;
+      }
+    }
+  }
+
+  #changelist {
+    .actions-and-paginator {
+      .paginator {
+        span.this-page,
+        a {
+          background: @actions-links-bg !important;
+        }
+
+        a:hover {
+          background: @submenus-bg !important;
+          color: @submenus-current-link-color !important;
+        }
+      }
+    }
+
+    #changelist-filter {
+      ul {
+        background: @actions-links-bg;
+
+        li.selected a {
+          color: @content-link-color !important;
+        }
+
+        &:hover {
+          background-color: @submenus-bg;
+
+          li {
+            a {
+              color: @submenus-link-color !important;
+
+              &:hover {
+                color: @submenus-link-hover-color !important;
+              }
+            }
+
+            &.selected {
+              a {
+                color: @submenus-current-link-color !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    table {
+      background: @table-bg;
+      border-color: @table-border;
+
+      thead,
+      tfoot {
+        th {
+          color: @table-header-color;
+          border-color: @table-header-border;
+
+          &.sortable .text a {
+            color: @table-header-color;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          &.row1 {
+            background: @table-row1-bg;
+          }
+          &.row2 {
+            background: @table-row2-bg;
+          }
+        }
+      }
+    }
+  }
+
+  #bottombar {
+    background: @menus-bg;
+
+    input,
+    button,
+    a {
+      background: @menus-top-elem-current-bg;
+      color: @menus-top-elem-current-color;
+    }
+  }
+
+  .object-tools {
+    li {
+      a {
+        background: @actions-links-bg;
+
+        &:hover {
+          background: @submenus-bg;
+          color: @submenus-link-hover-color;
+        }
+      }
+    }
+  }
+}

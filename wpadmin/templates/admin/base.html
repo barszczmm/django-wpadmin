@@ -1,4 +1,4 @@
-{% load admin_static wpadmin_tags wpadmin_menu_tags %}{% load firstof from future %}{% with admin_site_name=current_app %}<!DOCTYPE html>
+{% load admin_static wpadmin_tags wpadmin_menu_tags %}{% load firstof from future %}<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
 <title>{% block title %}{% endblock %}</title>
@@ -9,8 +9,15 @@
 {# WP Admin start #}
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&subset=latin%2Clatin-ext" />
 <link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/font-awesome.min.css" %}" />
+{% with WPADMIN_DEV=0 %}{% if WPADMIN_DEV %}
+<link rel="stylesheet/less" type="text/css" href="{% static "wpadmin/less/wpadmin.less" %}" />
+<link rel="stylesheet/less" type="text/css" href="{% static "wpadmin/less/themes/ocean/theme.less" %}" />
+<script type="text/javascript">less = {env: "development"};</script>
+<script type="text/javascript" src="{% static "wpadmin/js/lib/less.min.js" %}"></script>
+{% else %}
 <link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/wpadmin.css" %}" />
-<link rel="stylesheet" type="text/css" href="{% static "wpadmin/lss/themes/default.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/themes/default.css" %}" />
+{% endif %}{% endwith %}
 {% wpadmin_render_custom_style %}
 {% block wpadmin_extrastyle %}{% endblock %}
 {# WP Admin end #}
@@ -20,7 +27,7 @@
 </head>
 {% load i18n %}
 
-{% wpadmin_are_breadcrumbs_enabled admin_site_name %}
+{% wpadmin_are_breadcrumbs_enabled %}
 <body class="{% if is_popup %}popup {% endif %}{% if not wpadmin_are_breadcrumbs_enabled %}wp-no-breadcrumbs {% endif %}{% block bodyclass %}{% endblock %}">
 
 <!-- Wrapper -->
@@ -98,8 +105,8 @@
 	}
 </script>
 <script type="text/javascript" src="{% static "wpadmin/js/lib/jquery.cookie.min.js" %}"></script>
-<script type="text/javascript" src="{% static "wpadmin/js/menu.js" %}"></script>
-<script type="text/javascript" src="{% static "wpadmin/js/dashboard.js" %}"></script>
+<script type="text/javascript" src="{% static "wpadmin/js/menus.js" %}"></script>
+<script type="text/javascript" src="{% static "wpadmin/js/content.js" %}"></script>
 {% block wpadmin_extrscripts %}{% endblock %}
 {# WP Admin end #}
-</html>{% endwith %}
+</html>
