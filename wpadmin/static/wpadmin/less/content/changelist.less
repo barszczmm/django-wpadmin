@@ -278,6 +278,7 @@
         vertical-align: middle;
         white-space: nowrap;
         border-style: solid;
+        border-width: 1px 0 1px 0;
         background: none;
 
         &.action-checkbox-column {
@@ -291,7 +292,7 @@
           .text {
             a {
               cursor: pointer;
-              display: block;
+              display: inline-block;
               padding: 8px 10px;
               line-height: 19px;
             }
@@ -300,7 +301,7 @@
 
         .text {
           span {
-            display: block;
+            display: inline-block;
             padding: 8px 10px;
             line-height: 19px;
           }
@@ -309,30 +310,33 @@
         &.sorted {
 
           .text {
-            padding-right: 42px;
+            float: left;
+            padding-right: 0;
           }
 
           .sortoptions {
             display: block;
-            float: right;
-            padding: 8px 0 0;
+            float: left;
+            padding: 11px 0 0;
             text-align: right;
             opacity: 0.4;
 
             a {
-              display: inline-block;
+              float: left;
+              display: block;
               height: 14px;
               width: 14px;
+              background: none;
+              text-align: center;
+              font-size: 14px;
+              line-height: 14px;
 
-              &.sortremove,
-              &.ascending,
-              &.descending {
-                background: none;
+              &:after {
                 font-family: FontAwesome;
                 font-style: normal;
                 font-weight: normal;
-                line-height: 1;
-                text-align: center;
+                line-height: 14px;
+                font-size: 14px;
               }
 
               &.sortremove {
@@ -340,18 +344,24 @@
 
                 &:after {
                   content: "\f00d";
+                  position: relative;
+                  top: -1px;
                 }
               }
 
               &.ascending {
                 &:after {
                   content: "\f0dd";
+                  position: relative;
+                  top: -3px;
                 }
               }
 
               &.descending {
                 &:after {
                   content: "\f0de";
+                  position: relative;
+                  top: 3px;
                 }
               }
             }
@@ -361,9 +371,13 @@
             }
 
             .sortpriority {
+              float: left;
+              display: block;
+              height: 14px;
+              width: 14px;
+              line-height: 14px;
               font-size: 0.8em;
-              position: relative;
-              top: 2px;
+              text-align: center;
             }
           }
 
@@ -377,18 +391,6 @@
             }
           }
         }
-      }
-    }
-
-    thead {
-      th {
-        border-width: 0 0 1px 0;
-      }
-    }
-
-    tfoot {
-      th {
-        border-width: 1px 0 0 0;
       }
     }
 

@@ -12,6 +12,13 @@ body {
   background-color: @menus-bg;
 }
 
+#adminmenu {
+  .wp-menu-top.wp-menu-open > a:after,
+  .wp-menu-top.wp-menu-open .wp-menu-image a:after {
+    border-right-color: @content-bg;
+  }
+}
+
 .wp-menu {
   a {
     color: @menus-link-color;
@@ -51,10 +58,6 @@ body {
       .wp-menu-image a {
         color: @menus-top-elem-current-color;
         background: @menus-top-elem-current-bg;
-
-        &:after {
-          border-right-color: @content-bg;
-        }
       }
 
       .wp-submenu {
@@ -225,11 +228,24 @@ body {
       tfoot {
         th {
           color: @table-header-color;
-          border-color: @table-header-border;
 
           &.sortable .text a {
             color: @table-header-color;
           }
+        }
+      }
+
+      thead {
+        th {
+          border-bottom-color: @table-header-border;
+          border-top-color: @table-bg;
+        }
+      }
+
+      tfoot {
+        th {
+          border-bottom-color: @table-bg;
+          border-top-color: @table-header-border;
         }
       }
 

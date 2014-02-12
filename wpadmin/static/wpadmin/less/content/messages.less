@@ -1,13 +1,13 @@
 #container {
   ul.messagelist {
-    padding: 20px 20px 0;
+    padding: 0 20px;
 
     li {
       border-width: 0 0 0 4px;
       border-style: solid;
       padding: 12px;
       .box-shadow(0 1px 1px 0 rgba(0, 0, 0, 0.1));
-      margin: 0;
+      margin: 10px 0 0;
       font-size: 13px;
       font-weight: 600;
 
@@ -23,8 +23,12 @@
         border-color: #DD3D36;
       }
 
-      & + li {
-        margin-top: 10px;
+      &.info {
+        border-color: #52ACCC;
+      }
+
+      &:first-child {
+        margin-top: 20px;
       }
     }
   }
