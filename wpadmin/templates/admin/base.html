@@ -34,14 +34,16 @@
 	// cookie name
 	window.__wpadmin_cookie_name = 'djangoWpAdminSettings';
 
-	if ((typeof jQuery == 'undefined') &&
-		(typeof django == 'undefined' || typeof django.jQuery == 'undefined')) {
-		var script = document.createElement('script');
-		script.type = "text/javascript";
-		script.src = "{% static "wpadmin/js/lib/jquery.min.js" %}";
-		document.getElementsByTagName('head')[0].appendChild(script);
-	} else {
-		var jQuery = django.jQuery;
+	// we need jQuery in default namespace (not django.jQuery) because we use some external jQuery plugins
+	if (typeof jQuery == 'undefined') {
+		// we can get jQuery object from django object but there are some admin templates where jQuery is not loaded
+		if (typeof django == 'undefined' || typeof django.jQuery == 'undefined') {
+			// so lets load our jQuery synchronously
+			document.write(decodeURI("%3Cscript src='{% static "wpadmin/js/lib/jquery.min.js" %}' type='text/javascript'%3E%3C/script%3E"));
+		} else {
+			// lest copy jQuery from django object to default namespace
+			var jQuery = django.jQuery;
+		}
 	}
 </script>
 <script type="text/javascript" src="{% static "wpadmin/js/lib/jquery.cookie.min.js" %}"></script>
