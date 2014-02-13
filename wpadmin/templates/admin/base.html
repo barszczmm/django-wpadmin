@@ -9,7 +9,7 @@
 {# WP Admin start #}
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&subset=latin%2Clatin-ext" />
 <link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/font-awesome.min.css" %}" />
-{% with WPADMIN_DEV=0 %}{% if WPADMIN_DEV %}
+{% with WPADMIN_DEV=1 %}{% if WPADMIN_DEV %}
 <link rel="stylesheet/less" type="text/css" href="{% static "wpadmin/less/wpadmin.less" %}" />
 <link rel="stylesheet/less" type="text/css" href="{% static "wpadmin/less/themes/default/theme.less" %}" />
 <script type="text/javascript">less = {env: "development"};</script>
@@ -23,6 +23,28 @@
 {# WP Admin end #}
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
 {% block extrahead %}{% endblock %}
+{# WP Admin start #}
+<script type="text/javascript">
+	// needed for setting cookie path
+	window.__admin_url = '{% url 'admin:index' %}';
+	// cookie name
+	window.__wpadmin_cookie_name = 'djangoWpAdminSettings';
+
+	if ((typeof jQuery == 'undefined') &&
+		(typeof django == 'undefined' || typeof django.jQuery == 'undefined')) {
+		var script = document.createElement('script');
+		script.type = "text/javascript";
+		script.src = "{% static "wpadmin/js/lib/jquery.min.js" %}";
+		document.getElementsByTagName('head')[0].appendChild(script);
+	} else {
+		var jQuery = django.jQuery;
+	}
+</script>
+<script type="text/javascript" src="{% static "wpadmin/js/lib/jquery.cookie.min.js" %}"></script>
+<script type="text/javascript" src="{% static "wpadmin/js/menus.js" %}"></script>
+<script type="text/javascript" src="{% static "wpadmin/js/content.js" %}"></script>
+{% block wpadmin_extrahead %}{% endblock %}
+{# WP Admin end #}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>
 {% load i18n %}
@@ -34,10 +56,7 @@
 <div id="wrapper">
 	{% if not is_popup %}
 		{% block adminmenu %}
-			<div id="adminmenuback"></div>
-			<div id="adminmenuwrap">
-				{% wpadmin_render_left_menu %}
-			</div>
+			{% wpadmin_render_left_menu %}
 		{% endblock%}
 	{% endif %}
 
@@ -46,9 +65,7 @@
 
 		{% if not is_popup %}
 			{% block adminbar %}
-				<div id="adminbarwrap">
-					{% wpadmin_render_top_menu %}
-				</div>
+				{% wpadmin_render_top_menu %}
 			{% endblock %}
 			{% block breadcrumbs %}
 				<div class="breadcrumbs">
@@ -89,24 +106,4 @@
 <!-- END Wrapper -->
 
 </body>
-{# WP Admin start #}
-<script type="text/javascript">
-	// needed for setting cookie path
-	window.__admin_url = '{% url 'admin:index' %}';
-	window.__wpadmin_cookie_name = 'djangoWpAdminSettings';
-
-	if (typeof django == 'undefined' || typeof django.jQuery == 'undefined') {
-		var script = document.createElement('script');
-		script.type = "text/javascript";
-		script.src = "{% static "wpadmin/js/lib/jquery.min.js" %}";
-		document.getElementsByTagName('head')[0].appendChild(script);
-	} else {
-		var jQuery = django.jQuery;
-	}
-</script>
-<script type="text/javascript" src="{% static "wpadmin/js/lib/jquery.cookie.min.js" %}"></script>
-<script type="text/javascript" src="{% static "wpadmin/js/menus.js" %}"></script>
-<script type="text/javascript" src="{% static "wpadmin/js/content.js" %}"></script>
-{% block wpadmin_extrscripts %}{% endblock %}
-{# WP Admin end #}
 </html>

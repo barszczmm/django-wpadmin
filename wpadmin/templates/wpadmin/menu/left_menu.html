@@ -1,31 +1,34 @@
 {% load wpadmin_menu_tags i18n %}
-{% if is_user_allowed and menu.children %}
-	<ul id="adminmenu" class="wp-menu" role="navigation">
+<div id="adminmenuback"></div>
+<div id="adminmenuwrap">
+	{% if is_user_allowed and menu.children %}
+		<ul id="adminmenu" class="wp-menu" role="navigation">
 
-		<li class="hide-if-no-js wp-menu-top wp-has-submenu wp-menu-not-open wp-menu-tools">
-			<div class="wp-menu-image"><a aria-label="{% trans 'Menu options' %}" title="{% trans 'Menu options' %}" href="javascript:;"><i class="fa fa-fw fa-cog"></i></a></div>
-			<a href="javascript:;" title="{% trans 'Menu options' %}">{% trans 'Menu options' %}</a>
-			<div class="wp-submenu">
-				<div class="wp-submenu-wrap">
-					<div class="wp-submenu-head">{% trans 'Menu options' %}</div>
-					<ul>
-						<li class="wp-menu-tool" id="collapse-menu" data-text-collapsed="{% trans "Expand menu" %}" data-text-expanded="{% trans "Collapse menu" %}">
-							<a href="javascript:;">{% trans "Collapse menu" %}</a>
-						</li>
-						<li class="wp-menu-tool" id="pin-menu" data-text-pinned="{% trans "Unpin menu" %}" data-text-unpinned="{% trans "Pin menu" %}">
-							<a href="javascript:;">{% trans "Pin menu" %}</a>
-						</li>
-					</ul>
+			<li class="hide-if-no-js wp-menu-top wp-has-submenu wp-menu-not-open wp-menu-tools">
+				<div class="wp-menu-image"><a aria-label="{% trans 'Menu options' %}" title="{% trans 'Menu options' %}" href="javascript:;"><i class="fa fa-fw fa-cog"></i></a></div>
+				<a href="javascript:;" title="{% trans 'Menu options' %}">{% trans 'Menu options' %}</a>
+				<div class="wp-submenu">
+					<div class="wp-submenu-wrap">
+						<div class="wp-submenu-head">{% trans 'Menu options' %}</div>
+						<ul>
+							<li class="wp-menu-tool" id="collapse-menu" data-text-collapsed="{% trans "Expand menu" %}" data-text-expanded="{% trans "Collapse menu" %}">
+								<a href="javascript:;">{% trans "Collapse menu" %}</a>
+							</li>
+							<li class="wp-menu-tool" id="pin-menu" data-text-pinned="{% trans "Unpin menu" %}" data-text-unpinned="{% trans "Pin menu" %}">
+								<a href="javascript:;">{% trans "Pin menu" %}</a>
+							</li>
+						</ul>
+					</div>
 				</div>
-			</div>
-		</li>
+			</li>
 
-		{% for item in menu.children %}
-			{% if item.is_user_tools %}
-				{% wpadmin_render_user_tools item forloop.first forloop.last %}
-			{% else %}
-				{% wpadmin_render_menu_top_item item forloop.first forloop.last %}
-			{% endif %}
-		{% endfor %}
-	</ul>
-{% endif %}
+			{% for item in menu.children %}
+				{% if item.is_user_tools %}
+					{% wpadmin_render_user_tools item forloop.first forloop.last %}
+				{% else %}
+					{% wpadmin_render_menu_top_item item forloop.first forloop.last %}
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+</div>

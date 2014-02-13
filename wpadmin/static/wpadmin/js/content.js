@@ -13,10 +13,10 @@ jQuery(document).ready(function($) {
 	);
 
 	// icons
-	$('#changelist-form img[src$="icon-yes.gif"]').hide()
+	$('img[src$="/admin/img/icon-yes.gif"][alt="True"]').hide()
 		.after('<i class="fa fa-fw fa-check-square-o"></i>');
 
-	$('#changelist-form img[src$="icon-no.gif"]').hide()
+	$('img[src$="/admin/img/icon-no.gif"][alt="False"]').hide()
 		.after('<i class="fa fa-fw fa-minus-square-o"></i>');
 
 	// fix bottom bar buttons widths

@@ -21,6 +21,12 @@ class Menu(UserTestElementMixin):
                 setattr(self, key, kwargs[key])
         self.children = kwargs.get('children', [])
 
+    def is_user_allowed(self, user):
+        """
+        Check if specified user is allowed to see this menu.
+        """
+        return True
+
     def init_with_context(self, context):
         pass
 
