@@ -8,7 +8,7 @@ def read(fname):
 
 setup(
     name='django-wpadmin',
-    version=VERSION,
+    version='.'.join(str(x) for x in VERSION),
     description='WordPress look and feel for Django administration panel.',
     long_description = '''
 %s
