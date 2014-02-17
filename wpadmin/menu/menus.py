@@ -31,9 +31,30 @@ class Menu(UserTestElementMixin):
         pass
 
 
+class DefaultTopMenu(Menu):
+    """
+    Default top menu which mimics default Django admin header.
+    """
+
+    def init_with_context(self, context):
+
+        self.children += [
+            items.MenuItem(
+                title=_('Django administration'),
+                url=None,
+                icon='fa-gears',
+                css_styles='font-size: 1.5em;',
+            ),
+            items.UserTools(
+                css_styles='float: right;',
+                check_if_user_allowed=lambda user: user.is_active and user.is_staff,
+            ),
+        ]
+
+
 class TopMenu(Menu):
     """
-    Default top menu.
+    Advanced default top menu.
     """
 
     def init_with_context(self, context):
@@ -70,7 +91,7 @@ class TopMenu(Menu):
 
 class LeftMenu(Menu):
     """
-    Default left menu.
+    Advanced default left menu.
     """
 
     def is_user_allowed(self, user):

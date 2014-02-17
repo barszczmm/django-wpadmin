@@ -8,11 +8,35 @@ from wpadmin.menu.utils import get_menu
 register = template.Library()
 
 
+class IsMenuEnabledNode(template.Node):
+
+    def __init__(self, menu_name):
+        """
+        menu_name - menu name ('top' or 'left')
+        """
+        self.menu_name = menu_name
+
+    def render(self, context):
+        menu = get_menu(self.menu_name, get_admin_site_name(context))
+        if menu and menu.is_user_allowed(context.get('request').user):
+            enabled = True
+        else:
+            enabled = False
+        context['wpadmin_is_%s_menu_enabled' % self.menu_name] = enabled
+        return ''
+
+
+def wpadmin_is_left_menu_enabled(parser, token):
+    return IsMenuEnabledNode('left')
+
+register.tag('wpadmin_is_left_menu_enabled', wpadmin_is_left_menu_enabled)
+
+
 def wpadmin_render_top_menu(context):
     menu = get_menu('top', get_admin_site_name(context))
     if not menu:
-        from wpadmin.menu.menus import TopMenu
-        menu = TopMenu()
+        from wpadmin.menu.menus import DefaultTopMenu
+        menu = DefaultTopMenu()
     menu.init_with_context(context)
     context.update({
         'menu': menu,
@@ -27,14 +51,12 @@ register.inclusion_tag(
 
 def wpadmin_render_left_menu(context):
     menu = get_menu('left', get_admin_site_name(context))
-    if not menu:
-        from wpadmin.menu.menus import LeftMenu
-        menu = LeftMenu()
-    menu.init_with_context(context)
-    context.update({
-        'menu': menu,
-        'is_user_allowed': menu.is_user_allowed(context.get('request').user),
-    })
+    if menu:
+        menu.init_with_context(context)
+        context.update({
+            'menu': menu,
+            'is_user_allowed': menu.is_user_allowed(context.get('request').user),
+        })
     return context
 
 register.inclusion_tag(
