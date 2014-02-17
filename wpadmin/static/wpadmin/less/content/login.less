@@ -1,15 +1,32 @@
 body.login {
+
   #wrapper {
     overflow: hidden;
   }
+
   #container {
-    margin-left: (@left-menu-width + 60px);
-    margin-top: 60px;
+    #content {
+      .form-row {
+        border: 0;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
   }
 
-  &.wp-folded {
+  &.wp-with-left-menu {
     #container {
-      margin-left: (@folded-menu-width + 60px);
+      margin-left: auto;
+      width: 28em;
+      position: relative;
+      left: (@left-menu-width / 2);
     }
+
+    &.wp-folded {
+      #container {
+        left: (@folded-menu-width / 2);
+      }
+    }
+
   }
 }

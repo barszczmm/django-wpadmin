@@ -1,5 +1,11 @@
 @import "common.less";
 
+body.wp-with-left-menu #container {
+  width: auto;
+  margin-left: @left-menu-width;
+  overflow: hidden;
+}
+
 #adminmenuback,
 #adminmenuwrap {
   width: @left-menu-width;
@@ -96,14 +102,14 @@
 
 
 // folded menu
-.wp-folded #adminmenuback,
-.wp-folded #adminmenuwrap,
-.wp-folded #adminmenu,
-.wp-folded #adminmenu .wp-menu-top {
+body.wp-folded #adminmenuback,
+body.wp-folded #adminmenuwrap,
+body.wp-folded #adminmenu,
+body.wp-folded #adminmenu .wp-menu-top {
   width: @folded-menu-width;
 }
 
-.wp-folded {
+body.wp-with-left-menu.wp-folded {
   #adminmenu {
 
     .wp-menu-top {
@@ -170,7 +176,7 @@
   }
 } // .wp-folded
 
-.wp-pinned {
+body.wp-pinned {
   #adminmenuwrap {
     position: fixed;
     left: 0;

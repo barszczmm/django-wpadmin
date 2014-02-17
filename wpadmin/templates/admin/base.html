@@ -55,8 +55,8 @@
 </head>
 {% load i18n %}
 
-{% wpadmin_are_breadcrumbs_enabled %}
-<body class="{% if is_popup %}popup {% endif %}{% if not wpadmin_are_breadcrumbs_enabled %}wp-no-breadcrumbs {% endif %}{% block bodyclass %}{% endblock %}">
+{% wpadmin_are_breadcrumbs_enabled %}{% wpadmin_is_left_menu_enabled %}
+<body class="{% if is_popup %}popup {% endif %}{% if not wpadmin_are_breadcrumbs_enabled %}wp-no-breadcrumbs {% endif %}{% if wpadmin_is_left_menu_enabled %}wp-with-left-menu {% endif %}{% block bodyclass %}{% endblock %}">
 
 <!-- Wrapper -->
 <div id="wrapper">

@@ -12,11 +12,6 @@
 
 @submenu-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 
-#container {
-  width: auto;
-  margin-left: @left-menu-width;
-  overflow: hidden;
-}
 
 .wp-menu {
   list-style: none outside none;
@@ -44,6 +39,13 @@
     margin: 0;
     padding: 0;
     list-style: none;
+
+    &.wp-no-url {
+      & > a,
+      & > .wp-menu-image a {
+        cursor: default;
+      }
+    }
   }
 
   .wp-menu-top {
@@ -187,5 +189,23 @@
       margin: 0 auto;
       vertical-align: middle;
     }
+
+    .wp-submenu {
+      width: (@left-menu-width + 80px);
+
+      .wp-submenu-wrap {
+        min-height: 94px;
+        width: (@left-menu-width + 80px);
+        padding-left: 80px;
+        position: relative;
+
+        img.wp-big-gravatar {
+          position: absolute;
+          left: 15px;
+          top: 15px;
+        }
+      }
+    }
+
   }
 } // .wp-menu

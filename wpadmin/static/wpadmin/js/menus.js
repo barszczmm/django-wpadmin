@@ -86,15 +86,15 @@
 		}
 	}
 
-	var settings = readWPAdminCookie();
-	if (settings['folded'] && !$('body').hasClass('wp-folded')) {
-		collapsibleLeftMenu();
-	}
-	if (settings['pinned'] && !$('body').hasClass('wp-pinned')) {
-		pinnableLeftMenu();
-	}
-
 	$(document).ready(function() {
+
+		var settings = readWPAdminCookie();
+		if (settings['folded'] && !$('body').hasClass('wp-folded')) {
+			collapsibleLeftMenu();
+		}
+		if (settings['pinned'] && !$('body').hasClass('wp-pinned')) {
+			pinnableLeftMenu();
+		}
 
 		$(window).resize(
 			function() {

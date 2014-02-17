@@ -1,7 +1,7 @@
 {% load wpadmin_menu_tags i18n %}
-<div id="adminmenuback"></div>
-<div id="adminmenuwrap">
-	{% if is_user_allowed and menu.children %}
+{% if is_user_allowed and menu.children %}
+	<div id="adminmenuback"></div>
+	<div id="adminmenuwrap">
 		<ul id="adminmenu" class="wp-menu" role="navigation">
 
 			<li class="hide-if-no-js wp-menu-top wp-has-submenu wp-menu-not-open wp-menu-tools">
@@ -30,5 +30,5 @@
 				{% endif %}
 			{% endfor %}
 		</ul>
-	{% endif %}
-</div>
+	</div>
+{% endif %}

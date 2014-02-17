@@ -1,4 +1,5 @@
-body {
+body,
+body.login {
   background-color: @content-bg;
 }
 
@@ -260,6 +261,24 @@ body {
         }
       }
     }
+  }
+
+  .module {
+    background: @box-bg;
+    border-color: @box-border;
+  }
+
+  .module h2,
+  .module caption,
+  .inline-group h2,
+  .selector .selector-available h2 {
+    background: @box-bg;
+    color: @box-header-color;
+    border-color: @box-header-border;
+  }
+
+  .form-row {
+    border-color: @box-header-border;
   }
 
   #bottombar {
