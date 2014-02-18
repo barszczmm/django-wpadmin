@@ -176,6 +176,39 @@ body.login {
     }
   }
 
+  table {
+    background: @table-bg;
+    border-color: @table-border;
+
+    thead th,
+    thead td,
+    tfoot th,
+    tfoot td {
+      color: @table-header-color;
+      border-color: @table-header-border;
+    }
+
+    thead,
+    tfoot {
+      th {
+        &.sortable .text a {
+          color: @table-header-color;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        &.row1 {
+          background: @table-row1-bg;
+        }
+        &.row2 {
+          background: @table-row2-bg;
+        }
+      }
+    }
+  }
+
   #changelist {
     .actions-and-paginator {
       .paginator {
@@ -216,47 +249,6 @@ body.login {
                 color: @submenus-current-link-color !important;
               }
             }
-          }
-        }
-      }
-    }
-
-    table {
-      background: @table-bg;
-      border-color: @table-border;
-
-      thead,
-      tfoot {
-        th {
-          color: @table-header-color;
-
-          &.sortable .text a {
-            color: @table-header-color;
-          }
-        }
-      }
-
-      thead {
-        th {
-          border-bottom-color: @table-header-border;
-          border-top-color: @table-bg;
-        }
-      }
-
-      tfoot {
-        th {
-          border-bottom-color: @table-bg;
-          border-top-color: @table-header-border;
-        }
-      }
-
-      tbody {
-        tr {
-          &.row1 {
-            background: @table-row1-bg;
-          }
-          &.row2 {
-            background: @table-row2-bg;
           }
         }
       }
@@ -303,5 +295,40 @@ body.login {
         }
       }
     }
+  }
+
+  .inline-group {
+    background-color: @box-bg;
+    border-color: @box-border;
+
+    h3 {
+      border-color: @box-header-border;
+    }
+
+    fieldset .form-row:last-of-type {
+      border-color: @box-header-border;
+    }
+
+    table {
+      thead,
+      tfoot {
+        td,
+        th {
+          border-color: @box-header-border;
+        }
+      }
+    }
+
+    div.add-row,
+    .tabular tr.add-row td {
+      border-color: @box-header-border;
+    }
+  }
+}
+
+body.dashboard #content .module table tr {
+  th,
+  td {
+    border-color: @box-header-border;
   }
 }

@@ -17,6 +17,10 @@ body.wp-no-breadcrumbs {
   margin: 0 20px;
   padding: 10px 0 50px;
 
+  a {
+    outline: none;
+  }
+
   h1 {
     font-size: 23px;
     line-height: 29px;
@@ -34,61 +38,40 @@ body.wp-no-breadcrumbs {
       border: 0;
     }
   }
-}
 
-.addlink {
-  padding-left: 0;
-  background: none;
-
-  &:before {
-    content: "\f067";
-    font-family: FontAwesome;
-    font-size: 14px;
-    margin-right: 0.2em;
-    position: relative;
-    top: 1px;
-  }
-}
-
-.changelink {
-  padding-left: 0;
-  background: none;
-
-  &:before {
-    content: "\f044";
-    font-family: FontAwesome;
-    font-size: 14px;
-    margin-right: 0.2em;
-    position: relative;
-    top: 1px;
-  }
-}
-
-.actionlist {
-  .addlink {
-    &:before {
-      color: #666;
+  table {
+    td,
+    th {
+      font-family: inherit;
+      font-size: 13px;
+      padding: 8px 10px;
     }
-  }
 
-  .changelink {
-    &:before {
-      color: #666;
-    }
-  }
-
-  .deletelink {
-    background: none;
-    padding-left: 0;
-
-    &:before {
-      content: "\f00d";
-      font-family: FontAwesome;
+    thead th,
+    thead td,
+    tfoot th,
+    tfoot td {
+      background: none;
+      border-style: solid;
       font-size: 14px;
-      margin-right: 0.2em;
-      position: relative;
-      top: 1px;
-      color: #666;
+      font-weight: 400;
+    }
+
+    thead th,
+    thead td {
+      border-width: 0 0 1px 0;
+    }
+
+    tfoot th,
+    tfoot td {
+      border-width: 1px 0 0 0;
+    }
+
+    tbody {
+      th,
+      td {
+        border: none;
+      }
     }
   }
 }

@@ -160,6 +160,69 @@ body.change-form {
       margin-top: 8px;
     }
   }
+
+  .inline-group {
+    border-width: 1px;
+    border-style: solid;
+    margin: 0 0 20px;
+    .box-shadow(0 1px 1px rgba(0, 0, 0, 0.04));
+
+    h3 {
+      color: inherit;
+      padding: 4px 12px;
+      background: none;
+      font-size: 12px;
+    }
+
+    fieldset {
+      margin: 0;
+      border: 0;
+      .box-shadow(none);
+
+      .form-row:last-of-type {
+        border-style: solid;
+        border-width: 0 0 1px 0;
+      }
+    }
+
+    table {
+      border: 0;
+
+      tbody tr {
+        &.row1,
+        &.row2 {
+          background: none;
+        }
+      }
+    }
+
+    div.add-row,
+    .tabular tr.add-row td {
+      background: none;
+    }
+
+    .tabular tr.add-row td {
+      border-width: 1px 0 0;
+      border-style: solid;
+    }
+
+    ul.tools a.add,
+    div.add-row a,
+    .tabular tr.add-row td a {
+      background: none;
+      padding: 0;
+      font-size: 13px;
+
+      &:before {
+        content: "\f067";
+        font-family: FontAwesome;
+        font-size: 14px;
+        margin-right: 0.2em;
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
 }
 
 .datetime {

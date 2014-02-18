@@ -10,23 +10,23 @@ Django WP Admin
 
 Features
 --------
-* Optional fixed (in CSS positioning terms) top menu with branding, user options (change password, logout, gravatar) and any other menu items
-* Optional fully configurable left menu with nice WordPress style
+* WordPress look and feel
+* More responsive (admin panel should look fine and be usable on displays with minimum 360px width)
+* Editable top menu
+* Optional fully configurable left menu
 * Left menu can be pinned (fixed CSS position) or unpinned and collapsed or expanded
-* Awesome `Font Awesome <http://fortawesome.github.com/Font-Awesome/>`_ icons supported in both menus
-* Multiple AdminSite's support with possibility to have different menus, colors and title for each one
-* Supports Django 1.4.x and 1.5.x
-* WordPress look and feel for objects lists
-* WordPress look and feel for objects edit pages
+* Awesome `Font Awesome <http://fontawesome.io/>`_ icons supported in both menus
+* Multiple AdminSite's support with possibility to have different menus, colors and titles for each one
 
 
 TODO
 ----
+* Styles for inputs
+* Styles for calendar widget
+* Styles for timepicker widget
 * Styles for history page
-* Styles for inlines
-* TinyMCE integration with WordPress theme
-* `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ integration
-* Bookmarks support
+* Styles for delete confirmation page
+* `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ integration
 * Documentation
 
 
@@ -82,6 +82,8 @@ This app takes a lot of ideas and a lot of code from `django-admin-tools <https:
 Credits
 -------
 Python code is heavily based on `django-admin-tools <https://bitbucket.org/izi/django-admin-tools/wiki/Home>`_ app.
+
 WordPress look and feel is of course inspired by `WordPress <http://wordpress.org/>`_.
 
+Included icons comes from `Font Awesome <http://fontawesome.io/>`_.
 
