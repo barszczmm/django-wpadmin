@@ -163,6 +163,61 @@ body.login {
     }
   }
 
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="file"],
+  select {
+    border-color: @input-border;
+    background-color: @input-bg;
+    color: @input-color;
+
+    &:focus {
+      border-color: @input-focus-border;
+    }
+  }
+
+  form .form-row p {
+    color: @input-color;
+  }
+
+  .button,
+  input[type="submit"],
+  input[type="button"],
+  .submit-row input {
+    background-color: @button-bg;
+    border-color: @button-border;
+    color: @button-color;
+
+    &:hover,
+    &:focus {
+      background-color: @button-hover-bg;
+      border-color: @button-hover-border;
+      color: @button-hover-color;
+    }
+  }
+
+  .button.default,
+  input.default[type="submit"],
+  input.default[type="button"],
+  .submit-row input.default {
+    background-color: @default-button-bg;
+    border-color: @default-button-border;
+    color: @default-button-color;
+
+    &:hover,
+    &:focus {
+      background-color: @default-button-hover-bg;
+      border-color: @default-button-hover-border;
+      color: @default-button-hover-color;
+    }
+  }
+
   h1 {
     color: #222;
 
@@ -262,8 +317,7 @@ body.login {
 
   .module h2,
   .module caption,
-  .inline-group h2,
-  .selector .selector-available h2 {
+  .inline-group h2 {
     background: @box-bg;
     color: @box-header-color;
     border-color: @box-header-border;
@@ -323,6 +377,55 @@ body.login {
     .tabular tr.add-row td {
       border-color: @box-header-border;
     }
+  }
+
+  .selector {
+    .selector-filter {
+      border-color: @input-border;
+    }
+
+    select:focus {
+      border-color: @input-border;
+    }
+  }
+
+  .help,
+  p.help {
+    color: @help-color !important;
+  }
+}
+
+.calendarbox,
+.clockbox {
+  border-color: @menus-bg;
+
+  caption,
+  h2 {
+    background: @menus-bg;
+  }
+
+  .calendar-cancel {
+    background: @menus-top-elem-current-bg;
+    a {
+      color: @menus-top-elem-current-color;
+    }
+  }
+}
+
+.clockbox .timelist li {
+  border-color: @box-border;
+}
+
+.calendarbox {
+  .calendar {
+    th,
+    td {
+      border-color: @box-border;
+    }
+  }
+
+  .calendar-shortcuts {
+    border-color: @box-border;
   }
 }
 

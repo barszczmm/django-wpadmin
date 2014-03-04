@@ -1,7 +1,7 @@
 @import "../mixins.less";
-@import "colors.less";
 @import "forms.less";
 @import "buttons.less";
+@import "widgets.less";
 @import "messages.less";
 @import "bottombar.less";
 @import "changelist.less";
@@ -13,13 +13,15 @@ body.wp-no-breadcrumbs {
   .breadcrumbs { display: none !important; }
 }
 
+a,
+button,
+input[type="submit"] {
+  outline: none;
+}
+
 #content {
   margin: 0 20px;
   padding: 10px 0 50px;
-
-  a {
-    outline: none;
-  }
 
   h1 {
     font-size: 23px;

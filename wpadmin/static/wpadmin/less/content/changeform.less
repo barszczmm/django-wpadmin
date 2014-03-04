@@ -24,100 +24,6 @@ body.change-form {
     }
   }
 
-  .datetimeshortcuts {
-    a:last-child {
-      display: inline-block;
-      font-family: FontAwesome;
-      font-style: normal;
-      font-weight: normal;
-      line-height: 1;
-
-      img {
-        display:none;
-      }
-
-      &:after {
-        content: "\f073";
-        font-size: 1.33em;
-      }
-    }
-  }
-
-  .selector {
-    ul.selector-chooser {
-      background: none;
-
-      .selector-add,
-      .selector-remove {
-        text-indent: 0;
-        background: none;
-        font-size: 0;
-        line-height: 0;
-        opacity: 0.5;
-
-        &.active {
-          opacity: 1;
-        }
-
-        &:after {
-          display: inline-block;
-          width: 16px;
-          height: 16px;
-          text-align: center;
-          font-size: 16px;
-          font-family: FontAwesome;
-          line-height: 1em;
-        }
-      }
-
-      .selector-add {
-        &:after {
-          content: "\f105";
-        }
-      }
-
-      .selector-remove {
-        &:after {
-          content: "\f104";
-        }
-      }
-    }
-
-    a.selector-chooseall,
-    a.selector-clearall {
-      background: none;
-      padding-right: 0;
-      padding-left: 0;
-      opacity: 0.5;
-
-      &:after,
-      &:before {
-        display: inline-block;
-        font-family: FontAwesome;
-        position: relative;
-        top: 1px;
-        margin-left: 0.4em;
-        margin-right: 0.4em;
-      }
-
-      &.active {
-        opacity: 1;
-      }
-    }
-
-    a.selector-chooseall {
-      &:after {
-        content: "\f101";
-      }
-    }
-
-    a.selector-clearall {
-      &:before {
-        content: "\f100";
-      }
-    }
-  }
-
   .module {
     .box-shadow(0 1px 1px rgba(0, 0, 0, 0.04));
     border-width: 1px;
@@ -127,8 +33,7 @@ body.change-form {
 
   .module h2,
   .module caption,
-  .inline-group h2,
-  .selector .selector-available h2 {
+  .inline-group h2 {
     font-size: 14px;
     line-height: 1.4;
     font-weight: 600;
@@ -222,26 +127,38 @@ body.change-form {
         top: 1px;
       }
     }
-  }
-}
 
-.datetime {
-  .vTimeField {
-    margin-top: 3px;
+    .tabular tr td.original {
+      padding: 2px 0 0;
+    }
+  }
+
+  .help,
+  p.help {
+    font-size: 11px !important;
+    margin-left: 0;
+    padding-left: 0;
+
+    &:before {
+      display: inline-block;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      content: "\f05a";
+      font-size: 14px;
+      margin-left: 5px;
+      margin-right: 5px;
+      opacity: 0.3;
+      position: relative;
+      top: 1px;
+    }
   }
 }
 
 .help-tooltip {
   cursor: help;
 }
-
-
-
-.selector .selector-filter label,
-.inline-group .aligned .selector .selector-filter label {
-  font-size: 16px;
-}
-
 
 .add-another {
   img {
@@ -257,37 +174,3 @@ body.change-form {
   }
 }
 
-.datetime {
-  i {
-    font-size: 16px;
-    position: relative;
-    top: 2px;
-  }
-}
-
-.calendarbox {
-  .calendarnav-previous,
-  .calendarnav-next {
-    background: none;
-    padding-top: 2px;
-    font-size: 16px;
-    color: @link-color;
-
-    &:hover {
-      background: none;
-      color: @link-hover-color;
-    }
-  }
-
-  caption {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-}
-
-.clockbox {
-  h2 {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-}

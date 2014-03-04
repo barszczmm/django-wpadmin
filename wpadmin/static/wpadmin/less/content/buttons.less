@@ -1,59 +1,31 @@
-.button,
-input[type="submit"],
-input[type="button"],
-.submit-row input {
-  background-color: #F3F3F3;
-  .vertical-gradient(#F4F4F4, #FEFEFE);
-  border-color: #BBBBBB;
-  color: #333333;
-  text-shadow: 0 1px 0 #FFFFFF;
-  .border-radius(3px);
-  border-style: solid;
-  border-width: 1px;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 12px;
-  height: 24px;
-  line-height: 23px;
-  margin: 0;
-  padding: 0 10px 1px;
-  text-decoration: none;
-  white-space: nowrap;
-  .box-sizing(border-box);
-
-  &:hover,
-  &:focus {
-    border-color: #999;
-    color: #222;
-    .vertical-gradient(#F3F3F3, #FFFFFF);
+#content {
+  .button,
+  input[type="submit"],
+  input[type="button"],
+  .submit-row input {
+    .box-shadow(0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 rgba(0, 0, 0, 0.08););
+    .border-radius(2px);
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    height: 28px;
+    line-height: 26px;
+    margin: 0;
+    padding: 0 10px 1px;
+    text-decoration: none;
+    white-space: nowrap;
+    .box-sizing(border-box);
+    vertical-align: top;
+    background-image: none;
   }
 
-  &:focus {
-    .box-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
-  }
-}
-
-.button.default,
-input.default[type="submit"],
-.submit-row input.default {
-  background-color: #21759B;
-  .vertical-gradient(#21759B, #2A95C5);
-  border-color: #21759B #21759B #1E6A8D;
-  box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset;
-  color: #FFFFFF;
-  text-decoration: none;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-  border-width: 1px;
-  font-weight: normal;
-  height: 30px;
-  line-height: 28px;
-
-  &:hover,
-  &:focus {
-    background-color: #278ab7;
-    .vertical-gradient(#21759b, #2e97d2);
-    border-color: #1b607f;
-    box-shadow: 0 1px 0 rgba(120, 200, 230, 0.6) inset;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+  .button.default,
+  input.default[type="submit"],
+  input.default[type="button"],
+  .submit-row input.default {
+    float: none;
+    font-weight: bold;
   }
 }
