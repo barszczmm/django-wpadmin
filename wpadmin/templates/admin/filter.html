@@ -1,5 +1,6 @@
 {% load i18n %}
 <div class="filter">
+  {# Translators: This is already translated in Django #}
   <h3>{% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
   <ul>
   {% for choice in choices %}

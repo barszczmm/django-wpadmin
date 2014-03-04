@@ -34,6 +34,7 @@ register.tag('wpadmin_are_breadcrumbs_enabled', wpadmin_are_breadcrumbs_enabled)
 
 
 def wpadmin_render_custom_title(context):
+    # Translators: This is already translated in Django
     return get_wpadmin_settings(get_admin_site_name(context)) \
         .get('title', _('Django site admin'))
 

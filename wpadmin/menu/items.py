@@ -128,10 +128,11 @@ class AppList(AppListElementMixin, MenuItem):
                 }
             apps[app_label]['models'].append({
                 'title': capfirst(model._meta.verbose_name_plural),
-                'url': perms['change'] and self._get_admin_change_url(model,
-                                                                      context),
-                'add_url': perms['add'] and self._get_admin_add_url(model,
-                                                                    context),
+                'url': perms['change'] and self._get_admin_change_url(
+                    model, context),
+                'add_url': perms['add'] and self._get_admin_add_url(
+                    model, context),
+                # Translators: This is already translated in Django
                 'description': perms['change'] and _(u"Change")
                     or _(u"No permission"),
             })
@@ -174,21 +175,8 @@ class ModelList(AppListElementMixin, MenuItem):
 
 
 class UserTools(MenuItem):
-
+    """
+    
+    """
     is_user_tools = True
-    css_classes = ['float-right']
 
-
-# class Bookmarks(MenuItem, AppListElementMixin):
-#
-#    title = _('Bookmarks')
-#    icon = 'icon-bookmark'
-#    css_classes = ['float-right', 'bookmarks']
-#    is_bookmarks = True
-#
-#    def init_with_context(self, context):
-#
-#        from admin_tools.menu.models import Bookmark
-#
-#        for b in Bookmark.objects.filter(user=context['request'].user):
-#            self.children.append(MenuItem(mark_safe(b.title), b.url, is_bookmark=True))
