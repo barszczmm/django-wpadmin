@@ -1,16 +1,19 @@
 Changelog
 ---------
 
-v1.6.0 (2014-02-20)
+v1.6.0 (2014-03-08)
 ~~~~~~~~~~~~~~~~~~~
 
 * backward compatibility breaking release!
 * most of things was rewritten
-* from now on there will be branch for each major Django version and Django Wp Admin will be versioned according to Django version it supports
-* so this version is compatible only with Django 1.6.x
+* from now on there will be branch for each major Django version and Django Wp Admin will be versioned according to Django version it supports...
+* ...so this version is compatible only with Django 1.6.x
 * all JavaScript libraries updated
-* FontAwesome updated
+* FontAwesome updated to version 4.0.3
 * new WordPress admin look
+* styles for selector widget
+* styles for calendar widget
+* styles for timepicker widget
 
 
 v0.2.0 (2013-04-02)
