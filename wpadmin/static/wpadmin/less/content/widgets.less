@@ -1,4 +1,42 @@
 #content {
+  .datetimeshortcuts {
+    font-size: 12px;
+
+    a:last-child {
+      display: inline-block;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+
+      img {
+        display:none;
+      }
+
+      &:after {
+        font-size: 14px;
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+
+  .vDateField {
+    & + .datetimeshortcuts {
+      a:last-child:after {
+        content: "\f073";
+      }
+    }
+  }
+
+  .vTimeField {
+    & + .datetimeshortcuts {
+      a:last-child:after {
+        content: "\f017";
+      }
+    }
+  }
+
   .datetime {
     min-width: 260px;
     float: left;
@@ -6,44 +44,8 @@
     padding: 0;
     font-weight: 400;
 
-    .datetimeshortcuts {
-      font-size: 12px;
-
-      a:last-child {
-        display: inline-block;
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 1;
-
-        img {
-          display:none;
-        }
-
-        &:after {
-          font-size: 14px;
-          position: relative;
-          top: 1px;
-        }
-      }
-    }
-
-    .vDateField {
-      & + .datetimeshortcuts {
-        a:last-child:after {
-          content: "\f073";
-        }
-      }
-    }
-
     .vTimeField {
       margin-top: 3px;
-
-      & + .datetimeshortcuts {
-        a:last-child:after {
-          content: "\f017";
-        }
-      }
     }
   }
 

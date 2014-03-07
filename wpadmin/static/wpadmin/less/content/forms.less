@@ -35,8 +35,52 @@
     .box-shadow(none);
   }
 
-  form .form-row p {
+  .form-row p {
     font-family: inherit;
     font-size: 13px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-top: 3px;
+  }
+
+  .errornote {
+    border-width: 0 0 0 4px;
+    border-style: solid;
+    border-color: #FFC000;
+    color: #FFC000;
+    .box-shadow(0 1px 1px 0 rgba(0, 0, 0, 0.1));
+    padding: 6px 12px;
+    margin: 0 0 8px;
+    font-size: 13px !important;
+    font-weight: 400;
+    background-image: none;
+  }
+
+  .errorlist {
+    li {
+      border-width: 0 0 0 4px;
+      border-style: solid;
+      border-color: #DD3D36;
+      color: #DD3D36;
+      .box-shadow(0 1px 1px 0 rgba(0, 0, 0, 0.1));
+      padding: 6px 12px;
+      margin: 0 0 8px;
+      font-size: 13px !important;
+      font-weight: 400;
+      background-image: none;
+    }
+  }
+
+  .errors {
+    .errorlist {
+      margin-top: 8px !important;
+
+      li {
+        .box-shadow(none);
+        border-style: dashed dashed dashed solid;
+        border-width: 1px 1px 1px 4px;
+      }
+    }
   }
 }

@@ -189,6 +189,7 @@ body.login {
   .button,
   input[type="submit"],
   input[type="button"],
+  button[type="submit"],
   .submit-row input {
     background-color: @button-bg;
     border-color: @button-border;
@@ -205,6 +206,7 @@ body.login {
   .button.default,
   input.default[type="submit"],
   input.default[type="button"],
+  button.default[type="submit"],
   .submit-row input.default {
     background-color: @default-button-bg;
     border-color: @default-button-border;
@@ -215,6 +217,16 @@ body.login {
       background-color: @default-button-hover-bg;
       border-color: @default-button-hover-border;
       color: @default-button-hover-color;
+    }
+  }
+
+  .errornote {
+    background-color: @messages-bg;
+  }
+
+  .errorlist {
+    li {
+      background-color: @messages-bg;
     }
   }
 

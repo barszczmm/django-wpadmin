@@ -6,19 +6,20 @@ from fnmatch import fnmatch
 from django.utils.importlib import import_module
 from django.core.urlresolvers import reverse
 
-from wpadmin.utils import (get_wpadmin_settings,
-                           get_admin_site,
-                           get_admin_site_name)
+from wpadmin.utils import (
+    get_wpadmin_settings, get_admin_site, get_admin_site_name)
 
 
 def get_menu_cls(menu, admin_site_name='admin'):
     """
+    menu - menu name ('top' or 'left')
     """
     return get_wpadmin_settings(admin_site_name).get('menu', {}).get(menu, None)
 
 
 def get_menu(menu, admin_site_name='admin'):
     """
+    menu - menu name ('top' or 'left')
     """
     menu_cls = get_menu_cls(menu, admin_site_name)
     if menu_cls:
