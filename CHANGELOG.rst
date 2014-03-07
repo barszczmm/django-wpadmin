@@ -14,6 +14,7 @@ v1.6.0 (2014-03-08)
 * styles for selector widget
 * styles for calendar widget
 * styles for timepicker widget
+* styles for delete confirmation page
 
 
 v0.2.0 (2013-04-02)

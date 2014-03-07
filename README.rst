@@ -11,7 +11,7 @@ Django WP Admin
 Features
 --------
 * WordPress look and feel
-* New styles for selector, calendar and timepicker widget
+* New styles for selector, calendar and timepicker widgets
 * More responsive (admin panel should look fine and be usable on displays with minimum 360px width)
 * Editable top menu
 * Optional fully configurable left menu
@@ -22,8 +22,9 @@ Features
 
 TODO
 ----
+* Nested submenus
 * Styles for history page
-* Styles for delete confirmation page
+* Licenses for external libraries (fonts ans javascripts)
 * Update sample project
 * More color themes
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ integration
