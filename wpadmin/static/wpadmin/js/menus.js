@@ -118,7 +118,7 @@
 					var $submenu = $(this).children('.wp-submenu').css({'visibility': 'hidden', 'display': 'block'}),
 						extra_margin = 0,
 						window_bottom_edge = $(window).scrollTop() + $(window).height(),
-						submenu_bottom_edge = $submenu.offset().top + $submenu.height() + extra_margin;
+						submenu_bottom_edge = $submenu.offset().top + $submenu.outerHeight() + extra_margin;
 
 					if (window_bottom_edge < submenu_bottom_edge) {
 						$submenu.css({'margin-top': '-' + (submenu_bottom_edge - window_bottom_edge) + 'px'});
