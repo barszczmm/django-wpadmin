@@ -18,17 +18,16 @@ Features
 * Left menu can be pinned (fixed CSS position) or unpinned and collapsed or expanded
 * Awesome `Font Awesome <http://fontawesome.io/>`_ icons supported in both menus
 * Multiple AdminSite's support with possibility to have different menus, colors and titles for each one
-
+* 7 additional color themes included
 
 TODO
 ----
-* Nested submenus
 * Styles for history page
+* Nested submenus
 * Licenses for external libraries (fonts ans javascripts)
 * Update sample project
-* More color themes
-* `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ integration
 * Documentation
+* `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ integration
 
 
 Demo
