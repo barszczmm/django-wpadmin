@@ -52,9 +52,9 @@ class DefaultTopMenu(Menu):
         ]
 
 
-class TopMenu(Menu):
+class BasicTopMenu(Menu):
     """
-    Advanced default top menu.
+    Basic default top menu.
     """
 
     def init_with_context(self, context):
@@ -89,9 +89,9 @@ class TopMenu(Menu):
         ]
 
 
-class LeftMenu(Menu):
+class BasicLeftMenu(Menu):
     """
-    Advanced default left menu.
+    Basic default left menu.
     """
 
     def is_user_allowed(self, user):
@@ -102,26 +102,28 @@ class LeftMenu(Menu):
 
     def init_with_context(self, context):
 
-        admin_site_name = get_admin_site_name(context)
+        if self.is_user_allowed(context.get('request').user):
 
-        self.children += [
-            items.MenuItem(
-                title=capfirst(_('dashboard')),
-                icon='fa-tachometer',
-                url=reverse('%s:index' % admin_site_name),
-                description=capfirst(_('dashboard')),
-            ),
-            items.AppList(
-                title=capfirst(_('applications')),
-                description=capfirst(_('applications')),
-                exclude=('django.contrib.*',),
-                icon='fa-tasks',
-            ),
-            items.AppList(
-                title=capfirst(_('administration')),
-                description=capfirst(_('administration')),
-                models=('django.contrib.*',),
-                icon='fa-cog',
-            ),
-        ]
+            admin_site_name = get_admin_site_name(context)
+
+            self.children += [
+                items.MenuItem(
+                    title=capfirst(_('dashboard')),
+                    icon='fa-tachometer',
+                    url=reverse('%s:index' % admin_site_name),
+                    description=capfirst(_('dashboard')),
+                ),
+                items.AppList(
+                    title=capfirst(_('applications')),
+                    description=capfirst(_('applications')),
+                    exclude=('django.contrib.*',),
+                    icon='fa-tasks',
+                ),
+                items.AppList(
+                    title=capfirst(_('administration')),
+                    description=capfirst(_('administration')),
+                    models=('django.contrib.*',),
+                    icon='fa-cog',
+                ),
+            ]
 
