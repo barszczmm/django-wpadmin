@@ -24,7 +24,6 @@ TODO
 ----
 * Styles for history page
 * Nested submenus
-* Licenses for external libraries (fonts ans javascripts)
 * Update sample project
 * Documentation
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ integration

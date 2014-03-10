@@ -1,7 +1,7 @@
 Changelog
 ---------
 
-v1.6.0 (2014-03-08)
+v1.6.0 (2014-03-11)
 ~~~~~~~~~~~~~~~~~~~
 
 * backward compatibility breaking release!
@@ -16,6 +16,7 @@ v1.6.0 (2014-03-08)
 * styles for timepicker widget
 * styles for delete confirmation page
 * 7 additional color themes added
+* added licenses for all included external files (fonts and JS)
 
 
 v0.2.0 (2013-04-02)
