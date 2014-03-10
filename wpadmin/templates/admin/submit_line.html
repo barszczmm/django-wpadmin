@@ -1,7 +1,7 @@
 {% load i18n admin_urls %}
 <div id="bottombar">
 {# Translators: This is already translated in Django #}
-{% if show_save %}<button title="{% trans 'Save' %}" type="submit" class="default" name="_save"><i class="fa fa-lg fa-floppy-o"></i><i class="fa fa-caret-right"></i>{% if is_popup %}<i class="fa fa-lg fa-times"></i>{% else %}<i class="fa fa-lg fa-list-alt"></i>{% endif %} <span class="text">{% trans 'Save' %}</span></button>{% endif %}
+{% if show_save %}<button title="{% trans 'Save' %}" type="submit" name="_save"><i class="fa fa-lg fa-floppy-o"></i><i class="fa fa-caret-right"></i>{% if is_popup %}<i class="fa fa-lg fa-times"></i>{% else %}<i class="fa fa-lg fa-list-alt"></i>{% endif %} <span class="text">{% trans 'Save' %}</span></button>{% endif %}
 {# Translators: This is already translated in Django #}
 {% if show_save_as_new %}<button title="{% trans 'Save as new' %}" type="submit" name="_saveasnew"><i class="fa fa-lg fa-floppy-o"></i><i class="fa fa-caret-right"></i><i class="fa fa-lg fa-files-o"></i> <span class="text">{% trans 'Save as new' %}</span></button>{%endif%}
 {# Translators: This is already translated in Django #}
@@ -11,6 +11,6 @@
 {% if show_delete_link %}
     {% url opts|admin_urlname:'delete' original.pk|admin_urlquote as delete_url %}
     {# Translators: This is already translated in Django #}
-    <a title="{% trans "Delete" %}" href="{% add_preserved_filters delete_url %}" class="deletelink"><i class="fa fa-lg fa-question"></i><i class="fa fa-caret-right"></i><i class="fa fa-trash-o fa-lg"></i> <span class="text">{% trans "Delete" %}</span></a>
+    <a title="{% trans "Delete" %}" href="{% add_preserved_filters delete_url %}" class="button deletelink"><i class="fa fa-lg fa-question"></i><i class="fa fa-caret-right"></i><i class="fa fa-trash-o fa-lg"></i> <span class="text">{% trans "Delete" %}</span></a>
 {% endif %}
 </div>

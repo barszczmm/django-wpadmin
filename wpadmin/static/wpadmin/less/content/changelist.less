@@ -130,14 +130,13 @@
 
   .toplinks {
     border: none !important;
-    background: none !important;
-    border-top: 1px solid #F5F5F5 !important;
-    padding-top: 3px !important;
-    padding-left: 6px !important;
+    background: none;
+    padding-top: 5px !important;
 
     li {
       font-weight: normal;
-      font-size: 12px;
+      font-size: 13px;
+      padding: 5px 12px 5px 0;
     }
   }
 
@@ -149,6 +148,10 @@
       float: left;
       margin: 0 !important;
       padding: 15px 0 10px;
+
+      label {
+        margin-left: 0;
+      }
 
       select {
         border-color: #DFDFDF;
@@ -198,7 +201,7 @@
       float: right;
       background: none;
       border: none;
-      padding: 15px 0.5em 10px 50px;
+      padding: 19px 0 10px 15px;
       font-size: 12px;
 
       span.this-page,
@@ -225,6 +228,18 @@
         span.total {
           margin-left: 2px;
         }
+      }
+    }
+
+    &.actions-and-paginator-bottom {
+      .actions {
+        padding-top: 10px;
+        padding-bottom: 15px;
+      }
+
+      .paginator {
+        padding-top: 14px;
+        padding-bottom: 15px;
       }
     }
 
