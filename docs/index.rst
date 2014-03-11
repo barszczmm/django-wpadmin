@@ -71,6 +71,8 @@ Credits
 -------
 
 Python code is based on `django-admin-tools <https://bitbucket.org/izi/django-admin-tools/wiki/Home>`_ app.
+
 WordPress look and feel is of course inspired by `WordPress <http://wordpress.org/>`_.
+
 Included icons comes from `Font Awesome <http://fontawesome.io/>`_.
 

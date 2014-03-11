@@ -26,6 +26,7 @@ Features
 TODO
 ----
 * Better documentation
+* Python 3 support
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ integration
 
 
@@ -78,6 +79,8 @@ Credits
 -------
 
 Python code is based on `django-admin-tools <https://bitbucket.org/izi/django-admin-tools/wiki/Home>`_ app.
+
 WordPress look and feel is of course inspired by `WordPress <http://wordpress.org/>`_.
+
 Included icons comes from `Font Awesome <http://fontawesome.io/>`_.
 
