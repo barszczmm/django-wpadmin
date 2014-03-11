@@ -29,6 +29,16 @@ body.change-form {
     border-width: 1px;
     border-style: solid;
     margin-bottom: 20px;
+
+    ul.radiolist {
+      margin-left: 10em;
+    }
+
+    &.wide {
+      ul.radiolist {
+        margin-left: 16em;
+      }
+    }
   }
 
   .module h2,
@@ -154,23 +164,57 @@ body.change-form {
       left: 3px;
     }
   }
-}
 
-.help-tooltip {
-  cursor: help;
-}
+  img.help-tooltip {
+    cursor: help;
+    padding: 0 !important;
 
-.add-another {
-  img {
-    display: none;
+    &:before {
+      content: "";
+    }
   }
 
-  &:after {
-    content: "\f067";
-    font-family: FontAwesome;
-    font-size: 14px;
-    position: relative;
-    top: 2px;
+  .description {
+    padding: 5px 12px;
+    border-style: dashed;
+    border-width: 0 0 1px 0;
+  }
+
+  .add-another {
+    text-align: center;
+
+    img {
+      display: none;
+    }
+
+    &:after {
+      content: "\f067";
+      font-family: FontAwesome;
+      font-size: 14px;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  .related-lookup {
+    text-align: center;
+
+    img {
+      display: none;
+    }
+
+    &:after {
+      content: "\f002";
+      font-family: FontAwesome;
+      font-size: 14px;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  // case for history page with empty history:
+  .module > p:first-child {
+    margin-top: 0.8em;
   }
 }
 

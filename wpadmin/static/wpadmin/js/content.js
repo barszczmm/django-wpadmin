@@ -19,6 +19,9 @@ jQuery(document).ready(function($) {
 	$('img[src$="/admin/img/icon-no.gif"][alt="False"]').hide()
 		.after('<i class="fa fa-fw fa-minus-square-o"></i>');
 
+	// collapsible fieldsets
+	$('.module.collapse.collapse-opened h2 .collapse-toggle').click();
+
 	// fix bottom bar buttons widths
 	function fixBottomBar() {
 		var $bar = $('#bottombar').removeClass('wp-narrow'),

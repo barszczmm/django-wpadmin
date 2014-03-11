@@ -77,6 +77,7 @@
       .selector-filter {
         border-style: solid;
         border-width: 1px 1px 0 1px;
+        padding: 3px;
 
         label {
           width: 16px;
@@ -113,6 +114,7 @@
           font-size: 20px;
           font-family: FontAwesome;
           line-height: 16px;
+          font-weight: bold;
         }
       }
 
@@ -163,6 +165,27 @@
     a.selector-clearall {
       &:before {
         content: "\f100";
+      }
+    }
+
+    &.stacked {
+      max-width: 260px;
+
+      .selector-chooser {
+        height: 22px;
+        margin-top: 10px;
+
+        .selector-add {
+          &:after {
+            content: "\f107";
+          }
+        }
+
+        .selector-remove {
+          &:after {
+            content: "\f106";
+          }
+        }
       }
     }
   }
