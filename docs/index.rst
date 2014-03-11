@@ -67,6 +67,12 @@ Advanced topics
    changelog
 
 
+Troubleshooting
+---------------
+
+Please create an `issue on GitHub <https://github.com/barszczmm/django-wpadmin/issues>`_ if you have any problems or requests.
+
+
 Credits
 -------
 

@@ -72,7 +72,13 @@ Check out `documentation on Read the Docs <http://django-wp-admin.readthedocs.or
 Translations
 ------------
 
-If you want to help to translate this software please join me on Transifex: `transifex.com/projects/p/django-wp-admin/ <https://www.transifex.com/projects/p/django-wp-admin/>`_
+If you want to help to translate this software, please join me on Transifex: `transifex.com/projects/p/django-wp-admin/ <https://www.transifex.com/projects/p/django-wp-admin/>`_
+
+
+Troubleshooting
+---------------
+
+Please create an `issue on GitHub <https://github.com/barszczmm/django-wpadmin/issues>`_ if you have any problems or requests.
 
 
 Credits
