@@ -65,12 +65,14 @@ Documentation
 Above basic configuration will only change look of Django's admin page, but there's much more you can do with Django WP Admin.
 Check out `documentation on Read the Docs <http://django-wp-admin.readthedocs.org>`_ for details.
 
+Translations
+------------
+
+If you want to help to translate this software please join me on Transifex: `transifex.com/projects/p/django-wp-admin/ <https://www.transifex.com/projects/p/django-wp-admin/>`_
 
 Credits
 -------
-Python code is heavily based on `django-admin-tools <https://bitbucket.org/izi/django-admin-tools/wiki/Home>`_ app.
-
+Python code is based on `django-admin-tools <https://bitbucket.org/izi/django-admin-tools/wiki/Home>`_ app.
 WordPress look and feel is of course inspired by `WordPress <http://wordpress.org/>`_.
-
 Included icons comes from `Font Awesome <http://fontawesome.io/>`_.
 
