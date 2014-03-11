@@ -23,11 +23,9 @@ Features
 * Collapsible fieldsets can be opened by default
 
 
-
 Demo
 ----
 Try ``test_project`` `here <http://django-wpadmin.dev.barszcz.info>`_ or download `django-wpadmin <https://github.com/barszczmm/django-wpadmin>`_ from GitHub and run it on your own machine. ``test_project`` contains SQLite database file with prepopulated sample data.
-
 
 
 Installation
@@ -71,6 +69,7 @@ Advanced topics
 
 Credits
 -------
+
 Python code is based on `django-admin-tools <https://bitbucket.org/izi/django-admin-tools/wiki/Home>`_ app.
 WordPress look and feel is of course inspired by `WordPress <http://wordpress.org/>`_.
 Included icons comes from `Font Awesome <http://fontawesome.io/>`_.
