@@ -6,3 +6,4 @@ static-collected/*
 build/*
 dist/*
 django_wpadmin.egg-info/*
+docs/_build/*
