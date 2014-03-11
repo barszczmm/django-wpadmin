@@ -18,6 +18,9 @@ from cds.admin import CdCategoryAdmin, CdAdmin, UserCdAdmin
 from dvds.models import DvdCategory, Dvd
 from dvds.admin import DvdCategoryAdmin, DvdAdmin, UserDvdAdmin
 
+from test_app.models import TestModel
+from test_app.admin import TestModelAdmin, MoreComplicatedTestModelAdmin
+
 from forms import SuperAdminAuthenticationForm, UserAuthenticationForm
 
 
@@ -44,9 +47,9 @@ class UserSite(AdminSite):
             and request.user.groups.filter(name='users').count()
 
 
-admin = SuperAdminSite(name='admin')
-staff = AdminSite(name='staff')
-user = UserSite(name='user')
+admin = SuperAdminSite(name='adminpanel')
+staff = AdminSite(name='staffpanel')
+user = UserSite(name='userpanel')
 
 
 # admin
@@ -61,12 +64,14 @@ admin.register(CdCategory, CdCategoryAdmin)
 admin.register(Cd, CdAdmin)
 admin.register(DvdCategory, DvdCategoryAdmin)
 admin.register(Dvd, DvdAdmin)
+admin.register(TestModel, TestModelAdmin)
 
 # staff
 staff.register(Author, AuthorAdmin)
 staff.register(BookCategory, BookCategoryAdmin)
 staff.register(CdCategory, CdCategoryAdmin)
 staff.register(DvdCategory, DvdCategoryAdmin)
+staff.register(TestModel, MoreComplicatedTestModelAdmin)
 
 # user
 user.register(Book, UserBookAdmin)

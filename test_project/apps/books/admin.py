@@ -19,11 +19,11 @@ class BookAdmin(admin.ModelAdmin):
         }),
         (capfirst(_('description')), {
             'fields': ('description',),
-            'classes': ('collapse-open',),
+            'classes': ('collapse collapse-opened',),
         }),
         (capfirst(_('owner')), {
             'fields': ('owner',),
-            'classes': ('collapse-closed',),
+            'classes': ('collapse',),
         }),
     )
 

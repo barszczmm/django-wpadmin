@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<title>{% block title %}Django WP Admin testing project{% endblock %}</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css' />
+<style type="text/css">
+	html { height: 100%; }
+	body { margin: 0; padding: 0; height: 100%; font-family: 'Open Sans Condensed', sans-serif; }
+	h1 { margin: 0; position: fixed; bottom: 0; left: 0; width: 100%;
+		text-align: center; color: #fff; font-size: 26px; line-height: 2em; background: #000; }
+	a { color: #fff; }
+	#links { overflow: hidden; height: 100%; }
+	#links a { display: block; width: 33.33%; height: 100%; float: left; text-align: center;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+		padding-top: 100px; text-decoration: none; font-size: 100px; }
+	#links a span { display: block; font-size: 20px; }
+	#links a.admin { background: #CF4944; }
+	#links a.staff { background: #222222; }
+	#links a.user { background: #738E96; }
+	#links a.admin:hover { background: #DD823B; }
+	#links a.staff:hover { background: #333333; }
+	#links a.user:hover { background: #627C83; }
+</style>
+</head>
+<body>
+	<h1><a href="https://github.com/barszczmm/django-wpadmin">Django WP Admin</a> testing project by <a href="http://www.barszcz.info/">Maciej 'barszcz' Marczewski</a></h1>
+	<div id="links">
+		<a class="admin" href="/adminpanel/" title="login: admin, password: admin">admin <span class="login">login: <strong>admin</strong>, password: <strong>admin</strong></span></a>
+		<a class="staff" href="/staffpanel/" title="login: staff, password: staff">staff <span class="login">login: <strong>staff</strong>, password: <strong>staff</strong></span></a>
+		<a class="user" href="/userpanel/" title="login: user, password: user">user <span class="login">login: <strong>user</strong>, password: <strong>user</strong></span></a>
+	</div>
+</body>
+</html>
