@@ -25,7 +25,6 @@ Features
 
 TODO
 ----
-* Nested submenus
 * Better documentation
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ integration
 

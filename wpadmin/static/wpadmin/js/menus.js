@@ -112,9 +112,9 @@
 		});
 
 		// left submenus should stay on page
-		$('#adminmenu .wp-menu-top.wp-has-submenu').hover(
+		$('#adminmenu .wp-has-submenu').hover(
 			function() {
-				if ($('body').hasClass('wp-folded') || $(this).hasClass('wp-menu-not-open')) {
+				if (!$(this).hasClass('wp-menu-top') || ($('body').hasClass('wp-folded') || $(this).hasClass('wp-menu-not-open'))) {
 					var $submenu = $(this).children('.wp-submenu').css({'visibility': 'hidden', 'display': 'block'}),
 						extra_margin = 0,
 						window_bottom_edge = $(window).scrollTop() + $(window).height(),
@@ -132,7 +132,7 @@
 		);
 
 		// top submenus should stay on page
-		$('#adminbar .wp-menu-top.wp-has-submenu').hover(
+		$('#adminbar .wp-has-submenu').hover(
 			function() {
 				var $submenu = $(this).children('.wp-submenu').css({'visibility': 'hidden', 'display': 'block'}),
 					extra_margin = 0,

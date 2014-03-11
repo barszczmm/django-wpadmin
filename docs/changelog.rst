@@ -19,6 +19,7 @@ v1.6.0 (2014-03-11)
 * collapsible fieldsets can be opened by default
 * 7 additional color themes added
 * added licenses for all included external files (fonts and JS)
+* support for nested submenus
 
 
 v0.2.0 (2013-04-02)
