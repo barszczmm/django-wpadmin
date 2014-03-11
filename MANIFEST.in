@@ -1,8 +1,9 @@
 include README.rst
 include CHANGELOG.rst
-include LICENSE
+include LICENSE.txt
 include MANIFEST.in
 recursive-include docs *
+prune docs/_build
 recursive-include wpadmin/locale *
 recursive-include wpadmin/static *
 recursive-include wpadmin/templates *

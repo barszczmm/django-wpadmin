@@ -24,7 +24,7 @@ Features
 TODO
 ----
 * Nested submenus
-* Finish documentation
+* Better documentation
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ integration
 
 
@@ -63,7 +63,7 @@ Documentation
 -------------
 
 Above basic configuration will only change look of Django's admin page, but there's much more you can do with Django WP Admin.
-Check out `documentation on Read the Docs <django-wp-admin.readthedocs.org>`_ for details.
+Check out `documentation on Read the Docs <http://django-wp-admin.readthedocs.org>`_ for details.
 
 
 Credits

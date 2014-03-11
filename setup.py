@@ -14,7 +14,7 @@ setup(
 %s
 
 %s
-''' % (read('README.rst'), read('CHANGELOG.rst')),
+''' % (read('README.rst'), read('docs/changelog.rst')),
     author='Maciej Marczewski (barszcz)',
     author_email='maciej@marczewski.net.pl',
     url = 'https://github.com/barszczmm/django-wpadmin',
@@ -23,7 +23,7 @@ setup(
     include_package_data=True,
     license='MIT License',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
