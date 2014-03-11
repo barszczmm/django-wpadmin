@@ -12,7 +12,6 @@ class Menu(UserTestElementMixin):
     """
     Base menu.
     """
-    template = 'wpadmin/menu/menu.html'
     children = None
 
     def __init__(self, **kwargs):
@@ -20,12 +19,6 @@ class Menu(UserTestElementMixin):
             if hasattr(self.__class__, key):
                 setattr(self, key, kwargs[key])
         self.children = kwargs.get('children', [])
-
-    def is_user_allowed(self, user):
-        """
-        Check if specified user is allowed to see this menu.
-        """
-        return True
 
     def init_with_context(self, context):
         pass

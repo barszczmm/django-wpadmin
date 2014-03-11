@@ -51,7 +51,7 @@ def filter_models(context, models, exclude):
     """
     items = get_avail_models(context)
     included = []
-    full_name = lambda model: '%s.%s' % (model.__module__, model.__name__)
+    full_name = lambda m: '%s.%s' % (m.__module__, m.__name__)
 
     # I believe that that implemented
     # O(len(patterns)*len(matched_patterns)*len(all_models))
@@ -86,16 +86,11 @@ class UserTestElementMixin(object):
     something (menu, menu item, etc.).
     """
 
-    # this may be set to some callable when class is instantiated
-    check_if_user_allowed = None
-
     def is_user_allowed(self, user):
         """
         This method can be overwritten to check if current user can see this
         element.
         """
-        if callable(self.check_if_user_allowed):
-            return self.check_if_user_allowed(user)
         return True
 
 
@@ -141,3 +136,4 @@ class AppListElementMixin(object):
 
     def is_empty(self):
         return len(self.children) == 0
+

@@ -29,7 +29,7 @@ class MenuItem(UserTestElementMixin):
     ``icon``
         An optional string which contains classes for icons from Font Awesome
         which should be used for this menu item. Note that icons may not show
-        on all levels of menu.
+        on all levels of menu. They are only supported at top level.
         Default value: None.
 
     ``css_styles``
@@ -46,10 +46,6 @@ class MenuItem(UserTestElementMixin):
         Disabled items are displayed but are not clickable.
         Default value: True.
 
-    ``template``
-        The template to use to render the menu item.
-        Default value: 'admin_tools/menu/item.html'.
-
     ``children``
         A list of children menu items. All children items must be instances of
         the ``MenuItem`` class.
@@ -62,7 +58,6 @@ class MenuItem(UserTestElementMixin):
     css_styles = None
     description = None
     enabled = True
-    template = 'wpadmin/menu/item.html'
     children = None
 
     def __init__(self, title=None, url=None, **kwargs):
@@ -79,8 +74,6 @@ class MenuItem(UserTestElementMixin):
         self.children = self.children or []
 
     def init_with_context(self, context):
-        """
-        """
         pass
 
     def is_selected(self, request):
@@ -106,6 +99,8 @@ class MenuItem(UserTestElementMixin):
 
 
 class AppList(AppListElementMixin, MenuItem):
+    """
+    """
 
     def __init__(self, title=None, models=None, exclude=None, **kwargs):
         self.models = list(models or [])
@@ -139,20 +134,21 @@ class AppList(AppListElementMixin, MenuItem):
 
         apps_sorted = apps.keys()
         apps_sorted.sort()
-        for app in apps_sorted:
+        for app in sorted(apps.keys()):
             app_dict = apps[app]
-            item = MenuItem(title=app_dict['title'], url=app_dict['url'],
-                            description=app_dict['title'])
+            item = MenuItem(
+                title=app_dict['title'], url=app_dict['url'],
+                description=app_dict['title'])
             # sort model list alphabetically
-            apps[app]['models'].sort(lambda x, y: cmp(x['title'], y['title']))
+            apps[app]['models'].sort(key=lambda x: x['title'])
             for model_dict in apps[app]['models']:
-                model_item = MenuItem(**model_dict)
-                model_item.add_url = model_dict['add_url']
-                item.children.append(model_item)
+                item.children.append(MenuItem(**model_dict))
             self.children.append(item)
 
 
 class ModelList(AppListElementMixin, MenuItem):
+    """
+    """
 
     def __init__(self, title=None, models=None, exclude=None, **kwargs):
         self.models = list(models or [])
@@ -169,14 +165,13 @@ class ModelList(AppListElementMixin, MenuItem):
             title = capfirst(model._meta.verbose_name_plural)
             url = self._get_admin_change_url(model, context)
             add_url = self._get_admin_add_url(model, context)
-            item = MenuItem(title=title, url=url, description=title)
-            item.add_url = add_url
+            item = MenuItem(
+                title=title, url=url, description=title, add_url=add_url)
             self.children.append(item)
 
 
 class UserTools(MenuItem):
     """
-    
     """
     is_user_tools = True
 
