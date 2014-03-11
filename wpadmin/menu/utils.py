@@ -36,9 +36,9 @@ def get_avail_models(context):
     items = []
     admin_site = get_admin_site(context)
 
-    for model, model_admin in admin_site._registry.items():
+    for model, model_admin in list(admin_site._registry.items()):
         perms = model_admin.get_model_perms(context.get('request'))
-        if True not in perms.values():
+        if True not in list(perms.values()):
             continue
         items.append((model, perms,))
     return items
