@@ -19,23 +19,23 @@ Features
 * Awesome `Font Awesome <http://fontawesome.io/>`_ icons supported in both menus
 * Multiple AdminSite's support with possibility to have different menus, colors and titles for each one
 * 7 additional color themes included
+* Collapsible fieldsets can be opened by default
 
 TODO
 ----
-* Styles for history page
 * Nested submenus
-* Update sample project
-* Documentation
+* Finish documentation
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ integration
 
 
 Demo
 ----
-Try ``sample_project`` `here <http://django-wpadmin.dev.barszcz.info>`_ or download ``django-wpadmin`` and run it on your own machine. ``sample_project`` contains SQLite database file with prepopulated sample data.
+Try ``test_project`` `here <http://django-wpadmin.dev.barszcz.info>`_ or download `django-wpadmin <https://github.com/barszczmm/django-wpadmin>`_ from GitHub and run it on your own machine. ``test_project`` contains SQLite database file with prepopulated sample data.
 
 
 Installation
 ------------
+
 * Install django-wpadmin from PyPi::
 
     pip install django-wpadmin
@@ -43,10 +43,12 @@ Installation
 
 * Or from GitHub::
 
-    pip install -e git+https://github.com/barszczmm/django-wpadmin.git#egg=django-wpadmin
+    pip install git+https://github.com/barszczmm/django-wpadmin.git#egg=django-wpadmin
 
 
-* Add to your ``INSTALLED_APPS`` before ``django.contrib.admin``::
+Basic configuration
+-------------------
+* Add ``wpadmin`` to your ``INSTALLED_APPS`` before ``django.contrib.admin``::
 
     INSTALLED_APPS = (
         # Django WP Admin must be before django.contrib.admin
@@ -56,26 +58,12 @@ Installation
 
 * Add `django.core.context_processors.request <https://docs.djangoproject.com/en/dev/ref/templates/api/#django-core-context-processors-request>`_ to `TEMPLATE_CONTEXT_PROCESSORS <https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATE_CONTEXT_PROCESSORS>`_ setting.
 
-Basic configuration
--------------------
 
-Add to ``settings.py``::
+Documentation
+-------------
 
-    WPADMIN = {
-        'admin': {
-            'menu': {
-                'top': 'wpadmin.menu.menus.TopMenu',
-                'left': 'wpadmin.menu.menus.LeftMenu',
-            }
-        },
-    }
-
-
-Advanced configuration
-----------------------
-Please take a look at the code in `sample_project <https://github.com/barszczmm/django-wpadmin/tree/master/sample_project>`_.
-
-This app takes a lot of ideas and a lot of code from `django-admin-tools <https://bitbucket.org/izi/django-admin-tools/wiki/Home>`_ app, so it is also good idea to read `django-admin-tools docs <http://django-admin-tools.readthedocs.org/en/latest/>`_.
+Above basic configuration will only change look of Django's admin page, but there's much more you can do with Django WP Admin.
+Check out `documentation on Read the Docs <django-wp-admin.readthedocs.org>`_ for details.
 
 
 Credits
