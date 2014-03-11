@@ -15,11 +15,8 @@
    {% if header.sortable %}
      {% if header.sort_priority > 0 %}
        <div class="sortoptions">
-         {# Translators: This is already translated in Django #}
          <a href="{{ header.url_toggle }}" class="toggle {% if header.ascending %}ascending{% else %}descending{% endif %}" title="{% trans "Toggle sorting" %}"></a>
-         {# Translators: This is already translated in Django #}
          {% if num_sorted_fields > 1 %}<span class="sortpriority" title="{% blocktrans with priority_number=header.sort_priority %}Sorting priority: {{ priority_number }}{% endblocktrans %}">{{ header.sort_priority }}</span>{% endif %}
-         {# Translators: This is already translated in Django #}
          <a class="sortremove" href="{{ header.url_remove }}" title="{% trans "Remove from sorting" %}"></a>
        </div>
      {% endif %}
@@ -36,11 +33,8 @@
    {% if header.sortable %}
      {% if header.sort_priority > 0 %}
        <div class="sortoptions">
-         {# Translators: This is already translated in Django #}
          <a href="{{ header.url_toggle }}" class="toggle {% if header.ascending %}ascending{% else %}descending{% endif %}" title="{% trans "Toggle sorting" %}"></a>
-         {# Translators: This is already translated in Django #}
          {% if num_sorted_fields > 1 %}<span class="sortpriority" title="{% blocktrans with priority_number=header.sort_priority %}Sorting priority: {{ priority_number }}{% endblocktrans %}">{{ header.sort_priority }}</span>{% endif %}
-         {# Translators: This is already translated in Django #}
          <a class="sortremove" href="{{ header.url_remove }}" title="{% trans "Remove from sorting" %}"></a>
        </div>
      {% endif %}
