@@ -1,5 +1,4 @@
 from django.utils.translation import ugettext_lazy as _
-from django.utils.text import capfirst
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
@@ -33,6 +32,7 @@ class DefaultTopMenu(Menu):
 
         self.children += [
             items.MenuItem(
+                # Translators: This is already translated in Django
                 title=_('Django administration'),
                 url=None,
                 icon='fa-gears',
@@ -59,7 +59,7 @@ class BasicTopMenu(Menu):
             site_name = Site.objects.get_current().name
             site_url = 'http://' + Site.objects.get_current().domain
         else:
-            site_name = capfirst(_('site'))
+            site_name = _('Site')
             site_url = '/'
 
         self.children += [
@@ -70,10 +70,10 @@ class BasicTopMenu(Menu):
                 css_styles='font-size: 1.5em;',
             ),
             items.MenuItem(
-                title=capfirst(_('dashboard')),
+                title=_('Dashboard'),
                 icon='fa-tachometer',
                 url=reverse('%s:index' % admin_site_name),
-                description=capfirst(_('dashboard')),
+                description=_('Dashboard'),
             ),
             items.UserTools(
                 css_styles='float: right;',
@@ -101,20 +101,20 @@ class BasicLeftMenu(Menu):
 
             self.children += [
                 items.MenuItem(
-                    title=capfirst(_('dashboard')),
+                    title=_('Dashboard'),
                     icon='fa-tachometer',
                     url=reverse('%s:index' % admin_site_name),
-                    description=capfirst(_('dashboard')),
+                    description=_('Dashboard'),
                 ),
                 items.AppList(
-                    title=capfirst(_('applications')),
-                    description=capfirst(_('applications')),
+                    title=_('Applications'),
+                    description=_('Applications'),
                     exclude=('django.contrib.*',),
                     icon='fa-tasks',
                 ),
                 items.AppList(
-                    title=capfirst(_('administration')),
-                    description=capfirst(_('administration')),
+                    title=_('Administration'),
+                    description=_('Administration'),
                     models=('django.contrib.*',),
                     icon='fa-cog',
                 ),

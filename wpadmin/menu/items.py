@@ -127,9 +127,11 @@ class AppList(AppListElementMixin, MenuItem):
                     model, context),
                 'add_url': perms['add'] and self._get_admin_add_url(
                     model, context),
-                # Translators: This is already translated in Django
                 'description':
-                    perms['change'] and _("Change") or _("No permission"),
+                # Translators: This is already translated in Django
+                perms['change'] and _("Change") 
+                # Translators: This is already translated in Django
+                or _("No permission"),
             })
 
         apps_sorted = list(apps.keys())
