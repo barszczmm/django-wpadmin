@@ -1,6 +1,14 @@
 Changelog
 ---------
 
+
+v1.6.1 (2014-03-12)
+~~~~~~~~~~~~~~~~~~~
+
+* Python3 compatibility
+* updated templates for password reset and change (from /registration template path)
+
+
 v1.6.0 (2014-03-11)
 ~~~~~~~~~~~~~~~~~~~
 

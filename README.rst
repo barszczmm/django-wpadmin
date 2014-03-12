@@ -21,12 +21,12 @@ Features
 * Multiple AdminSite's support with possibility to have different menus, colors and titles for each one
 * 7 additional color themes included
 * Collapsible fieldsets can be opened by default
+* Python3 compatible
 
 
 TODO
 ----
 * Better documentation
-* Python 3 support
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ integration
 
 

@@ -111,6 +111,8 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 WPADMIN = {
     'adminpanel': {
         'admin_site': 'test_project.admin.admin',
