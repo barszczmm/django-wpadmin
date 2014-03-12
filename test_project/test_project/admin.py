@@ -21,7 +21,7 @@ from dvds.admin import DvdCategoryAdmin, DvdAdmin, UserDvdAdmin
 from test_app.models import TestModel
 from test_app.admin import TestModelAdmin, MoreComplicatedTestModelAdmin
 
-from forms import SuperAdminAuthenticationForm, UserAuthenticationForm
+from .forms import SuperAdminAuthenticationForm, UserAuthenticationForm
 
 
 class SuperAdminSite(AdminSite):

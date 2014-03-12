@@ -1,5 +1,4 @@
 from django.utils.translation import ugettext_lazy as _
-from django.utils.text import capfirst
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
@@ -9,6 +8,12 @@ from wpadmin.menu.menus import Menu
 
 
 class UserTopMenu(Menu):
+    
+    def my_user_check(self, user):
+        """
+        Custom helper method for hiding some menu items from not allowed users.
+        """
+        return user.groups.filter(name='users').exists()
 
     def init_with_context(self, context):
 
@@ -19,7 +24,7 @@ class UserTopMenu(Menu):
             site_name = Site.objects.get_current().name
             site_url = 'http://' + Site.objects.get_current().domain
         else:
-            site_name = capfirst(_('site'))
+            site_name = _('Site')
             site_url = '/'
 
         self.children += [
@@ -30,31 +35,29 @@ class UserTopMenu(Menu):
                 css_styles='font-size: 1.5em;',
             ),
             items.MenuItem(
-                capfirst(_('dashboard')),
+                title=_('Dashboard'),
                 icon='fa-tachometer',
                 url=reverse('%s:index' % admin_site_name),
-                description=capfirst(_('dashboard')),
-            ),
-            items.AppList(
-                capfirst(_('applications')),
-                icon='fa-tasks',
-                exclude=('django.contrib.*',),
-                check_if_user_allowed=lambda user: user.groups.filter(
-                    name='users').count(),
-            ),
-            items.AppList(
-                capfirst(_('administration')),
-                icon='fa-cog',
-                models=('django.contrib.*',),
-                check_if_user_allowed=lambda user: user.groups.filter(
-                    name='users').count(),
-            ),
-            items.UserTools(
-                css_styles='float: right;',
-                check_if_user_allowed=lambda user: user.groups.filter(
-                    name='users').count(),
+                description=_('Dashboard'),
             ),
         ]
+            
+        if self.my_user_check(context.get('request').user):
+            self.children += [
+                items.AppList(
+                    title=_('Applications'),
+                    icon='fa-tasks',
+                    exclude=('django.contrib.*',),
+                ),
+                items.AppList(
+                    title=_('Administration'),
+                    icon='fa-cog',
+                    models=('django.contrib.*',),
+                ),
+                items.UserTools(
+                    css_styles='float: right;',
+                ),
+            ]
 
 
 class UserLeftMenu(Menu):
@@ -73,10 +76,10 @@ class UserLeftMenu(Menu):
 
             self.children += [
                 items.MenuItem(
-                    title=capfirst(_('dashboard')),
+                    title=_('Dashboard'),
                     icon='fa-tachometer',
                     url=reverse('%s:index' % admin_site_name),
-                    description=capfirst(_('dashboard')),
+                    description=_('Dashboard'),
                 ),
                 items.MenuItem(
                     title=_('Books'),

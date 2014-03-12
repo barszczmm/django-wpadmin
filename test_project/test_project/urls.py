@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic.base import TemplateView
 
-from admin import admin, staff, user
+from .admin import admin, staff, user
 
 urlpatterns = patterns('',
     # Examples:

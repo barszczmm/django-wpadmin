@@ -40,7 +40,7 @@ class DefaultTopMenu(Menu):
             ),
             items.UserTools(
                 css_styles='float: right;',
-                check_if_user_allowed=lambda user: user.is_active and user.is_staff,
+                is_user_allowed=lambda user: user.is_active and user.is_staff,
             ),
         ]
 
@@ -77,7 +77,7 @@ class BasicTopMenu(Menu):
             ),
             items.UserTools(
                 css_styles='float: right;',
-                check_if_user_allowed=lambda user: user.is_staff,
+                is_user_allowed=lambda user: user.is_staff,
             ),
         ]
 

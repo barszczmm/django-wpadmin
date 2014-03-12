@@ -44,8 +44,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Django WP Admin'
-copyright = u'2014, Maciej \'barszcz\' Marczewski'
+project = 'Django WP Admin'
+copyright = '2014, Maciej \'barszcz\' Marczewski'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -188,8 +188,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'DjangoWPAdmin.tex', u'Django WP Admin Documentation',
-   u'Maciej \'barszcz\' Marczewski', 'manual'),
+  ('index', 'DjangoWPAdmin.tex', 'Django WP Admin Documentation',
+   'Maciej \'barszcz\' Marczewski', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -218,8 +218,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'djangowpadmin', u'Django WP Admin Documentation',
-     [u'Maciej \'barszcz\' Marczewski'], 1)
+    ('index', 'djangowpadmin', 'Django WP Admin Documentation',
+     ['Maciej \'barszcz\' Marczewski'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -232,8 +232,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'DjangoWPAdmin', u'Django WP Admin Documentation',
-   u'Maciej \'barszcz\' Marczewski', 'DjangoWPAdmin', 'One line description of project.',
+  ('index', 'DjangoWPAdmin', 'Django WP Admin Documentation',
+   'Maciej \'barszcz\' Marczewski', 'DjangoWPAdmin', 'One line description of project.',
    'Miscellaneous'),
 ]
 

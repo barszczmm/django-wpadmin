@@ -1,5 +1,9 @@
-import urllib
 import hashlib
+try:
+    from urllib.parse import urlencode
+except ImportError:
+    from urllib import urlencode
+
 from django import template
 
 from wpadmin.utils import get_admin_site_name
@@ -107,7 +111,8 @@ def wpadmin_render_user_tools(context, item, is_first, is_last):
         'item': item,
         'is_first': is_first,
         'is_last': is_last,
-        'is_user_allowed': item.is_user_allowed(context.get('request').user),
+        'is_user_allowed': context.get('request').user.is_authenticated()
+        and item.is_user_allowed(context.get('request').user),
     })
     return context
 
@@ -117,14 +122,18 @@ register.inclusion_tag(
 
 
 def gravatar_url(user, size, https=True):
-    default = 'wavatar'
+    default = 'retro'
     if https:
         url = 'https'
     else:
         url = 'http'
     url += '://www.gravatar.com/avatar.php?'
-    url += urllib.urlencode({
-        'gravatar_id': hashlib.md5(user.email.lower()).hexdigest(),
+    if hasattr(user, 'email') and user.email:
+        gravatar_id = hashlib.md5(user.email.lower().encode('utf-8')).hexdigest()
+    else:
+        gravatar_id = '00000000000000000000000000000000'
+    url += urlencode({
+        'gravatar_id': gravatar_id,
         'default': default,
         'size': str(size)})
     return url
