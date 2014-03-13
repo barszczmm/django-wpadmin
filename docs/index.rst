@@ -31,7 +31,7 @@ Try ``test_project`` `here <http://django-wpadmin.dev.barszcz.info>`_ or downloa
 Installation
 ------------
 
-* Install django-wpadmin from PyPi::
+* Install django-wpadmin from `PyPI <https://pypi.python.org/pypi/django-wpadmin>`_::
 
     pip install django-wpadmin
 
