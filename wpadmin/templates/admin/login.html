@@ -45,7 +45,7 @@
   </div>
 </form>
 {% url 'admin_password_reset' as password_reset_url %}
-{% if password_reset_url or 1 %}
+{% if password_reset_url %}
 <div class="module password-reset-link">
   <a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
 </div>
