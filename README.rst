@@ -27,7 +27,9 @@ Features
 TODO
 ----
 * Better documentation
-* `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ integration
+* `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ support
+* `django-mptt <https://github.com/django-mptt/django-mptt>`_ support
+* Optional templates for `django-rosetta <https://github.com/mbi/django-rosetta>`_
 
 
 Demo

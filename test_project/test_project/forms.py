@@ -1,10 +1,10 @@
 from django import forms
 from django.contrib.auth import authenticate
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.admin.forms import AdminAuthenticationForm
 from django.utils.translation import ugettext_lazy
 
 
-class SuperAdminAuthenticationForm(AuthenticationForm):
+class SuperAdminAuthenticationForm(AdminAuthenticationForm):
     """
     A custom authentication form used in the super admin admin app.
     """
@@ -28,7 +28,7 @@ class SuperAdminAuthenticationForm(AuthenticationForm):
         return self.cleaned_data
 
 
-class UserAuthenticationForm(AuthenticationForm):
+class UserAuthenticationForm(AdminAuthenticationForm):
     """
     A custom authentication form used in the user admin app.
     """

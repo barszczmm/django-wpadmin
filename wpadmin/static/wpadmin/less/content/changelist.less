@@ -31,6 +31,7 @@
       #searchbar {
         padding: 4px 5px 3px;
         width: 170px;
+        margin-left: 0;
       }
 
       input[type=submit] {
@@ -109,6 +110,10 @@
             margin: 0;
             padding: 0;
           }
+
+          a {
+            pointer-events: none;
+          }
         }
 
         &:hover {
@@ -121,6 +126,7 @@
             a {
               display: block;
               padding: 5px 0;
+              pointer-events: all;
             }
           }
         }
@@ -167,24 +173,23 @@
         padding: 0 10px 1px;
         position: relative;
         top: 1px;
+        margin-right: 10px;
       }
 
-      .action-counter {
-        margin: 0;
-        padding: 5px 10px;
-        vertical-align: middle;
-      }
-
+      .action-counter,
       .all {
-        .border-radius(3px);
-        background: #FFFCCF;
-        padding: 5px 10px;
-        margin: 0;
+        margin: 0 10px 0 0;
+        padding: 5px 0;
         vertical-align: middle;
+        white-space: nowrap;
       }
 
-      .question {
+      .question,
+      .clear {
+        margin: 0 10px 0 0;
+        padding: 5px 0;
         vertical-align: middle;
+        white-space: nowrap;
       }
 
       .clear {
@@ -201,7 +206,7 @@
       float: right;
       background: none;
       border: none;
-      padding: 19px 0 10px 15px;
+      padding: 13px 0 10px 0;
       font-size: 12px;
 
       span.this-page,
@@ -211,12 +216,24 @@
         font-size: 14px;
         border: 0;
         padding: 3px 10px !important;
+        white-space: nowrap;
+        display: block;
+        float: left;
+        margin: 3px 0 0 3px;
+
+        &.showall {
+          margin-left: 10px;
+          float: right;
+        }
       }
 
       span.total {
         font-style: italic;
+        line-height: 28px;
         margin-left: 10px;
-        margin-right: 2px;
+        display: block;
+        margin-top: 3px;
+        float: left;
       }
     } // .paginator
 
@@ -238,7 +255,7 @@
       }
 
       .paginator {
-        padding-top: 14px;
+        padding-top: 8px;
         padding-bottom: 15px;
       }
     }
@@ -426,9 +443,8 @@
 } // #changelist
 
 @media screen and (max-width: 600px) {
-  #changelist {
-    #toolbar {
-      position: static;
-    }
+  #content #changelist #toolbar {
+    position: static;
+    margin-bottom: 5px !important;
   }
 }

@@ -5,11 +5,43 @@ body.login {
   }
 
   #container {
+    background: none;
+    border: none;
+
     #content {
-      .form-row {
-        border: 0;
-        padding-left: 0;
-        padding-right: 0;
+      margin: 0;
+      padding: 0;
+
+      form {
+        margin: 0;
+
+        .form-row {
+          padding: 0 12px 8px;
+          float: none;
+          width: auto;
+          overflow: hidden;
+
+          .errorlist {
+            li:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+
+          label.required {
+            font-weight: bold;
+          }
+
+          #id_username,
+          #id_password {
+            width: 100%;
+            max-width: none;
+          }
+        }
+      }
+
+      .password-reset-link {
+        text-align: left;
+        padding: 5px 12px;
       }
     }
   }

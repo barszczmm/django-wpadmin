@@ -2,11 +2,15 @@ Changelog
 ---------
 
 
-v1.6.1 (2014-03-12)
+v1.6.1 (2014-03-13)
 ~~~~~~~~~~~~~~~~~~~
 
 * Python3 compatibility
 * updated templates for password reset and change (from /registration template path)
+* updated template for login page to make it more consistent with rest of the pages
+* fixed bug with submenu when left menu is folded
+* more fixes for small resolutions screens
+* proper login forms in test project used
 
 
 v1.6.0 (2014-03-11)
