@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+{% load i18n wpadmin_tags static %}
+
+{% block title %}{{ title }} | {% wpadmin_render_custom_title %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Django administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block wpadmin_extrahead %}
+	{{ block.super }}
+	<link id="color_theme_stylesheet" rel="stylesheet" type="text/css" href="" />
+	<script type="text/javascript">
+		function change_color_theme(theme) {
+			var base_url = '{% static "wpadmin/css/themes/" %}';
+			document.getElementById('color_theme_stylesheet').href = base_url + theme + '.css';
+		}
+	</script>
+{% endblock %}

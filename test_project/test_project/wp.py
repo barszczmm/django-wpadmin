@@ -8,7 +8,7 @@ from wpadmin.menu.menus import Menu
 
 
 class UserTopMenu(Menu):
-    
+
     def my_user_check(self, user):
         """
         Custom helper method for hiding some menu items from not allowed users.
@@ -41,7 +41,7 @@ class UserTopMenu(Menu):
                 description=_('Dashboard'),
             ),
         ]
-            
+
         if self.my_user_check(context.get('request').user):
             self.children += [
                 items.AppList(
@@ -58,6 +58,49 @@ class UserTopMenu(Menu):
                     css_styles='float: right;',
                 ),
             ]
+
+        self.children += [
+            items.MenuItem(
+                title=_('Color theme'),
+                icon='fa-spinner',
+                description=_('Change color theme'),
+                css_styles='float: right;',
+                children=[
+                    items.MenuItem(
+                        title='Blue',
+                        url='javascript:change_color_theme("blue");',
+                    ),
+                    items.MenuItem(
+                        title='Coffee',
+                        url='javascript:change_color_theme("coffee");',
+                    ),
+                    items.MenuItem(
+                        title='Default',
+                        url='javascript:change_color_theme("default");',
+                    ),
+                    items.MenuItem(
+                        title='Ectoplasm',
+                        url='javascript:change_color_theme("ectoplasm");',
+                    ),
+                    items.MenuItem(
+                        title='Light',
+                        url='javascript:change_color_theme("light");',
+                    ),
+                    items.MenuItem(
+                        title='Midnight',
+                        url='javascript:change_color_theme("midnight");',
+                    ),
+                    items.MenuItem(
+                        title='Ocean',
+                        url='javascript:change_color_theme("ocean");',
+                    ),
+                    items.MenuItem(
+                        title='Sunrise',
+                        url='javascript:change_color_theme("sunrise");',
+                    ),
+                ]
+            ),
+        ]
 
 
 class UserLeftMenu(Menu):
