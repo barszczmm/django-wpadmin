@@ -2,6 +2,13 @@ Changelog
 ---------
 
 
+v1.6.2 (2014-03-21)
+~~~~~~~~~~~~~~~~~~~
+
+* fix for top menu hover colors in themes
+* added color theme chooser on user panel in test project
+
+
 v1.6.1 (2014-03-13)
 ~~~~~~~~~~~~~~~~~~~
 
