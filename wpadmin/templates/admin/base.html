@@ -1,31 +1,31 @@
-{% load admin_static wpadmin_tags wpadmin_menu_tags %}{% load firstof from future %}<!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+{% load url from future %}{% load wpadmin_tags wpadmin_menu_tags %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE|default:"en-us" }}" xml:lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
 {# WP Admin start #}
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 {# WP Admin end #}
 <title>{% block title %}{% endblock %}</title>
-<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% load adminmedia %}{% admin_media_prefix %}css/base.css{% endblock %}" />
 {% block extrastyle %}{% endblock %}
-<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
-{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% load adminmedia %}{% admin_media_prefix %}css/ie.css{% endblock %}" /><![endif]-->
+{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% admin_media_prefix %}css/rtl.css{% endblock %}" />{% endif %}
 {# WP Admin start #}
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&subset=latin%2Clatin-ext" />
-<link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/font-awesome.min.css" %}" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}wpadmin/css/font-awesome.min.css" />
 {% with WPADMIN_DEV=0 %}{% if WPADMIN_DEV %}
-<link rel="stylesheet/less" type="text/css" href="{% static "wpadmin/less/wpadmin.less" %}" />
-<link rel="stylesheet/less" type="text/css" href="{% static "wpadmin/less/themes/default/theme.less" %}" />
+<link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}wpadmin/less/wpadmin.less" />
+<link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}wpadmin/less/themes/default/theme.less" />
 <script type="text/javascript">less = {env: "development"};</script>
-<script type="text/javascript" src="{% static "wpadmin/js/lib/less.min.js" %}"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}wpadmin/js/lib/less.min.js"></script>
 {% else %}
-<link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/wpadmin.css" %}" />
-<link rel="stylesheet" type="text/css" href="{% static "wpadmin/css/themes/default.css" %}" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}wpadmin/css/wpadmin.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}wpadmin/css/themes/default.css" />
 {% endif %}{% endwith %}
 {% wpadmin_render_custom_style %}
 {% block wpadmin_extrastyle %}{% endblock %}
 {# WP Admin end #}
-<script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+<script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% admin_media_prefix %}{% endfilter %}";</script>
 {% block extrahead %}{% endblock %}
 {# WP Admin start #}
 <script type="text/javascript">
@@ -39,16 +39,16 @@
 		// we can get jQuery object from django object but there are some admin templates where jQuery is not loaded
 		if (typeof django == 'undefined' || typeof django.jQuery == 'undefined') {
 			// so lets load our jQuery synchronously
-			document.write(decodeURI("%3Cscript src='{% static "wpadmin/js/lib/jquery.min.js" %}' type='text/javascript'%3E%3C/script%3E"));
+			document.write(decodeURI("%3Cscript src='{{ STATIC_URL }}wpadmin/js/lib/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
 		} else {
 			// lest copy jQuery from django object to default namespace
 			var jQuery = django.jQuery;
 		}
 	}
 </script>
-<script type="text/javascript" src="{% static "wpadmin/js/lib/jquery.cookie.min.js" %}"></script>
-<script type="text/javascript" src="{% static "wpadmin/js/menus.js" %}"></script>
-<script type="text/javascript" src="{% static "wpadmin/js/content.js" %}"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}wpadmin/js/lib/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}wpadmin/js/menus.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}wpadmin/js/content.js"></script>
 {% block wpadmin_extrahead %}{% endblock %}
 {# WP Admin end #}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}

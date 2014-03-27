@@ -30,11 +30,11 @@
 		var settings = readWPAdminCookie();
 		if (!$('body').hasClass('wp-folded')) {
 			$('body').addClass('wp-folded');
-			updateMenuToolTexts($('#collapse-menu'), $('#collapse-menu').data('text-collapsed'));
+			updateMenuToolTexts($('#collapse-menu'), $('#collapse-menu').attr('data-text-collapsed'));
 			settings['folded'] = true;
 		} else {
 			$('body').removeClass('wp-folded');
-			updateMenuToolTexts($('#collapse-menu'), $('#collapse-menu').data('text-expanded'));
+			updateMenuToolTexts($('#collapse-menu'), $('#collapse-menu').attr('data-text-expanded'));
 			settings['folded'] = false;
 		}
 		writeWPAdminCookie(settings);
@@ -44,11 +44,11 @@
 		var settings = readWPAdminCookie();
 		if (!$('body').hasClass('wp-pinned')) {
 			$('body').addClass('wp-pinned');
-			updateMenuToolTexts($('#pin-menu'), $('#pin-menu').data('text-pinned'));
+			updateMenuToolTexts($('#pin-menu'), $('#pin-menu').attr('data-text-pinned'));
 			settings['pinned'] = true;
 		} else {
 			$('body').removeClass('wp-pinned');
-			updateMenuToolTexts($('#pin-menu'), $('#pin-menu').data('text-unpinned'));
+			updateMenuToolTexts($('#pin-menu'), $('#pin-menu').attr('data-text-unpinned'));
 			settings['pinned'] = false;
 		}
 		writeWPAdminCookie(settings);

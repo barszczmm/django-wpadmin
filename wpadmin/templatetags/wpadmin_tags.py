@@ -40,3 +40,16 @@ def wpadmin_render_custom_title(context):
 
 register.simple_tag(takes_context=True)(wpadmin_render_custom_title)
 
+
+class AdminSiteNameNode(template.Node):
+
+    def render(self, context):
+        context['wpadmin_admin_site_name'] = get_admin_site_name(context)
+        return ''
+
+
+def wpadmin_admin_site_name(parser, token):
+    return AdminSiteNameNode()
+
+register.tag('wpadmin_admin_site_name', wpadmin_admin_site_name)
+

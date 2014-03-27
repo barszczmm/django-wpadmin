@@ -143,6 +143,7 @@
       font-weight: normal;
       font-size: 13px;
       padding: 5px 12px 5px 0;
+      width: auto;
     }
   }
 
@@ -317,21 +318,9 @@
           text-align: center;
         }
 
-        &.sortable {
-          background: none;
-
-          .text {
-            a {
-              cursor: pointer;
-              display: inline-block;
-              padding: 8px 10px;
-              line-height: 19px;
-            }
-          }
-        }
-
         .text {
-          span {
+          span,
+          a {
             display: inline-block;
             padding: 8px 10px;
             line-height: 19px;
@@ -339,86 +328,31 @@
         }
 
         &.sorted {
+          .text a {
+            background: none;
 
-          .text {
-            float: left;
-            padding-right: 0;
-          }
-
-          .sortoptions {
-            display: block;
-            float: left;
-            padding: 11px 0 0;
-            text-align: right;
-            opacity: 0.4;
-
-            a {
-              float: left;
-              display: block;
-              height: 14px;
-              width: 14px;
-              background: none;
-              text-align: center;
+            &:after {
+              font-family: FontAwesome;
+              font-style: normal;
+              font-weight: normal;
+              line-height: 14px;
               font-size: 14px;
-              line-height: 14px;
-
-              &:after {
-                font-family: FontAwesome;
-                font-style: normal;
-                font-weight: normal;
-                line-height: 14px;
-                font-size: 14px;
-              }
-
-              &.sortremove {
-                visibility: hidden;
-
-                &:after {
-                  content: "\f00d";
-                  position: relative;
-                  top: -1px;
-                }
-              }
-
-              &.ascending {
-                &:after {
-                  content: "\f0dd";
-                  position: relative;
-                  top: -3px;
-                }
-              }
-
-              &.descending {
-                &:after {
-                  content: "\f0de";
-                  position: relative;
-                  top: 3px;
-                }
-              }
-            }
-
-            &:hover {
-              opacity: 1;
-            }
-
-            .sortpriority {
-              float: left;
-              display: block;
-              height: 14px;
-              width: 14px;
-              line-height: 14px;
-              font-size: 0.8em;
-              text-align: center;
+              position: relative;
+              left: 3px;
             }
           }
 
-          &:hover {
-            .sortoptions {
-              a {
-                &.sortremove {
-                  visibility: visible;
-                }
-              }
+          &.ascending {
+            .text a:after {
+              content: "\f0de";
+              top: 2px;
+            }
+          }
+
+          &.descending {
+            .text a:after {
+              content: "\f0dd";
+              top: -2px;
             }
           }
         }

@@ -13,10 +13,10 @@ jQuery(document).ready(function($) {
 	);
 
 	// icons
-	$('img[src$="/admin/img/icon-yes.gif"][alt="True"]').hide()
+	$('img[src$="/admin/img/admin/icon-yes.gif"][alt="1"]').hide()
 		.after('<i class="fa fa-fw fa-check-square-o"></i>');
 
-	$('img[src$="/admin/img/icon-no.gif"][alt="False"]').hide()
+	$('img[src$="/admin/img/admin/icon-no.gif"][alt="0"]').hide()
 		.after('<i class="fa fa-fw fa-minus-square-o"></i>');
 
 	// collapsible fieldsets

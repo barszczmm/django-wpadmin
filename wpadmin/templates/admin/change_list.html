@@ -1,16 +1,17 @@
 {% extends "admin/base_site.html" %}
-{% load i18n admin_urls admin_static admin_list wpadmin_tags %}
-
+{% load adminmedia admin_list i18n wpadmin_tags %}
+{% load url from future %}
 {% block title %}{{ cl.opts.verbose_name_plural|capfirst }} | {% wpadmin_render_custom_title %}{% endblock %}
 
 {% block extrastyle %}
   {{ block.super }}
-  <link rel="stylesheet" type="text/css" href="{% static "admin/css/changelists.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/changelists.css" />
   {% if cl.formset %}
-    <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/forms.css" />
   {% endif %}
   {% if cl.formset or action_form %}
-    <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+    {% url 'admin:jsi18n' as jsi18nurl %}
+    <script type="text/javascript" src="{{ jsi18nurl|default:'../../jsi18n/' }}"></script>
   {% endif %}
   {{ media.css }}
   {% if not actions_on_top and not actions_on_bottom %}
@@ -37,13 +38,19 @@
 {% block bodyclass %}change-list{% endblock %}
 
 {% if not is_popup %}
-{% block breadcrumbs %}
-<div class="breadcrumbs">
-<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
-&rsaquo; <a href="{% url 'admin:app_list' app_label=cl.opts.app_label %}">{{ app_label|capfirst|escape }}</a>
-&rsaquo; {{ cl.opts.verbose_name_plural|capfirst }}
-</div>
-{% endblock %}
+  {% block breadcrumbs %}
+    <div class="breadcrumbs">
+      <a href="../../">
+        {% trans "Home" %}
+      </a>
+       &rsaquo;
+       <a href="../">
+         {{ app_label|capfirst }}
+      </a>
+      &rsaquo;
+      {{ cl.opts.verbose_name_plural|capfirst }}
+    </div>
+  {% endblock %}
 {% endif %}
 
 {% block coltype %}flex{% endblock %}
@@ -52,8 +59,7 @@
   <h1>
     {{ cl.opts.verbose_name_plural|capfirst }}
     {% if has_add_permission %}
-      {% url cl.opts|admin_urlname:'add' as add_url %}
-      <a href="{% add_preserved_filters add_url is_popup %}" class="add-new">{% trans 'Add' %}</a>
+      <a href="add/{% if is_popup %}?_popup=1{% endif %}" class="add-new">{% trans 'Add' %}</a>
     {% endif %}
   </h1>
 {% endblock %}
@@ -62,7 +68,7 @@
   <div id="content-main">
     {% if cl.formset.errors %}
         <p class="errornote">
-        {% if cl.formset.total_error_count == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please correct the errors below." %}{% endif %}
+        {% blocktrans count cl.formset.errors|length as counter %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
         </p>
         {{ cl.formset.non_form_errors }}
     {% endif %}
@@ -96,8 +102,8 @@
           {% if cl.full_result_count %}{% pagination cl %}{% endif %}
         </div>
       {% endblock %}
-      {% if cl.formset and cl.result_count %}<div id="bottombar"><button type="submit" name="_save" class="default"><i class="fa fa-lg fa-floppy-o"></i> <span class="text">{% trans 'Save' %}</span></button></div>{% endif %}
       </form>
+      {% if cl.formset and cl.result_count %}<div id="bottombar"><button type="submit" name="_save" class="default"><i class="fa fa-lg fa-floppy-o"></i> <span class="text">{% trans 'Save' %}</span></button></div>{% endif %}
     </div>
   </div>
 {% endblock %}
