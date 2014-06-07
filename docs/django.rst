@@ -19,5 +19,5 @@ Some options of Django's ModelAdmin are ignored when Django WP Admin is used:
 Additional ModelAdmin options
 -----------------------------
 
-There is one additional class for fieldsets: ``collapse-opened`` - it tells Django to create collapsible fieldset but opened but default.
+There is one additional class for fieldsets: ``collapse-opened`` - it tells Django to create collapsible fieldset but opened by default.
 
