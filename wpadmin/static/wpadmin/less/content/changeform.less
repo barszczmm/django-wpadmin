@@ -138,18 +138,26 @@ body.change-form {
       }
     }
 
-    .tabular tr.has_original td {
-      padding-top: 2em;
+    .tabular {
+      overflow-y: hidden;
+
+      tr.has_original {
+        td {
+          padding-top: 2.2em;
+
+          &.original {
+            padding: 2px 0 0;
+
+            p {
+              height: 1.5em;
+              font-size: 12px;
+              padding-left: 10px;
+            }
+          }
+        }
+      }
     }
 
-    .tabular tr td.original {
-      padding: 2px 0 0;
-    }
-
-    .tabular tr td.original p {
-      height: 1.5em;
-      font-size: 10px;
-    }
   }
 
   .help,
