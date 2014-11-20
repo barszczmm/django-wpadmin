@@ -13,17 +13,17 @@ Source (default) language.
 German
 ------
 
-`Silasoa <https://www.transifex.com/accounts/profile/Silasoa/>`_
+Thanks to `Silasoa <https://www.transifex.com/accounts/profile/Silasoa/>`_
 
 Indonesian
 ----------
 
-`Al Firdaus <https://www.transifex.com/accounts/profile/alfirdaush/>`_
+Thanks to `Al Firdaus <https://www.transifex.com/accounts/profile/alfirdaush/>`_
 
 Italian
 -------
 
-`Giuseppe Pignataro <https://www.transifex.com/accounts/profile/giuseppep/>`_
+Thanks to `Giuseppe Pignataro <https://www.transifex.com/accounts/profile/giuseppep/>`_
 
 Polish
 ------
@@ -33,5 +33,5 @@ Polish
 Russian
 -------
 
-`Eugene MechanisM <https://www.transifex.com/accounts/profile/MechanisM/>`_
+Thanks to `Eugene MechanisM <https://www.transifex.com/accounts/profile/MechanisM/>`_
 
