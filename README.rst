@@ -19,7 +19,7 @@ Features
 * Left menu can be pinned (fixed CSS position) or unpinned and collapsed or expanded
 * Awesome `Font Awesome <http://fontawesome.io/>`_ icons supported in both menus
 * Multiple AdminSite's support with possibility to have different menus, colors and titles for each one
-* 7 additional color themes included
+* 9 additional color themes included
 * Collapsible fieldsets can be opened by default
 * Python3 compatible
 
