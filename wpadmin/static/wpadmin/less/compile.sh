@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Less v2.0.0 is used, but it may also work with other versions
+
 lessc -x wpadmin.less > ../css/wpadmin.css
 lessc -x themes/blue/theme.less > ../css/themes/blue.css
 lessc -x themes/coffee/theme.less > ../css/themes/coffee.css
