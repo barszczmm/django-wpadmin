@@ -10,8 +10,28 @@ English
 
 Source (default) language.
 
+German
+------
+
+`Silasoa <https://www.transifex.com/accounts/profile/Silasoa/>`_
+
+Indonesian
+----------
+
+`Al Firdaus <https://www.transifex.com/accounts/profile/alfirdaush/>`_
+
+Italian
+-------
+
+`Giuseppe Pignataro <https://www.transifex.com/accounts/profile/giuseppep/>`_
+
 Polish
 ------
 
 100% by me (Maciej 'barszcz' Marczewski)
+
+Russian
+-------
+
+`Eugene MechanisM <https://www.transifex.com/accounts/profile/MechanisM/>`_
 

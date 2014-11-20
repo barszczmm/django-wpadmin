@@ -2,6 +2,19 @@ Changelog
 ---------
 
 
+v1.6.3 (2014-11-20)
+~~~~~~~~~~~~~~~~~~~
+
+* fix for tabular inlines
+* added sample tabular and stacked inlines in test project
+* added new translations: German (thanks to Silasoa), Indonesian (thanks to Al Firdaus), Italian (thanks to Giuseppe Pignataro), Russian (thanks to Eugene MechanisM).
+* updated docs about translations
+* Font Awesome updated to version 4.2.0
+* Less updated to version 2.0.0
+* jQuery Cookie plugin updated to version 1.4.1
+* added 2 new color themes: milo and milo-light
+
+
 v1.6.2 (2014-03-21)
 ~~~~~~~~~~~~~~~~~~~
 
