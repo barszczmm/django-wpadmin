@@ -87,6 +87,14 @@ class UserTopMenu(Menu):
                         url='javascript:change_color_theme("light");',
                     ),
                     items.MenuItem(
+                        title='Milo',
+                        url='javascript:change_color_theme("milo");',
+                    ),
+                    items.MenuItem(
+                        title='Milo Light',
+                        url='javascript:change_color_theme("milo-light");',
+                    ),
+                    items.MenuItem(
                         title='Midnight',
                         url='javascript:change_color_theme("midnight");',
                     ),
