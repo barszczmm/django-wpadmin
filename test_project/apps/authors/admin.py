@@ -3,6 +3,7 @@ from django.contrib import admin
 from books.models import Book
 from cds.models import Cd
 from dvds.models import Dvd
+from authors.models import Author
 
 
 class BookInlineAdmin(admin.TabularInline):
@@ -21,3 +22,6 @@ class DvdInlineAdmin(admin.StackedInline):
 
 class AuthorAdmin(admin.ModelAdmin):
     inlines = (BookInlineAdmin, CdInlineAdmin, DvdInlineAdmin)
+
+
+admin.site.register(Author, AuthorAdmin)
