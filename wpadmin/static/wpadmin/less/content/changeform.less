@@ -20,6 +20,7 @@ body.change-form {
       a {
         height: auto;
         padding: 6px 12px;
+        .border-radius(0);
       }
     }
   }
@@ -161,10 +162,13 @@ body.change-form {
   }
 
   .help,
-  p.help {
+  p.help,
+  .timezonewarning {
     font-size: 11px !important;
+    line-height: 15px !important;
     margin-left: 0;
     padding-left: 20px !important;
+    padding-top: 2px !important;
     position: relative;
 
     &:before {
@@ -179,6 +183,12 @@ body.change-form {
       position: absolute;
       top: 3px;
       left: 3px;
+    }
+  }
+
+  .timezonewarning {
+    &:before {
+      content: "\f06a";
     }
   }
 
