@@ -2,6 +2,15 @@ Changelog
 ---------
 
 
+v1.7.0 (2014-11-24)
+~~~~~~~~~~~~~~~~~~~
+
+* merged template changes from Django 1.7
+* using new features (site_header and site_title) of AdminSite from Django 1.7
+* testing project updated for Django 1.7
+* small updates in styles
+
+
 v1.6.3 (2014-11-20)
 ~~~~~~~~~~~~~~~~~~~
 
