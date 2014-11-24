@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
-from wpadmin.utils import get_admin_site_name
+from wpadmin.utils import get_admin_site, get_admin_site_name
 from wpadmin.menu.utils import UserTestElementMixin
 from wpadmin.menu import items
 
@@ -26,14 +26,14 @@ class Menu(UserTestElementMixin):
 class DefaultTopMenu(Menu):
     """
     Default top menu which mimics default Django admin header.
+    This one is used if there is no top menu specified in Django WP Admin settings.
     """
 
     def init_with_context(self, context):
 
         self.children += [
             items.MenuItem(
-                # Translators: This is already translated in Django
-                title=_('Django administration'),
+                title=get_admin_site(context).site_header,
                 url=None,
                 icon='fa-gears',
                 css_styles='font-size: 1.5em;',
