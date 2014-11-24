@@ -11,7 +11,7 @@ class DvdAdmin(admin.ModelAdmin):
 
 class UserDvdAdmin(admin.ModelAdmin):
 
-    def queryset(self, request):
+    def get_queryset(self, request):
         """
         Show only current user's objects.
         """

@@ -11,7 +11,7 @@ class TestModel(models.Model):
 
     big_integer = models.BigIntegerField()
     binary = models.BinaryField()
-    boolean = models.BooleanField()
+    boolean = models.BooleanField(default=False)
     char = models.CharField(max_length=255)
     comma_separated_integer = models.CommaSeparatedIntegerField(max_length=255)
     date = models.DateField()

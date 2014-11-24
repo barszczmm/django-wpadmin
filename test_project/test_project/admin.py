@@ -1,3 +1,5 @@
+from django.apps import apps
+
 from django.contrib.admin.sites import AdminSite
 
 from django.contrib.auth.models import User, Group
@@ -53,7 +55,8 @@ user = UserSite(name='userpanel')
 
 
 # admin
-admin.register(Site, SiteAdmin)
+if apps.is_installed('django.contrib.sites'):
+    admin.register(Site, SiteAdmin)
 admin.register(User, UserAdmin)
 admin.register(Group, GroupAdmin)
 

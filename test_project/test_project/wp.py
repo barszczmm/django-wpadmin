@@ -62,7 +62,7 @@ class UserTopMenu(Menu):
         self.children += [
             items.MenuItem(
                 title=_('Color theme'),
-                icon='fa-spinner',
+                icon='fa-paint-brush',
                 description=_('Change color theme'),
                 css_styles='float: right;',
                 children=[
