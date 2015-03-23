@@ -10,6 +10,16 @@ English
 
 Source (default) language.
 
+Bulgarian
+---------
+
+Thanks to `Metodi Dejanov <https://www.transifex.com/accounts/profile/kpacn/>`_
+
+French
+------
+
+Thanks to `qmarlats <https://www.transifex.com/accounts/profile/qmarlats/>`_
+
 German
 ------
 
@@ -29,6 +39,11 @@ Polish
 ------
 
 100% by me (Maciej 'barszcz' Marczewski)
+
+Portuguese (Brazil)
+-------------------
+
+Thanks to `Kaio Henrique <https://www.transifex.com/accounts/profile/kaiobrito/>`_
 
 Russian
 -------

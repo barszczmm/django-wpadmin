@@ -2,6 +2,18 @@ Changelog
 ---------
 
 
+v1.7.1 (2015-03-23)
+~~~~~~~~~~~~~~~~~~~
+
+* change list page template modified to include object-tools and object-tools-items blocks
+* styles modified to style added blocks
+* small cleanup in some templates
+* added new translations: Bulgarian (thanks to Metodi Dejanov), French (thanks to qmarlats), Portuguese (Brazil) (thanks to Kaio Henrique).
+* updated docs about translations
+* Font Awesome updated to version 4.3.0
+* Less updated to version 2.4.0
+
+
 v1.7.0 (2014-11-24)
 ~~~~~~~~~~~~~~~~~~~
 
