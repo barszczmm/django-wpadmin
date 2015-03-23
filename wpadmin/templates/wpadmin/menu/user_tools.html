@@ -3,22 +3,18 @@
 	<li class="wp-user-tools wp-menu-top wp-has-submenu wp-menu-not-open{% if is_first %} wp-first-item{% endif %}{% if is_last %} wp-last-item{% endif %}" {% if item.css_styles %}style="{{ item.css_styles }}"{% endif %}>
 		<div class="wp-menu-image"><a href="javascript:;"><img class="wp-small-gravatar" src="{% gravatar_url user 16 %}" width="16" height="16" /></a></div>
 		<a href="javascript:;">
-			{# Translators: This is already translated in Django #}
-			{% trans 'Welcome,' %} <strong>{% firstof user.first_name user.username %}</strong>.
+			{% trans 'Welcome,' %} <strong>{% firstof user.get_short_name user.get_username %}</strong>.
 		</a>
 		<div class="wp-submenu">
 			<div class="wp-submenu-wrap">
 				<ul>
 					<li {% if not item.url %}class="wp-no-url"{% endif %}><a href="{% if item.url %}{{ item.url }}{% else %}javascript:;{% endif%}">{% firstof user.first_name user.username %} <img class="wp-big-gravatar" src={% gravatar_url user 64 %} width="64" height="64" /></a></li>
 					{% if user.has_usable_password %}
-						{# Translators: This is already translated in Django #}
 						<li><a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a></li>
 					{% endif %}
-					{# Translators: This is already translated in Django #}
 					<li><a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a></li>
 					{% url 'django-admindocs-docroot' as docsroot %}
 					{% if docsroot %}
-						{# Translators: This is already translated in Django #}
 						<li><a href="{{ docsroot }}">{% trans 'Documentation' %}</a></li>
 					{% endif %}
 				</ul>
