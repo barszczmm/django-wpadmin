@@ -15,6 +15,11 @@ Bulgarian
 
 Thanks to `Metodi Dejanov <https://www.transifex.com/accounts/profile/kpacn/>`_
 
+Dutch (Netherlands)
+-------------------
+
+Thanks to `rico moorman <https://www.transifex.com/accounts/profile/rmoorman/>`_
+
 French
 ------
 
