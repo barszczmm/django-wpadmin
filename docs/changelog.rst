@@ -2,6 +2,13 @@ Changelog
 ---------
 
 
+v1.7.2 (2015-03-24)
+~~~~~~~~~~~~~~~~~~~
+
+* fixed small visual regression
+* added Dutch translation (thanks to rico moorman)
+
+
 v1.7.1 (2015-03-23)
 ~~~~~~~~~~~~~~~~~~~
 

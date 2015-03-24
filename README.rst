@@ -26,6 +26,7 @@ Features
 
 TODO
 ----
+* Do not rely on Django admin styles, move everything to Django WP Admin styles.
 * Better documentation
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ support
 * `django-mptt <https://github.com/django-mptt/django-mptt>`_ support
