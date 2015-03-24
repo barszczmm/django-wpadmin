@@ -75,7 +75,7 @@ Check out `documentation on Read the Docs <http://django-wp-admin.readthedocs.or
 Translations
 ------------
 
-Many `translations are already available <http://django-wp-admin.readthedocs.org/en/master/translations.html>`_ thanks to good people that helped. If you want to help to translate this software, please join me on Transifex: `transifex.com/projects/p/django-wp-admin/ <https://www.transifex.com/projects/p/django-wp-admin/>`_
+`Many translations are already available <http://django-wp-admin.readthedocs.org/en/master/translations.html>`_ thanks to good people that helped. If you want to help to translate this software, please join me on Transifex: `transifex.com/projects/p/django-wp-admin/ <https://www.transifex.com/projects/p/django-wp-admin/>`_
 
 
 Troubleshooting
