@@ -1,5 +1,7 @@
 {% extends "admin/base_site.html" %}
-{% load i18n admin_urls admin_static admin_list wpadmin_tags %}
+{% load i18n admin_static admin_list wpadmin_tags %}
+{% load url from future %}
+{% load admin_urls %}
 
 {% block title %}{{ cl.opts.verbose_name_plural|capfirst }} | {% wpadmin_render_custom_title %}{% endblock %}
 
@@ -10,7 +12,8 @@
     <link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}" />
   {% endif %}
   {% if cl.formset or action_form %}
-    <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+    {% url 'admin:jsi18n' as jsi18nurl %}
+    <script type="text/javascript" src="{{ jsi18nurl|default:'../../jsi18n/' }}"></script>
   {% endif %}
   {{ media.css }}
   {% if not actions_on_top and not actions_on_bottom %}
@@ -34,13 +37,13 @@
 {% endif %}{% endif %}
 {% endblock %}
 
-{% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} change-list{% endblock %}
+{% block bodyclass %}{{ block.super }} change-list{% endblock %}
 
 {% if not is_popup %}
 {% block breadcrumbs %}
 <div class="breadcrumbs">
 <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
-&rsaquo; <a href="{% url 'admin:app_list' app_label=cl.opts.app_label %}">{{ cl.opts.app_config.verbose_name }}</a>
+&rsaquo; <a href="{% url 'admin:app_list' app_label=cl.opts.app_label %}">{{ app_label|capfirst|escape }}</a>
 &rsaquo; {{ cl.opts.verbose_name_plural|capfirst }}
 </div>
 {% endblock %}
@@ -60,7 +63,7 @@
       {% if has_add_permission %}
         <li>
           {% url cl.opts|admin_urlname:'add' as add_url %}
-          <a href="{% add_preserved_filters add_url is_popup to_field %}" class="add-new">{% trans 'Add' %}</a>
+          <a href="{% url cl.opts|admin_urlname:'add' %}{% if is_popup %}?_popup=1{% endif %}" class="add-new">{% trans 'Add' %}</a>
         </li>
       {% endif %}
       {% block object-tools-items %}{% endblock %}
@@ -69,7 +72,7 @@
   <div id="content-main">
     {% if cl.formset.errors %}
         <p class="errornote">
-        {% if cl.formset.total_error_count == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please correct the errors below." %}{% endif %}
+        {% blocktrans count cl.formset.errors|length as counter %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
         </p>
         {{ cl.formset.non_form_errors }}
     {% endif %}

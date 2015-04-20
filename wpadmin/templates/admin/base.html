@@ -1,4 +1,4 @@
-{% load admin_static wpadmin_tags wpadmin_menu_tags %}{% load firstof from future %}<!DOCTYPE html>
+{% load admin_static wpadmin_tags wpadmin_menu_tags %}{% load url from future %}<!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
 <head>
 {# WP Admin start #}
@@ -26,7 +26,6 @@
 {% block wpadmin_extrastyle %}{% endblock %}
 {# WP Admin end #}
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
-<script type="text/javascript">window.__admin_utc_offset__ = "{% filter escapejs %}{% now "Z" %}{% endfilter %}";</script>
 {% block extrahead %}{% endblock %}
 {# WP Admin start #}
 <script type="text/javascript">
@@ -42,7 +41,7 @@
 			// so lets load our jQuery synchronously
 			document.write(decodeURI("%3Cscript src='{% static "wpadmin/js/lib/jquery.min.js" %}' type='text/javascript'%3E%3C/script%3E"));
 		} else {
-			// lest copy jQuery from django object to default namespace
+			// lets copy jQuery from django object to default namespace
 			var jQuery = django.jQuery;
 		}
 	}

@@ -1,5 +1,6 @@
 {% extends "admin/base_site.html" %}
 {% load i18n admin_static %}
+{% load url from future %}
 
 {% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}" />{% endblock %}
 
@@ -12,14 +13,14 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block content %}
-{% if form.errors and not form.non_field_errors %}
+{% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}
 <p class="errornote">
-{% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please correct the errors below." %}{% endif %}
+{% blocktrans count counter=form.errors.items|length %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
 </p>
 {% endif %}
 
-{% if form.non_field_errors %}
-{% for error in form.non_field_errors %}
+{% if form.non_field_errors or form.this_is_the_login_form.errors %}
+{% for error in form.non_field_errors|add:form.this_is_the_login_form.errors %}
 <p class="errornote">
     {{ error }}
 </p>
@@ -29,14 +30,15 @@
 <div id="content-main">
 <form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
   <fieldset class="module">
-    <div class="form-row {% if form.username.errors %}errors{% endif %}">
-      {{ form.username.errors }}
+    <div class="form-row  {% if not form.this_is_the_login_form.errors and form.username.errors %}errors{% endif %}">
+       {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
       <label for="id_username" class="required">{{ form.username.label }}:</label> {{ form.username }}
     </div>
-    <div class="form-row {% if form.password.errors %}errors{% endif %}">
-      {{ form.password.errors }}
+    <div class="form-row {% if not form.this_is_the_login_form.errors and form.password.errors %}errors{% endif %}">
+      {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
       <label for="id_password" class="required">{% trans 'Password:' %}</label> {{ form.password }}
     </div>
+    <input type="hidden" name="this_is_the_login_form" value="1" />
     <input type="hidden" name="next" value="{{ next }}" />
   </fieldset>
   <div id="bottombar">
