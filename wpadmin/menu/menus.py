@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
-from wpadmin.utils import get_admin_site, get_admin_site_name
+from wpadmin.utils import get_admin_site_name
 from wpadmin.menu.utils import UserTestElementMixin
 from wpadmin.menu import items
 
@@ -33,7 +33,7 @@ class DefaultTopMenu(Menu):
 
         self.children += [
             items.MenuItem(
-                title=get_admin_site(context).site_header,
+                title=_('Django administration'),
                 url=None,
                 icon='fa-gears',
                 css_styles='font-size: 1.5em;',
