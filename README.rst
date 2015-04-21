@@ -24,6 +24,15 @@ Features
 * Python3 compatible
 
 
+Django compatibility
+--------------------
+On GitHub there is specific branch of Django WP Admin for each major Django version and master branch is always for current stable Django.
+Releases on PyPI have numbering matching proper Django versions, so for instance for Django 1.7.x you should install Django WP Admin 1.7.y
+(pip install django-wpadmin>=1.7,<1.8).
+Branches of Django WP Admin for Django older than current stable usually will not have new features added, only bugs will be fixed.
+Only version for current stable Django will have new features, but any pull requests for older branches are welcome.
+
+
 TODO
 ----
 * Do not rely on Django admin styles, move everything to Django WP Admin styles.
