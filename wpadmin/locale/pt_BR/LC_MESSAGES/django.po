@@ -47,7 +47,7 @@ msgstr "Expandir menu"
 #: templates/wpadmin/menu/left_menu.html:14
 #: templates/wpadmin/menu/left_menu.html:15
 msgid "Collapse menu"
-msgstr "Escolher menu"
+msgstr "Encolher menu"
 
 #: templates/wpadmin/menu/left_menu.html:17
 msgid "Unpin menu"
