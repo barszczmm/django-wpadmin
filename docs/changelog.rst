@@ -2,6 +2,14 @@ Changelog
 ---------
 
 
+v1.7.4 (2015-05-08)
+~~~~~~~~~~~~~~~~~~~
+
+* small updates in styles
+* typo fixed in one translation
+* requirements in test project updated
+
+
 v1.7.3 (2015-04-20)
 ~~~~~~~~~~~~~~~~~~~
 

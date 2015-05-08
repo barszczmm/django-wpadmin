@@ -35,6 +35,7 @@ Only version for current stable Django will have new features, but any pull requ
 
 TODO
 ----
+* Make sure everything works fine with GeoDjango
 * Do not rely on Django admin styles, move everything to Django WP Admin styles.
 * Better documentation
 * `django-filebrowser <https://github.com/sehmaschine/django-filebrowser>`_ or `django-filer <https://github.com/stefanfoulis/django-filer>`_ support
@@ -77,8 +78,8 @@ Basic configuration
 Documentation
 -------------
 
-Above basic configuration will only change look of Django's admin page, but there's much more you can do with Django WP Admin.
-Check out `documentation on Read the Docs <http://django-wp-admin.readthedocs.org>`_ for details.
+Basic configuration above will only change look of Django's admin page, but there's much more you can do with Django WP Admin.
+Check out `documentation on Read the Docs <http://django-wp-admin.readthedocs.org>`_ for details (there is also **changelog** there).
 
 
 Translations
