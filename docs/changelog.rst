@@ -1,6 +1,12 @@
 Changelog
 ---------
 
+v1.8.0 (2020-04-15)
+~~~~~~~~~~~~~~~~~~~
+
+* merged template changes from Django 1.8
+* testing project updated for Django 1.8
+
 
 v1.7.4 (2015-05-08)
 ~~~~~~~~~~~~~~~~~~~
