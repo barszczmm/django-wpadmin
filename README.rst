@@ -35,6 +35,11 @@ Only version for current stable Django will have new features, but any pull requ
 
 TODO
 ----
+* Add support (in 3.0.x branch) for Django 3.0
+* Host test project on PythonAnywhere or Heroku
+* Add support (in 2.2.x branch) for Django 2.2
+* Add support (in 1.11.x branch) for Django 1.11
+* Add support (in 1.9.x branch) for Django 1.9
 * Make sure everything works fine with GeoDjango
 * Do not rely on Django admin styles, move everything to Django WP Admin styles.
 * Better documentation
