@@ -5,6 +5,8 @@
 
 {% block bodyclass %}{{ block.super }} login{% endblock %}
 
+{% block usertools %}{% endblock %}
+
 {% block nav-global %}{% endblock %}
 
 {% block content_title %}{% endblock %}
@@ -31,11 +33,11 @@
   <fieldset class="module">
     <div class="form-row {% if form.username.errors %}errors{% endif %}">
       {{ form.username.errors }}
-      <label for="id_username" class="required">{{ form.username.label }}:</label> {{ form.username }}
+      {{ form.username.label_tag }} {{ form.username }}
     </div>
     <div class="form-row {% if form.password.errors %}errors{% endif %}">
       {{ form.password.errors }}
-      <label for="id_password" class="required">{% trans 'Password:' %}</label> {{ form.password }}
+      {{ form.password.label_tag }} {{ form.password }}
     </div>
     <input type="hidden" name="next" value="{{ next }}" />
   </fieldset>
