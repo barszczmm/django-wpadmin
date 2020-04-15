@@ -11,9 +11,9 @@ try:
     if VERSION[:2] != DJANGO_VERSION[:2]:
         import warnings
         warnings.warn(
-            'Django WP Admin %(wpadmin_version)s is not compatible with '
+            'Django WP Admin %(wpadmin_version)s was not tested with '
             'Django %(django_version)s and may not work properly. '
-            'You should install Django WP Admin from %(branch)s branch.'
+            'You may try to install Django WP Admin from %(branch)s branch.'
             % {'wpadmin_version': '.'.join(str(x) for x in VERSION),
                'django_version': '.'.join(str(x) for x in DJANGO_VERSION[:3]),
                'branch': '.'.join([str(x) for x in DJANGO_VERSION[:2]] + ['x'])},
