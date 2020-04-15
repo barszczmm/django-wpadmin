@@ -15,6 +15,6 @@ class UserDvdAdmin(admin.ModelAdmin):
         """
         Show only current user's objects.
         """
-        qs = super(UserDvdAdmin, self).queryset(request)
+        qs = super(UserDvdAdmin, self).get_queryset(request)
         return qs.filter(owner=request.user)
 

@@ -34,5 +34,5 @@ class UserBookAdmin(admin.ModelAdmin):
         """
         Show only current user's objects.
         """
-        qs = super(UserBookAdmin, self).queryset(request)
+        qs = super(UserBookAdmin, self).get_queryset(request)
         return qs.filter(owner=request.user)

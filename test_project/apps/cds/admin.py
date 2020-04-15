@@ -15,6 +15,6 @@ class UserCdAdmin(admin.ModelAdmin):
         """
         Show only current user's objects.
         """
-        qs = super(UserCdAdmin, self).queryset(request)
+        qs = super(UserCdAdmin, self).get_queryset(request)
         return qs.filter(owner=request.user)
 

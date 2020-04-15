@@ -24,7 +24,6 @@ class TestModel(models.Model):
     float = models.FloatField()
     #image = models.ImageField(upload_to='uploaded')
     integer = models.IntegerField()
-    ip_address = models.IPAddressField()
     generic_ip_address = models.GenericIPAddressField()
     null_boolean = models.NullBooleanField()
     positive_integer = models.PositiveIntegerField()
